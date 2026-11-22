@@ -158,20 +158,20 @@
 </div>
 
 
-<h2 id="reference-tracking-characteristics">2. 국제표준(ISO 19364 · ISO 8855 · SAE J2998) 기반 실차 정합성 및 노면 충격 응답</h2>
+<h2 id="reference-tracking-characteristics">2. 실차 주행 구간 정합성 검증 (IONIQ Q) 및 노면 충격 응답</h2>
 <p>
-  차량 동역학 모델은 <strong>ISO 8855:2011</strong>(차량 동역학 좌표계·상태변수 규격)을 준용하며, <strong>ISO 19364:2016</strong>(승용차 동역학 시뮬레이션 정합성 검증) 및 <strong>SAE J2998</strong>(동역학 모델 검증 권고안) 기준을 적용해 실차 미학습 블라인드 Hold-Out 구간(<code>125구간 × 10초</code>, 무보정 개루프)에서 <strong>12개 핵심 검증 지표 전 항목(12/12 PASS)</strong>을 충족했습니다. 또한 스폰 및 위치 이동 직후 평형 서스펜션 변위를 즉시 계산(Warm-Start)하여 초기 바운싱 없이 주행을 시작합니다.
+  14-DOF 솔버는 <strong>ISO 8855:2011</strong> 차량 좌표계(전방 <code>+X</code>, 좌측 <code>+Y</code>, 상방 <code>+Z</code>)를 준용합니다. 정합성 평가는 <code>ISO 19364</code>·<code>SAE J2998</code>의 모델 검증 절차를 참고해 자체 설정한 KPI 기준으로 수행했으며, 시험차(<code>vehicle.kiapi.ioniq_q</code>)의 미학습 블라인드 Hold-Out 주행 로그(<code>125구간 × 10초</code>, 무보정 개루프) 대조 결과 아래 모든 항목을 충족했습니다. 스폰·위치 이동 직후에는 평형 서스펜션 변위를 즉시 계산(Warm-Start)하여 초기 차체 바운싱 없이 주행을 시작합니다.
 </p>
 
 <div class="table-wrap">
   <table class="docutils">
-    <thead><tr><th>검증 영역</th><th>검증 지표 (KPI)</th><th>허용 기준 (ISO 19364 / SAE J2998)</th><th>순정 UE5 Chaos</th><th>KIAPI 14-DOF V2</th><th>판정</th></tr></thead>
+    <thead><tr><th>검증 영역</th><th>검증 지표 (KPI)</th><th>자체 검증 기준</th><th>순정 UE5 Chaos</th><th>KIAPI 14-DOF V2</th><th>판정</th></tr></thead>
     <tbody>
       <tr><td><strong>종방향 정합성</strong></td><td>10초 차속 오차 (<code>Speed_RMSE</code>)</td><td><code>≤ 1.00 km/h</code></td><td>4.82 km/h</td><td><strong>0.56 km/h</strong> (-88.4%)</td><td><span class="badge badge-green">PASS</span></td></tr>
       <tr><td><strong>종방향 정합성</strong></td><td>4륜 휠속 오차 (<code>Wheel_Spd_RMSE</code>)</td><td><code>≤ 1.00 km/h</code></td><td>N/A</td><td><strong>0.55 km/h</strong></td><td><span class="badge badge-green">PASS</span></td></tr>
       <tr><td><strong>종방향 정합성</strong></td><td>종가속도 오차 (<code>Lon_Acc_RMSE</code>)</td><td><code>≤ 0.20 m/s²</code></td><td>0.264 m/s²</td><td><strong>0.118 m/s²</strong></td><td><span class="badge badge-green">PASS</span></td></tr>
-      <tr><td><strong>횡·수직 (ISO 19364)</strong></td><td>요레이트 오차 (<code>Yaw_Rate_RMSE</code>)</td><td><code>≤ 0.50 deg/s</code></td><td>0.59 deg/s</td><td><strong>0.33 deg/s</strong> (선회 0.45)</td><td><span class="badge badge-green">PASS</span></td></tr>
-      <tr><td><strong>횡·수직 (ISO 19364)</strong></td><td>횡비력 오차 (<code>Lat_Acc_RMSE</code>)</td><td><code>≤ 0.45 m/s²</code></td><td>0.481 m/s²</td><td><strong>0.355 m/s²</strong></td><td><span class="badge badge-green">PASS</span></td></tr>
+      <tr><td><strong>횡·수직 정합성</strong></td><td>요레이트 오차 (<code>Yaw_Rate_RMSE</code>)</td><td><code>≤ 0.50 deg/s</code></td><td>0.59 deg/s</td><td><strong>0.33 deg/s</strong> (선회 0.45)</td><td><span class="badge badge-green">PASS</span></td></tr>
+      <tr><td><strong>횡·수직 정합성</strong></td><td>횡비력 오차 (<code>Lat_Acc_RMSE</code>)</td><td><code>≤ 0.45 m/s²</code></td><td>0.481 m/s²</td><td><strong>0.355 m/s²</strong></td><td><span class="badge badge-green">PASS</span></td></tr>
       <tr><td><strong>횡·수직 정합성</strong></td><td>3D 차체 롤각 (<code>Roll_Angle_RMSE</code>)</td><td><code>≤ 0.80 deg</code></td><td>0.81 deg</td><td><strong>0.66 deg</strong></td><td><span class="badge badge-green">PASS</span></td></tr>
       <tr><td><strong>장기 궤적·일반화</strong></td><td>10초 2D 위치 표류 (<code>Pos_10s_FDE</code>)</td><td><code>≤ 3.00 m</code></td><td>11.76 m</td><td><strong>1.75 m</strong> (-85.2%)</td><td><span class="badge badge-green">PASS</span></td></tr>
       <tr><td><strong>장기 궤적·일반화</strong></td><td>과적합 편차 (<code>HoldOut_Gap</code>)</td><td><code>≤ 0.15 km/h</code></td><td>N/A</td><td><strong>0.006 km/h</strong></td><td><span class="badge badge-green">PASS</span></td></tr>
@@ -180,6 +180,9 @@
     </tbody>
   </table>
 </div>
+<p style="font-size:0.86rem;color:var(--text-muted);margin-top:-6px;">
+  ※ 위 표의 기준값은 ISO 표준 원문 규정이 아닌 자체 검증 KPI이며, 정식 ISO 4138 원선회 공인 시험·제3자 인증이 아닌 주행시험장 실차(<code>IONIQ Q</code>) 운영 로그 기반 자체 정합성 검증 결과입니다.
+</p>
 
 <div class="fig-block fig-compact">
   <img src="../assets/img/figures/fig_holdout_3way_comparison.png" alt="그림 4. 미학습 홀드아웃 실차 주행 구간에서의 차속·종가속도·횡가속도·차체 롤 및 10초 누적 2D 주행 궤적 정합성 비교." loading="lazy" />
