@@ -23,7 +23,7 @@
   --rtd-pre-text: #e6edf3;
   --rtd-card-bg: #ffffff;
   --rtd-table-stripe: #f5f7f9;
-  --rtd-sidebar-width: 300px;
+  --rtd-sidebar-width: 276px;
 }
 
 body.dark-content {
@@ -46,7 +46,7 @@ body.dark-content {
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body {
@@ -55,7 +55,8 @@ body {
   font-family: "Pretendard", "Noto Sans KR", "NanumGothic", "Malgun Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--rtd-text);
   background: var(--rtd-content-wrap);
-  line-height: 1.68;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -240,20 +241,21 @@ a:hover {
 /* Vertical Menu */
 .wy-menu-vertical {
   padding-top: 8px;
+  word-break: keep-all;
 }
 
 .wy-menu-vertical p.caption {
   margin: 14px 0 4px;
-  padding: 0 16px;
+  padding: 0 14px;
   line-height: 1.4;
 }
 
 .wy-menu-vertical .caption-text {
   color: var(--rtd-caption-blue);
-  font-size: 0.74rem;
+  font-size: 0.71rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .wy-menu-vertical ul {
@@ -264,9 +266,9 @@ a:hover {
 
 .wy-menu-vertical li.toctree-l1 > a {
   display: block;
-  padding: 6.5px 16px;
+  padding: 6px 14px;
   color: #d9d9d9;
-  font-size: 0.855rem;
+  font-size: 0.835rem;
   line-height: 1.38;
   border-left: 3px solid transparent;
   text-decoration: none;
@@ -417,10 +419,11 @@ a:hover {
 }
 
 .wy-nav-content {
-  max-width: 1140px;
+  max-width: 1040px;
+  margin: 0 auto;
   background: var(--rtd-content-bg);
   min-height: 100vh;
-  padding: 26px 46px 56px;
+  padding: 24px 40px 52px;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.05);
 }
 
@@ -477,61 +480,63 @@ a:hover {
 }
 
 .rst-content h1 {
-  font-size: 1.92rem;
+  font-size: 1.56rem;
   font-weight: 800;
   color: var(--rtd-heading);
-  margin: 0 0 14px;
-  line-height: 1.25;
+  margin: 0 0 10px;
+  line-height: 1.3;
   letter-spacing: -0.02em;
 }
 
 .rst-content .page-lead {
-  font-size: 1.02rem;
+  font-size: 0.92rem;
   color: var(--rtd-text-muted);
-  margin: 0 0 22px;
-  padding-bottom: 16px;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--rtd-border);
+  line-height: 1.6;
 }
 
 .rst-content h2 {
-  font-size: 1.42rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: var(--rtd-heading);
-  margin: 36px 0 14px;
-  padding-bottom: 7px;
-  border-bottom: 2px solid var(--rtd-border);
+  margin: 30px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid var(--rtd-border);
   scroll-margin-top: 20px;
+  line-height: 1.35;
 }
 
 .rst-content h3 {
-  font-size: 1.14rem;
+  font-size: 1.03rem;
   font-weight: 700;
   color: var(--rtd-heading);
-  margin: 24px 0 10px;
+  margin: 22px 0 8px;
   scroll-margin-top: 20px;
 }
 
 .rst-content h4 {
-  font-size: 0.98rem;
+  font-size: 0.93rem;
   font-weight: 700;
   color: var(--rtd-heading);
-  margin: 18px 0 8px;
+  margin: 16px 0 6px;
 }
 
 .rst-content p {
-  margin: 0 0 14px;
-  font-size: 0.95rem;
+  margin: 0 0 12px;
+  font-size: 0.91rem;
 }
 
 .rst-content ul,
 .rst-content ol {
-  margin: 0 0 16px;
-  padding-left: 24px;
-  font-size: 0.94rem;
+  margin: 0 0 14px;
+  padding-left: 22px;
+  font-size: 0.9rem;
 }
 
 .rst-content li {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .rst-content code {
@@ -539,13 +544,13 @@ a:hover {
   font-size: 0.84em;
   background: var(--rtd-code-bg);
   border: 1px solid var(--rtd-border);
-  padding: 1.5px 5px;
+  padding: 1px 5px;
   border-radius: 3px;
-  color: #c7254e;
+  color: #1e4d8c;
 }
 
 body.dark-content .rst-content code {
-  color: #ff8f9c;
+  color: #8cc4ff;
 }
 
 .code-block-wrap {
@@ -711,6 +716,7 @@ table.docutils tbody tr:nth-child(even) {
 .badge-blue { background: #dbeafe; color: #1d4ed8; }
 .badge-green { background: #dcfce7; color: #15803d; }
 .badge-amber { background: #fef3c7; color: #b45309; }
+.badge-orange { background: #ffedd5; color: #c2410c; }
 .badge-red { background: #fee2e2; color: #b91c1c; }
 .badge-purple { background: #ede9fe; color: #6d28d9; }
 .badge-dark { background: #1e293b; color: #f8fafc; }
@@ -738,7 +744,7 @@ table.docutils tbody tr:nth-child(even) {
 
 .townslider-slide img {
   width: 100%;
-  height: 440px;
+  height: 390px;
   object-fit: cover;
   display: block;
   cursor: zoom-in;
@@ -960,7 +966,7 @@ table.docutils tbody tr:nth-child(even) {
 }
 
 .fig-block.fig-compact img {
-  max-width: 880px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -1058,9 +1064,9 @@ table.docutils tbody tr:nth-child(even) {
 
 .vehicle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
-  gap: 16px;
-  margin: 16px 0 28px;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 14px;
+  margin: 14px 0 24px;
 }
 
 .vehicle-card {
@@ -1265,7 +1271,27 @@ footer.rtd-footer {
     display: flex;
   }
   .wy-nav-content {
-    padding: 20px 18px 44px;
+    padding: 16px 16px 38px;
+  }
+  .rst-content h1 {
+    font-size: 1.32rem;
+  }
+  .rst-content h2 {
+    font-size: 1.08rem;
+    margin-top: 24px;
+  }
+  .rst-content .page-lead,
+  .rst-content p,
+  .rst-content ul,
+  .rst-content ol {
+    font-size: 0.88rem;
+  }
+  table.docutils {
+    font-size: 0.78rem;
+  }
+  table.docutils thead th,
+  table.docutils tbody td {
+    padding: 6px 8px;
   }
   .fig-grid-2,
   .fig-grid-3,
