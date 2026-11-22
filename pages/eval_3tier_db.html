@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>실도로 주행 모니터링(Tab 1) 및 시나리오 추출(Log-to-Sim) 매뉴얼 — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1 current"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Verification Guide · 검증 프로그램 사용법</span>
+              <span>»</span>
+              <strong>[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Tab 1 User Guide</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>실도로 주행 모니터링(Tab 1) 및 시나리오 추출(Log-to-Sim) 매뉴얼</h1>
+          <p class="page-lead">실차 주행 로그 및 교차로 인프라 검지 데이터를 불러와 센서 상태와 주행 물리량 파형을 감시하고, 다중 객체 상충 이벤트를 가상환경 재현용 시나리오(Log-to-Sim)로 이관하는 절차를 설명합니다.</p>
+          
+
+<div class="fig-block">
+  <img src="../assets/img/ui/ui_tab1_monitor.png" alt="그림 1. [Tab 1: 실도로 주행 모니터링] 화면 — 좌측 상단 센서·차량 상태 카드, 좌측 하단 1~6채널 실시간 지표 그래프, 우측 자차 및 교차로 인프라(Detection) 2D 관제 뷰." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> [Tab 1: 실도로 주행 모니터링] 화면 — 좌측 상단 센서·차량 상태 카드, 좌측 하단 1~6채널 실시간 지표 그래프, 우측 자차 및 교차로 인프라(Detection) 2D 관제 뷰.</div>
+</div>
+
+
+<h2 id="tab1-operation-steps">1. 실도로 주행 모니터링(Tab 1) 사용 절차</h2>
+<ol>
+  <li><strong>데이터 소스 선택 및 재생 (상단 바):</strong>
+    <code>[▶ 데이터 수신 시작]</code>을 클릭하면 통합 수집 DB에 저장된 주행 세션 목록(차량·일시별 구분) 또는 로컬 CSV 주행 로그 파일을 선택하여 재생할 수 있습니다. <code>[■ 수신 중단]</code>으로 정지하고 <code>[세션 초기화]</code>로 초기화합니다.</li>
+  <li><strong>센서 건전성 및 차량 상태 확인 (좌측 상단):</strong>
+    <code>CAM / LiDAR / GPS / RTK / IMU / V2X / CTRL / SIG</code> 상태 표시등과 현재 속도, 조향각, 종가속도, 변속단(<code>P/R/N/D</code>), WGS84 위·경도를 실시간 확인합니다.</li>
+  <li><strong>주행 지표 그래프 설정 (좌측 하단):</strong>
+    <code>그래프 수 (1~6)</code>를 지정하고 <code>[배치 적용]</code>을 누른 뒤 각 채널 드롭다운에서 속도, 전방 TTC, 차선 이격거리, 차두시간(THW), RSS 여유거리, 가속도 등을 선택해 임계 점선 대비 추이를 관찰합니다.</li>
+  <li><strong>자차 및 교차로 인프라 2D 관제 (우측):</strong>
+    자차 중심 위성지도 뷰와 함께 교차로 노변 검지 기지국(RSU)들이 수집·융합한 교차로 접근 객체 현황을 동시 표시합니다.</li>
+</ol>
+
+<h2 id="tab1-bev-viewer-spec">2. 우측 3분할 자차·교차로 인프라(RSU) 2D 뷰어 상세 명세</h2>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>Tab 1 뷰어 패널 / 기호</th><th>표시 구성 및 시각 부호</th><th>관제 의미</th></tr></thead>
+    <tbody><tr><td><strong>상단 3분할 2D 관제 뷰</strong></td><td>① <code>자차 중심 주행 뷰</code> + ②·③ <code>교차로 노변 검지 기지국(RSU) 뷰</code> 동시 표출 (<code>위성 하이브리드</code> / <code>2D 벡터 CAD: 10 m 주격자 · 2 m 보조격자</code> 전환)</td><td>자차 온보드 인지 범위와 교차로 사각지대 노변 인프라 검지 영역을 나란히 대조</td></tr><tr><td><strong>거리·위험도별 객체 색상</strong></td><td><strong>진홍색</strong>(<code>12 m</code> 이내 초근접 경보) · <strong>주황적색</strong>(<code>30 m</code> 이내 근접 주의) · <strong>황색</strong>(일반 주행 차량) · <strong>보라색</strong>(보행자·이륜차 VRU) + 진행방향 속도 벡터 화살표</td><td>교차로 접근 차량 및 보행자의 충돌 위험 거리를 색상 단계로 즉시 구분</td></tr><tr><td><strong>다중 기지국 시각·좌표 정합</strong></td><td>기지국 간 수신 시각 편차 보정 및 차로 곡선 좌표(<code>s, d</code>) 기준 중복 검지 객체 단일화</td><td>복수 RSU 중첩 검지 구간에서 동일 차량이 이중으로 표시되는 현상 방지</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="tab1-verification-and-log-to-sim">3. 정량 검증 이동 및 시나리오 추출 (Log-to-Sim)</h2>
+<ul>
+  <li><strong><code>[정량 검증 →]</code>:</strong> 현재 로드된 실도로 주행 세션 전체를 <strong>[Tab 3: 정량 검증]</strong>으로 전달하여 20개 안전 평가지표 적부 판정을 수행합니다.</li>
+  <li><strong><code>[충돌·위험 시나리오 추출 (Log-to-Sim)]</code>:</strong>
+    주행 중 외부 동적 객체와의 상호작용 위험 항목(<code>KPI 08 추종, KPI 09 끼어들기, KPI 10 우회전 보행자, KPI 13 선행차 이탈, KPI 15 교차로 정차, KPI 19·20 회피 위협도</code>) 또는 센서 이상 이벤트가 검출되면 활성화됩니다(단순 속도 초과·방향지시등 미점등 같은 단독 법규 위반은 제외). 클릭 시 이벤트 전후(±5초)의 자차 궤적과 주변 객체(최대 10대) 궤적이 <strong>[Tab 2: 가상 주행 시뮬레이션]</strong>의 동일 도로 구간으로 전달되어 재현 시험을 진행할 수 있습니다.</li>
+</ul>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/sut_interface_guide.html" class="btn-neutral" rel="prev">← 자율주행 시스템(SUT) 연동 및 표준 패키지</a>
+          <a href="../pages/eval_20kpi_engine.html" class="btn-neutral" rel="next">[Tab 3] 20-KPI 정량 검증 매뉴얼 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

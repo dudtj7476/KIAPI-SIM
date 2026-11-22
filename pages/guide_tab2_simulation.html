@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가상 주행 시뮬레이션(Tab 2) 사용 매뉴얼 — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1 current"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Simulation Guide · 시뮬레이션 사용법</span>
+              <span>»</span>
+              <strong>[Tab 2] 가상 주행 시뮬레이션 매뉴얼</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Tab 2 User Guide</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>가상 주행 시뮬레이션(Tab 2) 사용 매뉴얼</h1>
+          <p class="page-lead">권역 및 주행 경로(S→G) 설정, 3D 월드 로드, 차량·날씨(24종)·센서·주변교통 설정, 수동 타겟 객체 및 도로 인프라(V2I) 배치, 3D 관제 뷰어와 23종 실시간 파형 모니터 조작법을 단계별로 안내합니다.</p>
+          
+
+<div class="fig-block">
+  <img src="../assets/img/ui/ui_tab2_workbench.png" alt="그림 1. [Tab 2: 가상 주행 시뮬레이션] 화면 — 상단 2열 툴바, 좌측 2D 정밀지도 뷰어, 우측 시나리오·타겟 객체·인프라 설정 패널." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> [Tab 2: 가상 주행 시뮬레이션] 화면 — 상단 2열 툴바, 좌측 2D 정밀지도 뷰어, 우측 시나리오·타겟 객체·인프라 설정 패널.</div>
+</div>
+
+
+<h2 id="tab2-toolbar-reference">1. 상단 1·2열 툴바 기능</h2>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>상단 1열 컨트롤</th><th>기능 및 사용법</th></tr></thead>
+    <tbody><tr><td><code>구역</code> &amp; <code>[폴더]</code></td><td>내장된 17개 권역(또는 전국 통합 지도)을 선택하거나 <code>[폴더]</code> 버튼으로 외부 정밀도로지도 폴더를 불러옵니다.</td></tr><tr><td><code>반경 (65m)</code></td><td>계획 경로 좌우로 3D 도로·건물·시설물을 생성할 폭(30 ~ 250 m)을 지정합니다(<code>KIAPI</code> 시험장 전용 맵에서는 전체 맵 로드).</td></tr><tr><td><code>[① XODR 변환]</code></td><td>선택된 경로(S→G)를 기준으로 OpenDRIVE 도로망과 주변 3D 환경 데이터를 생성합니다.</td></tr><tr><td><code>[② CARLA 빌드]</code> / <code>[해제]</code></td><td>3D 시뮬레이터를 기동하여 생성된 월드를 로드·연결하거나 연결을 해제합니다.</td></tr><tr><td><code>[▶ 주행 시작]</code> / <code>[⏸ 일시정지]</code> / <code>[⏹ 정지]</code></td><td>시뮬레이션 주행을 시작·일시정지·종료합니다. 주행 중에는 20Hz 주기로 차량·객체·신호 데이터가 자동 저장됩니다.</td></tr><tr><td><code>[경로 초기화]</code></td><td>지도에 지정한 출발(S)·목적지(G) 경로를 지우고 다시 설정합니다.</td></tr><tr><td><code>[Pygame 창]</code></td><td>별도 창으로 동작하는 5채널 통합 3D 시뮬레이션·타겟 예측 지도 및 6채널 파형 관제 모니터를 엽니다.</td></tr><tr><td><code>[정량 검증 →]</code></td><td>주행 완료 후 저장된 20Hz 기록을 <strong>[Tab 3: 정량 검증]</strong> 화면으로 전달하여 20개 KPI를 평가합니다.</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>상단 2열 컨트롤</th><th>기능 및 사용법</th></tr></thead>
+    <tbody><tr><td><code>차량</code></td><td>시험차량 3종 및 일반 차량 모델 중 자차(Ego) 블루프린트를 선택합니다 (<a href='catalogue_vehicles.html'>차량 카탈로그</a> 참조).</td></tr><tr><td><code>제어</code> &amp; <code>[게인]</code></td><td>폐루프 자율주행 시스템 연동 또는 내장 기준 제어기를 선택하고 세부 추종 게인을 조정합니다 (<a href='sut_interface_guide.html#control-modes'>제어 모드 상세</a> 참조).</td></tr><tr><td><code>속도 (km/h)</code></td><td>기본 목표 주행 속도(10 ~ 120 km/h)를 설정합니다.</td></tr><tr><td><code>날씨</code> (24종)</td><td>시간대(정오·석양·야간) 및 기상 프리셋을 실시간 전환합니다 (하단 5절 표 참조).</td></tr><tr><td><code>LiDAR</code></td><td>사용할 3D LiDAR 채널 구성(<code>32ch / 64ch / 128ch</code>)을 선택합니다 (<a href='core_sensors_lidar.html'>센서 사양</a> 참조).</td></tr><tr><td><code>주변교통</code> · 대수 · <code>[생성]/[제거]</code></td><td>혼잡도(<code>한산~정체</code>)와 차량 수(<code>0 ~ 500대</code>)를 지정해 배경 교통류를 생성·제거합니다 (<a href='core_hybrid_traffic.html'>교통류 모델</a> 참조).</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="tab2-2d-map-options">2. 좌측 2D 정밀지도 관제 뷰어 상세 명세</h2>
+<p>
+  Tab 2 좌측의 2D 정밀지도 뷰어는 주행 전에는 <strong>출발(S)·목적지(G) 경로 설계 및 트리거·수동 객체 배치 도면</strong>으로 동작하며, 주행 시작 후에는 <strong>자차의 전방 인지 시야각(FOV), 실시간 추종 로컬 경로, 최우선 선행 차량(CIPV), 교차로 차로별 신호 현시</strong>를 한눈에 보여주는 전술 관제 상황판으로 동작합니다.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>2D 정밀지도 오버레이 요소</th><th>시각 기호 · 색상 변화 규칙</th><th>관제 의미 및 활용 방법</th></tr></thead>
+    <tbody><tr><td><strong>배경 지도 &amp; 도로 레이어</strong></td><td><code>위성+하이브리드</code> / <code>위성</code> / <code>기본지도</code> / <code>벡터 CAD</code> + <code>✓ XODR면</code> · <code>도로ID</code></td><td>실제 항공영상 정합 상태 확인 또는 차로 경계·노면표시 중심의 공학 도면 시점 전환</td></tr><tr><td><strong>주행 경로 &amp; 3D 생성 버퍼</strong></td><td>녹색 <code>S</code>(출발) → 적색 <code>G</code>(목적지) 실선, 차로변경 구간 <code>38 m</code> 곡선 전이 핀(<code>P1, P2...</code>), 반투명 회랑 외곽선</td><td>전역 기준 경로와 좌·우 3D 월드 생성 폭(기본 <code>±65 m</code>) 사전 확인</td></tr><tr><td><strong>전방 인지 시야각 콘 (FOV)</strong></td><td>전방 <code>52 m · ±21°</code> 부채꼴 — <strong>청색</strong>(정상) → <strong>황색</strong>(근접 주의 · <code>TTC ≤ 3.5 s</code>) → <strong>적색</strong>(위험 · <code>AEB</code> 제동)</td><td>자차 전방 인지 범위와 선행 타겟과의 충돌 위험 수준을 색상으로 즉시 식별</td></tr><tr><td><strong>로컬 경로 &amp; 전방 주시점(<code>LH</code>)</strong></td><td><strong>적색 실선</strong>(실시간 추종 로컬 경로) + <strong>황색 원형 마커(<code>LH</code>)</strong></td><td>차선 유지·장애물 회피 중 제어기가 실제로 추종하는 단기 궤적과 조향 목표점 확인</td></tr><tr><td><strong>인지 타겟 &amp; <code>CIPV</code> 락온</strong></td><td>주변 차량·보행자 회전 박스 + 속도 벡터 화살표 + 최우선 선행차 <strong><code>CIPV</code> 강조 테두리·거리 배지</strong></td><td>다중 객체 중 종방향 안전거리(ACC/AEB) 제어 기준이 되는 주 타겟 판별 상태 확인</td></tr><tr><td><strong>자차(Ego) 외곽 상태 색상</strong></td><td><strong>청록</strong>(정상 자율주행) · <strong>황색</strong>(제어권 전환 요청 TOR) · <strong>적색</strong>(비상정지 MRM/고장) · <strong>보라</strong>(수동 개입)</td><td>고장·ODD 이탈 주입 시 자율주행 시스템의 운용 모드 전이 여부를 지도 위에서 직관 확인</td></tr><tr><td><strong>교차로 차로별 신호 정지선</strong></td><td>각 진입 차로 정지선이 <strong>적색 · 황색 · 청록(좌회전 화살표) · 녹색</strong>으로 실시간 변경</td><td>3D 신호등 및 V2I SPaT와 20Hz로 동기화된 차로별 유효 통행 신호 확인</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="pygame-5ch-viewer-guide">3. 독립 5채널 3D 시뮬레이션 &amp; 차량 통합 관제 모니터 (<code>[Pygame 창]</code>) 상세 가이드</h2>
+<p>
+  상단 1열의 <code>[Pygame 창]</code> 버튼을 클릭하면 실행되는 독립 관제 모니터는 <strong>① 좌측 상단 5채널 멀티 뷰포트, ② 좌측 하단 차량·센서·ADAS·신호·폴백 통합 진단 콘솔, ③ 우측 3행×2열(최대 6채널) 실시간 지표 오실로스코프</strong>의 3개 영역으로 구성됩니다(영역 경계선을 마우스로 드래그하여 가로·세로 비율 실시간 조절 가능).
+</p>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_pygame_prediction_and_signal_guide.png" alt="그림 2. 다채널 관제 뷰어 핵심 오버레이 및 신호 기하 명세 — (a) 3D 시뮬레이션·전방 카메라의 7-갈래 5차 다항식 후보 경로 팬(Fan) 및 선택 로컬 경로 투영, (b) Ego-Up 타겟 예측 지도의 3.0초 감쇠 선회(CTRV) 예측 궤적 및 상충 검지 링(d_min ≤ 1.85 m), (c) 한국형 4구 수평 교통신호등 등화 배열." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 다채널 관제 뷰어 핵심 오버레이 및 신호 기하 명세 — (a) 3D 시뮬레이션·전방 카메라의 7-갈래 5차 다항식 후보 경로 팬(Fan) 및 선택 로컬 경로 투영, (b) Ego-Up 타겟 예측 지도의 3.0초 감쇠 선회(CTRV) 예측 궤적 및 상충 검지 링(d_min ≤ 1.85 m), (c) 한국형 4구 수평 교통신호등 등화 배열.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/ui/pygame_live_5ch_hud.png" alt="그림 3. [1] 5채널 통합 주행 실행 화면 — 좌측 대화면 CARLA 3D 시뮬레이션 뷰와 우측 2×2 서브 타일(전방 카메라 · 세그멘테이션 카메라 · 3D LiDAR 포인트클라우드(GT 포함) · 로컬·글로벌 경로 &amp;amp; 타겟 예측 지도), 하단 통합 진단판, 우측 6채널 실시간 지표 그래프." loading="lazy" />
+  <div class="fig-caption"><strong>그림 3.</strong> <code>[1] 5채널 통합</code> 주행 실행 화면 — 좌측 대화면 <code>CARLA 3D 시뮬레이션 뷰</code>와 우측 2×2 서브 타일(<code>전방 카메라</code> · <code>세그멘테이션 카메라</code> · <code>3D LiDAR 포인트클라우드(GT 포함)</code> · <code>로컬·글로벌 경로 &amp; 타겟 예측 지도</code>), 하단 통합 진단판, 우측 6채널 실시간 지표 그래프.</div>
+</div>
+
+
+<h3 id="pygame-layouts-and-5channels">3.1 화면 레이아웃(<code>[1]~[4]</code>) 및 5개 시각 채널별 기호 명세</h3>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>레이아웃 단축키 / 버튼</th><th>화면 분할 구성</th><th>주요 활용 목적 및 마우스 조작</th></tr></thead>
+    <tbody><tr><td><code>[1] 5채널 통합</code> (기본)</td><td>좌측 44% 메인 뷰(<code>CARLA 3D 시뮬레이션 뷰</code>) + 우측 56% <code>2×2</code> 서브 타일 4개 동시 표출</td><td>3D 주행 상황과 전방·세그멘테이션·라이다·예측 지도를 한 화면에서 통합 관제 (<strong>우측 서브 타일 클릭 시 좌측 메인 슬롯과 위치 맞교환</strong>)</td></tr><tr><td><code>[2] 센서·예측 2×2</code></td><td><code>전방 카메라(AR 경로)</code> · <code>세그멘테이션</code> · <code>3D LiDAR(GT)</code> · <code>타겟 예측 지도</code> 4등분</td><td>인지 센서 출력과 객체 미래 예측 궤적 상충 여부를 큰 화면으로 정밀 점검</td></tr><tr><td><code>[3] 3D단독</code></td><td>전체 <code>CARLA 3D 시뮬레이션 뷰</code> + 우측 하단 <code>타겟 예측 지도</code> 소형 PIP 오버레이</td><td>차량 거동·주변 도심 환경 중심 관찰 및 데모 시연 (좌클릭 드래그: 3D 시점 회전 · 휠: 줌 · 휠 클릭: 시점 초기화)</td></tr><tr><td><code>[4] 전방확대</code></td><td>전체 <code>전방 카메라 (Front RGB)</code> + 3D AR 후보·선택 경로 카펫</td><td>운전자 시점 전방 신호등·표지판 시인성 및 차로 추종·회피 경로 정합성 집중 확인</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>채널 명칭</th><th>표시 데이터 및 시각 기호 (색상 범례)</th><th>센서 고장 · 특수 상황 동작</th></tr></thead>
+    <tbody><tr><td><strong>① CARLA 3D 시뮬레이션 뷰</strong></td><td><code>[Tab]</code> 키로 <code>후방 추적(Chase)</code> · <code>자유 시점(Free)</code> · <code>상공 조감도(Top-Down)</code> 전환. 노면 위에 <strong>하늘색 점선(글로벌 참조 경로)</strong>, <strong>시안 실선(충돌 없는 5차 다항식 로컬 후보 경로)</strong>, <strong>회색 점선(주변 차량 간섭으로 기각된 후보 경로)</strong>, <strong>적색 실선·반투명 카펫(최종 선택 로컬 경로)</strong>, <strong>황색 이중 링(전방 주시점 LH)</strong>을 투영</td><td>단일 카메라·라이다 고장 주입 중에도 관제용 제3자 3D 추적 시점은 끊김 없이 유지되어 차량의 실제 물리 거동을 관찰 가능</td></tr><tr><td><strong>② 전방 카메라 (Front RGB)</strong></td><td>전방 유리창 상단 시점(<code>FOV 68°, 20 Hz</code>) 실사 주행 영상 위에 7-갈래 로컬 후보 경로 팬(Fan)과 최종 선택 적색 경로 카펫을 카메라 내부 파라미터 기준으로 정합 표시</td><td>카메라 고장(<code>fault_cam_stop</code>) 주입 시 즉시 적색 격자 <strong><code>⚠ CAMERA SENSOR FAULT INJECTED (0.0 Hz — NO SIGNAL)</code></strong> 화면으로 전환</td></tr><tr><td><strong>③ CARLA 세그멘테이션 카메라</strong></td><td>전방 카메라와 동일한 광학축에서 픽셀 단위 의미론적 객체 분류 결과 표시 — <strong>보라</strong>(차도), <strong>분홍</strong>(보도·연석), <strong>남색</strong>(차량), <strong>적색</strong>(보행자), <strong>녹갈색</strong>(가로수·식생), <strong>황색</strong>(교통표지·신호기), <strong>회색</strong>(건물·지주)</td><td>야간·역광·악천후 조건에서 카메라 인지 영역 내 차로·보도·차량·신호기의 실제 가시 픽셀 점유 확인</td></tr><tr><td><strong>④ 3D LiDAR 포인트클라우드 (GT 포함)</strong></td><td><code>[L]</code> 키로 <code>32ch / 64ch / 128ch</code> 모델 실시간 전환. 배경 RGB 윤곽선 간섭을 배제한 순수 3차원 레이저 점군 위에 주변 객체의 <strong>녹색 3D 지향 바운딩 박스(8정점·12모서리 3D OBB + 전방 헤딩 스템) 및 실시간 차속 태그(예: <code>37km/h</code>)</strong> 표시</td><td>단일 라이다 드롭아웃(<code>fault_single_lidar</code>) 주입 시 <code>FAULT MASK ACTIVE</code> 경보 화면으로 전환되어 다중 센서 융합 폴백 시험 지원</td></tr><tr><td><strong>⑤ 로컬·글로벌 경로 &amp; 타겟 예측 지도</strong></td><td><strong>자차 진행방향 상단 고정(<code>Ego-Up</code>)</strong> 전술 지도: <code>15 / 30 / 45 m</code> 동심원 거리 링, 우측 상단 회전식 <code>N</code> 방위계, 정밀지도 차선 중심선, 자차 경로(하늘 점선 글로벌 · 시안/회색 후보군 · 적색 선택 경로), <strong>녹색 회전 바운딩 박스(차량 + 헤딩 틱 + <code>거리·속도</code> 라벨)</strong>, <strong>황색 원(보행자)</strong>, <strong>주황색 실선·화살표(이동 차량 <code>v ≥ 0.8 km/h</code>의 3.0초 감쇠 선회 CTRV 미래 예측 궤적)</strong> 표시</td><td>타겟의 주황색 미래 예측 궤적이 자차 선택 적색 경로의 <strong><code>1.85 m</code> 이내로 접근·교차하면 교차 지점에 적색 이중 경보 링</strong>이 점등되고 상단에 <strong><code>● 타겟 예측 N대 · 상충주의!</code></strong> 배너가 자동 표출됨</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/ui/pygame_layout_2x2_pred.png" alt="그림 4. [2] 센서·예측 2×2 균등 분할 화면 — 전방 AR 경로 뷰, 시맨틱 세그멘테이션, 3D LiDAR(3D GT 바운딩 박스 포함), Ego-Up 타겟 미래 예측 지도를 동일 크기로 확대 비교." loading="lazy" />
+  <div class="fig-caption"><strong>그림 4.</strong> <code>[2] 센서·예측 2×2</code> 균등 분할 화면 — 전방 AR 경로 뷰, 시맨틱 세그멘테이션, 3D LiDAR(3D GT 바운딩 박스 포함), Ego-Up 타겟 미래 예측 지도를 동일 크기로 확대 비교.</div>
+</div>
+
+
+<h3 id="pygame-telemetry-and-scope">3.2 하단 통합 진단 콘솔 및 우측 다중 중첩 오실로스코프</h3>
+<p>
+  우측 그래프 영역은 상단 <code>채널: [1~6]</code> 버튼으로 표시 개수를 조절할 수 있으며, 각 채널의 드롭다운 박스를 클릭하면 <strong>23종 물리량·안전지표 중 원하는 신호들을 복수 체크하여 단일 그래프 위에 동시 중첩(제1신호 실선 + 제2신호 점선 + 법규 임계 기준선)</strong>할 수 있습니다.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>하단 통합 관제 콘솔 구역</th><th>세부 표시 항목</th><th>상태 색상 및 판독 기준</th></tr></thead>
+    <tbody><tr><td><strong>상단 실시간 주행 판정 배너</strong></td><td>도로 유형(일반도로/보호구역 · 단일로/교차로), 제한속도, 차선 여유거리, 전방 TTC, STN 및 현재 안전 판정 요약</td><td>정상(녹색) · 근접/주의(황색) · KPI 위반 또는 제어권 전환/비상정지 발생(적색 강조)</td></tr><tr><td><strong>1열 4대 주행 계기 카드</strong></td><td>① <code>자차 속도</code>(현재/목표/제한속도 바) · ② <code>조향각</code>(전륜각·목표각·조향핸들각) · ③ <code>종방향 가속도</code>(m/s² · G 환산) · ④ <code>변속·주행모드</code>(<code>P·R·N·D·M</code> 및 잔여 거리·진행률 %)</td><td>자율주행 제어 명령에 대한 차량 동역학의 실제 추종 응답성 및 승차감 범위(<code>|a_x| ≤ 3.0 m/s²</code>) 확인</td></tr><tr><td><strong>2열 좌측: 하드웨어 센서 · 등화 진단</strong></td><td>좌·우 방향지시등 및 비상등 점멸 인디케이터 + 6대 핵심 모듈(<code>카메라 · 3D LiDAR · GNSS/RTK · 레이더 · IMU 관성 · 제어 CAN</code>) 상태 카드</td><td>모듈 정상 시 녹색(<code>정상 / FIX</code>), 고장 시나리오 발동 시 해당 모듈 카드가 즉시 적색(<code>단절 / 고장</code>)으로 전환</td></tr><tr><td><strong>2열 중앙: ADAS 작동 · 전방 인지 요약</strong></td><td><code>경로추종 · ACC · AEB · LKA · BSD · 차선변경</code> 6개 작동 상태 칩 + 최우선 선행 타겟(<code>CIPV</code>) 상대거리·상대속도·TTC·반경 80m 내 객체 수</td><td>선행차 추종 감속 시 <code>ACC: 차간감속</code>, 좌·우 사각지대 차량 존재 시 <code>BSD: 좌/우감지</code>(황색), 긴급 제동 시 <code>AEB: 제동개입</code>(적색) 점등</td></tr><tr><td><strong>2열 우측: 전방 신호(SPaT) · Fallback 진단</strong></td><td>3구/좌화살표 신호등 아이콘 + 잔여시간(초) + 정지선 거리(m) + 진단 사유 텍스트 + 4분할 안전 상태(<code>Fallback 단계 Type 0~3</code> · <code>제어권 상태</code> · <code>ODD 설계운행영역</code> · <code>인프라 연결 상태</code>)</td><td>전방 교차로 SPaT 상태와 현재 활성화된 안전 폴백 등급 배지·진단 사유를 실시간 표출 (<a href='sut_interface_guide.html#fallback-check-criteria'>단계별 폴백 판정 기준</a> 참조)</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/ui/pygame_fault_and_scope_modes.png" alt="그림 5. 센서 고장 주입 및 파형 지표 다중 선택 화면 — (a) 전방 카메라 고장(0 Hz) 인가 시 전방 타일만 NO SIGNAL로 전환되고 하단 콘솔에 Type 2 TOR 경보가 점등된 모습, (b) [4] 전방확대 뷰 및 우측 그래프 23종 지표 다중 체크(중첩 비교) 팝업." loading="lazy" />
+  <div class="fig-caption"><strong>그림 5.</strong> 센서 고장 주입 및 파형 지표 다중 선택 화면 — (a) 전방 카메라 고장(0 Hz) 인가 시 전방 타일만 <code>NO SIGNAL</code>로 전환되고 하단 콘솔에 <code>Type 2 TOR</code> 경보가 점등된 모습, (b) <code>[4] 전방확대</code> 뷰 및 우측 그래프 23종 지표 다중 체크(중첩 비교) 팝업.</div>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>분류</th><th>3D 뷰어 오실로스코프 선택 가능 신호 (23종)</th><th>표시 내용</th></tr></thead>
+    <tbody><tr><td><strong>속도</strong></td><td><code>Ego Speed (km/h)</code>, <code>Ego Speed (m/s)</code>, <code>Target Speed (km/h)</code>, <code>Speed Limit (km/h)</code>, <code>Speed Over (km/h)</code></td><td>현재 차속, 목표 속도, 구간 제한속도 및 초과량</td></tr><tr><td><strong>가감속 · 조향</strong></td><td><code>Ego Accel X</code>, <code>Ego Accel Y</code>, <code>Ego Steer</code></td><td>종·횡방향 가속도(m/s²) 및 조향각</td></tr><tr><td><strong>추종 · 간격</strong></td><td><code>Forward TTC</code>, <code>TTC</code>, <code>THW</code>, <code>UN R157 t_front</code>, <code>RSS MIN</code>, <code>PICUD</code>, <code>CIPV Distance</code></td><td>전방 충돌예상시간, 차두시간, RSS 여유거리 및 선행차 거리</td></tr><tr><td><strong>회피 위협도</strong></td><td><code>STN</code>, <code>BTN</code></td><td>조향·제동 회피 요구량 비율 (임계선 1.0)</td></tr><tr><td><strong>차로 · 정지선</strong></td><td><code>Dist to Lane</code>, <code>Dist to Centerline</code>, <code>Dist to Edge</code>, <code>Dist to Stopline</code></td><td>차선·중앙선·도로경계·정지선 이격거리(m)</td></tr><tr><td><strong>센서 · 폴백</strong></td><td><code>Camera FPS</code>, <code>Fallback Type</code></td><td>카메라 수신 프레임률 및 안전 폴백 단계(0~3)</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="tab2-manual-objects-and-v2i">4. 수동 타겟 객체 및 도로 인프라(V2I) 배치 (우측 하위 탭 2)</h2>
+<p>
+  우측 상단 지도 클릭 모드를 <code>3. 객체·인프라 배치</code>로 바꾸고 하위 탭 <strong>[2. 타겟 객체 · 인프라 배치 설정]</strong>을 열면 원하는 지점에 개별 객체와 인프라 구역을 직접 배치할 수 있습니다:
+</p>
+<ul>
+  <li><strong>보행자 배치:</strong> 생성 위치와 이동 목표점을 지도에 찍어 <code>제자리 대기</code>, <code>목표점 보행</code>, 또는 <code>자차 근접 시 보행 출발</code> 조건을 설정합니다.</li>
+  <li><strong>타겟 차량 배치:</strong> 차선을 클릭하면 도로 방향에 맞춰 선택 차종이 생성되며, 전방 60m 자동 경로 또는 연속 경유점 지정, <code>180° 방향 반전</code>, <code>정차 대기 / 경로 주행 / 자차 근접 출발</code> 모드를 지원합니다.</li>
+  <li><strong>도로 인프라(RSU) 구역 및 연결 상태:</strong> 교차로 중심과 검지 반경, 협동 감속 목표 속도를 지정하거나 <strong>인프라 무선 연결/단절 상태</strong>를 전환하여 통신 단절 시 감속 운행 전환 여부를 시험합니다.</li>
+  <li><strong>초기화 버튼:</strong> 하단 <code>[위치 리스폰]</code>으로 수동 객체들을 시작 위치로 되돌리거나, 우측 상단 <code>[고장·상태 복구]</code>로 주입된 고장·날씨 변화를 초기 상태로 복원합니다.</li>
+</ul>
+
+<h2 id="tab2-weather-presets">5. 기상 프리셋(24종) 일람</h2>
+<p>
+  기상 프리셋 변경에 따른 가로등 자동 디밍 곡선은 <a href="../pages/core_korean_streetscape.html#roadside-signs-curbs-lighting">신호등·표지판·가로등 문서</a>를, 강우·안개 시 라이다 광학 감쇠 모델은 <a href="../pages/core_sensors_lidar.html#3d-lidar-sensor-model">가상 센서 문서</a>를 참조하십시오.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>시간대 구분</th><th>선택 가능한 기상 프리셋 (24종)</th><th>주요 환경 파라미터 변화</th></tr></thead>
+    <tbody><tr><td><strong>정오 (Noon)</strong></td><td><code>맑음 · 쾌청 (기본)</code>, <code>맑은 정오</code>, <code>KIAPI 흐림</code>, <code>흐린 정오</code>, <code>젖은 노면 정오</code>, <code>젖고 흐린 정오</code>, <code>약한 비 정오</code>, <code>보통 비 정오</code>, <code>폭우 정오</code></td><td>고고도 태양광(<code>α_sun ≥ 60°</code>), 운량(0~90%), 노면 수막·습윤율 및 강수 강도(0~100%) 단계 조절</td></tr><tr><td><strong>석양 (Sunset)</strong></td><td><code>맑은 석양</code>, <code>흐린 석양</code>, <code>젖은 노면 석양</code>, <code>젖고 흐린 석양</code>, <code>약한 비 석양</code>, <code>보통 비 석양</code>, <code>폭우 석양</code></td><td>저고도 역광 태양각(<code>α_sun ≈ 5~15°</code>) 및 박명 조도 전환 구간 설정</td></tr><tr><td><strong>야간 (Night)</strong></td><td><code>맑은 야간</code>, <code>흐린 야간</code>, <code>젖은 노면 야간</code>, <code>젖고 흐린 야간</code>, <code>약한 비 야간</code>, <code>보통 비 야간</code>, <code>폭우 야간</code></td><td>야간 태양고도(<code>α_sun &lt; -5°</code>) 전환 및 습윤 아스팔트 정반사 계수 증가</td></tr><tr><td><strong>시정 제한</strong></td><td><code>모래폭풍 (DustStorm)</code> (+ ODD 시나리오 안개·결빙 연동)</td><td>대기 산란 밀도 증가에 따른 시정 거리 단축</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_carla_ue5_6way_environment_renders.png" alt="그림 6. 시간대·기상·터널 조명 및 시맨틱 분할 6종 환경 렌더링 비교 — 주간, 석양 역광, 야간, 우천 야간(노면 수막 반사), 터널 상시 LED 조명, 시맨틱 분할 뷰." loading="lazy" />
+  <div class="fig-caption"><strong>그림 6.</strong> 시간대·기상·터널 조명 및 시맨틱 분할 6종 환경 렌더링 비교 — 주간, 석양 역광, 야간, 우천 야간(노면 수막 반사), 터널 상시 LED 조명, 시맨틱 분할 뷰.</div>
+</div>
+
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/core_hybrid_traffic.html" class="btn-neutral" rel="prev">← 주변 교통류 시뮬레이션 (Traffic)</a>
+          <a href="../pages/adv_scenarios_ai.html" class="btn-neutral" rel="next">시나리오 · 고장 · ODD 시험 가이드 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

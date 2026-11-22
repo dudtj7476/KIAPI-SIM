@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>실행 환경 및 빠른 시작 가이드 (Quick Start) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1 current"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Getting Started · 시작하기</span>
+              <span>»</span>
+              <strong>실행 환경 및 빠른 시작</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Quick Start</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>실행 환경 및 빠른 시작 가이드 (Quick Start)</h1>
+          <p class="page-lead">프로그램 구동을 위한 권장 시스템 사양, 첫 가상 주행부터 정량 검증·보고서 출력까지의 기본 실행 절차, 그리고 화면별 키보드·마우스 조작 키를 안내합니다.</p>
+          
+<h2 id="system-requirements">1. 권장 시스템 사양</h2>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>항목</th><th>권장 사양</th><th>비고</th></tr></thead>
+    <tbody><tr><td><strong>운영체제 (OS)</strong></td><td>Ubuntu 22.04 LTS (64-bit Linux)</td><td>제공된 설치 패키지 또는 실행 전용 런처 환경</td></tr><tr><td><strong>그래픽카드 (GPU)</strong></td><td>단일 NVIDIA GPU (VRAM 12 GB 이상, 권장 16 GB+) / 듀얼 GPU 지원</td><td>RTX 3080 12GB · 4070 Ti · 4080 · 4090 급 이상 권장 (단일/듀얼 GPU 자동 감지)</td></tr><tr><td><strong>CPU / RAM</strong></td><td>16코어 이상 CPU · 시스템 메모리 64 GB 이상</td><td>대규모 정밀도로지도 및 다중 배경 교통류 구동 기준</td></tr><tr><td><strong>디스플레이</strong></td><td>1920×1080 이상 (듀얼 모니터 사용 시 편리)</td><td>메인 4-Tab 창과 별도 3D 뷰어 창 동시 표시 가능</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="admonition note">
+  <p class="admonition-title"><span>ℹ️</span> 실행 패키지 안내</p>
+  <div class="admonition-body">
+<p>프로그램은 배포 형태(설치형 패키지 또는 라이선스 보호 실행 파일)에 관계없이 제공된 실행 런처를 통해 동일하게 구동됩니다. 별도의 환경 설정 없이 메인 화면이 열리면 아래 5단계 순서로 시뮬레이션과 검증을 진행할 수 있습니다.</p>
+</div>
+</div>
+
+
+<h2 id="basic-5step-procedure">2. 기본 실행 5단계 절차</h2>
+<ol>
+  <li><strong>프로그램 실행 및 탭 이동:</strong> 런처를 기동한 뒤 상단 탭에서 <strong>[가상 주행 시뮬레이션]</strong>(Tab 2)을 선택합니다(실차 로그 검증 시에는 Tab 1 또는 Tab 3 바로 사용).</li>
+  <li><strong>권역 선택 및 주행 경로(S→G) 지정:</strong> 상단 <code>구역</code> 메뉴에서 시험할 지역(예: <code>SEC02_테크노폴리스</code>, <code>KIAPI</code> 등)을 선택하고, 좌측 2D 지도 위에서 출발 차선과 목적지 차선을 차례로 좌클릭합니다.</li>
+  <li><strong>3D 월드 변환 및 로드:</strong> 상단 1열의 <code>[① XODR 변환]</code> 버튼을 누른 뒤 완료되면 <code>[② CARLA 빌드]</code> 버튼을 클릭하여 3D 시뮬레이션 월드를 구동합니다.</li>
+  <li><strong>주행 조건·시나리오 설정 및 주행 시작:</strong> 상단 2열에서 차량 모델, 제어 모드, 목표 속도, 날씨, 주변 교통류를 설정하고(필요 시 우측 패널에서 위험 시나리오·고장 추가), <code>[▶ 주행 시작]</code>을 클릭합니다. <code>[Pygame 창]</code> 버튼으로 3D 화면과 실시간 파형을 확인합니다.</li>
+  <li><strong>정량 검증 및 보고서 생성:</strong> 주행이 끝나면 <code>[정량 검증 →]</code> 버튼을 클릭하여 Tab 3에서 20개 안전 평가지표 결과를 확인하고, <code>[검증 보고서 생성 →]</code>을 눌러 Tab 4에서 PDF 성적서를 출력합니다.</li>
+</ol>
+
+<h2 id="keyboard-mouse-reference">3. 키보드 단축키 및 마우스 조작 요약</h2>
+<p>
+  아래 표는 조작 키 빠른 참조용 요약이며, 각 뷰어 채널의 색상 기호와 23종 스코프 신호 명세는 <a href="../pages/guide_tab2_simulation.html#pygame-5ch-viewer-guide">Tab 2 가상 주행 시뮬레이션 매뉴얼</a>에서 자세히 설명합니다.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>대상 창</th><th>단축키 / 마우스 입력</th><th>동작 요약</th></tr></thead>
+    <tbody><tr><td><strong>메인 4-Tab 창</strong></td><td><code>F11</code> / <code>Esc</code></td><td>전체화면 전환 / 전체화면 해제</td></tr><tr><td><strong>2D 정밀지도 (Tab 2)</strong></td><td>휠 스크롤 / 우클릭 드래그</td><td>지도 배율 확대·축소(Zoom) / 화면 이동(Pan)</td></tr><tr><td><strong>2D 정밀지도 (Tab 2)</strong></td><td>마우스 좌클릭</td><td>선택된 클릭 모드에 따라 경로(<code>S→G</code>), 트리거 위치, 수동 객체·인프라 지정</td></tr><tr><td><strong>3D 관제 모니터 (Pygame 창)</strong></td><td><code>1</code> / <code>2</code> / <code>3</code> / <code>4</code></td><td>화면 분할 전환 (<code>1</code> 5채널 통합 · <code>2</code> 2×2 분할 · <code>3</code> 3D 단독 · <code>4</code> 전방 확대)</td></tr><tr><td><strong>3D 관제 모니터</strong></td><td>우측 서브 타일 좌클릭</td><td><code>[1]</code> 모드에서 클릭한 서브 타일과 좌측 메인 화면 위치 맞교환</td></tr><tr><td><strong>3D 관제 모니터</strong></td><td><code>G</code> / <code>[CH 1~6 클릭]</code></td><td>우측 파형 스코프 열기·닫기 및 표시 신호 선택</td></tr><tr><td><strong>3D 관제 모니터</strong></td><td><code>Tab</code> / <code>L</code></td><td><code>Tab</code>: 3D 카메라 시점 전환 · <code>L</code>: LiDAR 채널 사양 전환(<code>32/64/128ch</code>)</td></tr><tr><td><strong>3D 관제 모니터</strong></td><td><code>T</code> · <code>W/S/A/D</code> · <code>Space</code> · <code>Q</code></td><td>수동 운전 개입(<code>T</code>) 및 가감속(<code>W/S</code>)·조향(<code>A/D</code>)·최대 제동(<code>Space</code>)·후진(<code>Q</code>)</td></tr><tr><td><strong>3D 관제 모니터</strong></td><td><code>E</code> / <code>R</code> / <code>P</code></td><td><code>E</code> 비상정지 · <code>R</code> 주입 고장·위험 복구 · <code>P</code> 일시정지</td></tr><tr><td><strong>3D 관제 모니터</strong></td><td>드래그 / 휠 / 휠 클릭</td><td>3D 뷰 회전 · 줌 · 시점 초기화 (패널 경계선 드래그 시 분할 비율 조절)</td></tr></tbody>
+  </table>
+</div>
+
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../index.html" class="btn-neutral" rel="prev">← 플랫폼 소개 (Overview)</a>
+          <a href="../pages/sys_architecture.html" class="btn-neutral" rel="next">화면 구성 및 워크플로우 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

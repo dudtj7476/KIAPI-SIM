@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가상 센서 구성 및 출력 특성 (LiDAR · Camera · Radar · GNSS) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1 current"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Physics, Sensors &amp; Traffic · 물리·센서</span>
+              <span>»</span>
+              <strong>센서 구성 (Sensors)</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Sensor Suite</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>가상 센서 구성 및 출력 특성 (LiDAR · Camera · Radar · GNSS)</h1>
+          <p class="page-lead">32/64/128채널 3D LiDAR(수직 채널 분포, 905nm 재질별 반사 특성, 투과·드롭아웃, 보조 GPU 가속)와 다채널 카메라, 시맨틱 분할 뷰, 전방·후측방 레이더, GNSS/IMU 측위 및 도심 멀티패스 필터 특성을 다룹니다.</p>
+          
+<h2 id="3d-lidar-sensor-model">1. 3D LiDAR 센서 모델 (32 / 64 / 128채널)</h2>
+<p>
+  Tab 2 상단 툴바의 <code>LiDAR</code> 메뉴(또는 3D 뷰어 <code>L</code> 키)에서 주행 중 실시간으로 3종의 회전형 3D LiDAR 채널 구성을 선택할 수 있습니다.
+  단순 등간격 레이캐스트 대신 각 센서 데이터시트의 <strong>비등간격 수직 고도각 테이블</strong>과 <strong>905nm 근적외선 기준 재질별 반사율(도로 아스팔트 저반사, 차선·번호판·표지판 재귀반사, 금속 차체 입사각 반사)</strong>을 계산하여 <code>(x, y, z, intensity)</code> 점군을 출력합니다.
+</p>
+<ul>
+  <li><strong>투과·드롭아웃 및 기상 영향:</strong> 차량 유리창 투과와 흑색 고무 타이어의 저반사로 인해 반사점이 비는 현상(Dropout)을 확률적으로 반영하며, 우천·안개 기상 설정 시 강수량에 따른 거리 감쇠 및 산란 노이즈가 추가됩니다.</li>
+  <li><strong>순수 레이저 점군 및 3D GT 바운딩 박스 시각화:</strong> 기본 포인트클라우드 뷰는 카메라 영상의 윤곽선 간섭을 배제하고 실제 레이저 반사점과 장애물 배후 가림 그림자(Shadow Cone)만 표출하며, 주변 객체 위에는 8정점·12모서리 3D 지향 바운딩 박스(3D OBB)와 실시간 차속 태그를 표시합니다.</li>
+  <li><strong>단일 · 듀얼 GPU 자동 감지 및 경량 운용:</strong> GPU가 2개 이상이면 보조 GPU에 점군 합성과 렌더링(64채널 기준 프레임당 약 <code>6.7 ms</code>, VRAM 약 <code>200 MB</code>)을 자동 분리하고, 단일 GPU PC에서는 주 GPU 공유 모드로 자동 전환됩니다. 3D 관제 창을 닫으면 시각화 렌더링이 자동 생략되며 CPU 벡터 연산 폴백도 지원합니다.</li>
+</ul>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_sensor_pipeline.png" alt="그림 1. 3D 월드 기하 반송파 추출과 905 nm 물리 광학·비균일 채널 합성을 분리한 실시간 센서 파이프라인 (듀얼 GPU 자동 분산 및 단일 GPU·CPU 자동 호환)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 3D 월드 기하 반송파 추출과 905 nm 물리 광학·비균일 채널 합성을 분리한 실시간 센서 파이프라인 (듀얼 GPU 자동 분산 및 단일 GPU·CPU 자동 호환).</div>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>UI 선택 옵션</th><th>수직 채널</th><th>수직 시야각(VFOV) 및 레이저 링 배치</th><th>최대 거리 / 주기</th><th>비고</th></tr></thead>
+    <tbody><tr><td><code>32ch VLP-32C (실차)</code></td><td>32 채널</td><td><code>-25° ~ +15°</code> (수평선 부근 조밀 배치 비등간격 링)</td><td>200 m / 10~20 Hz</td><td>시험차 루프 장착 기준 기본 사양</td></tr><tr><td><code>64ch Pandar64</code></td><td>64 채널</td><td><code>-25° ~ +15°</code> (중·근거리 집중 비등간격 링)</td><td>200 m / 10~20 Hz</td><td>중밀도 센서 비교 시험용</td></tr><tr><td><code>128ch VLS-128</code></td><td>128 채널</td><td><code>-25° ~ +15°</code> (고밀도 수직 각도 분해능)</td><td>245 m / 10~20 Hz</td><td>원거리 소형 객체 인지 확인용</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_4way_comparison.png" alt="그림 2. 기존 균일 32채널 시뮬레이션(a), 주행시험장 실차 계측 기준(b), 순수 905 nm 물리 정합 포인트클라우드 · 3D GT 바운딩 박스 뷰(c), 3D 주행 환경 중첩 뷰(d) 비교." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 기존 균일 32채널 시뮬레이션(a), 주행시험장 실차 계측 기준(b), 순수 905 nm 물리 정합 포인트클라우드 · 3D GT 바운딩 박스 뷰(c), 3D 주행 환경 중첩 뷰(d) 비교.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_hardware_lineup.png" alt="그림 3. 실차 계측 기준(a) 및 물리 정합 32채널(b) · 64채널(c) · 128채널(d) 모델의 수직 레이저 링 및 점군 밀도 비교." loading="lazy" />
+  <div class="fig-caption"><strong>그림 3.</strong> 실차 계측 기준(a) 및 물리 정합 32채널(b) · 64채널(c) · 128채널(d) 모델의 수직 레이저 링 및 점군 밀도 비교.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_extrinsics_curb_geometry.png" alt="그림 4. 실차 루프랙 장착 외부 파라미터(z = 1.71 m, R_min = 3.67 m) 사각지대 기하(a) 및 연석 단차(18 cm) 경계 구면 역거리(1/r) 고도 정합 원리(b)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 4.</strong> 실차 루프랙 장착 외부 파라미터(z = 1.71 m, R_min = 3.67 m) 사각지대 기하(a) 및 연석 단차(18 cm) 경계 구면 역거리(1/r) 고도 정합 원리(b).</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_elevation_analysis.png" alt="그림 5. 32·64·128채널 수직 고도각 분포(a), 평탄 도로 스캔라인 착지 간격(b) 및 불연속 연석 경계에서의 구면 역거리(1/r) 고도 복원 정밀도(c)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 5.</strong> 32·64·128채널 수직 고도각 분포(a), 평탄 도로 스캔라인 착지 간격(b) 및 불연속 연석 경계에서의 구면 역거리(1/r) 고도 복원 정밀도(c).</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_radiometry_calibration.png" alt="그림 6. 실차 계측 대비 8-bit 반사 강도 분포 정합성(a), 입사각(θ_inc)에 따른 905 nm 재질별 반사 특성(b) 및 스캔라인 수직 정밀도(c)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 6.</strong> 실차 계측 대비 8-bit 반사 강도 분포 정합성(a), 입사각(θ_inc)에 따른 905 nm 재질별 반사 특성(b) 및 스캔라인 수직 정밀도(c).</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_lidar_dual_gpu_latency.png" alt="그림 7. 보조 GPU(cuda:1) 채널별 실시간 연산 지연시간(6.36 ~ 9.59 ms, 20 Hz 예산의 12.7~19.2%)(a) 및 3차원 포인트클라우드 인지 입력 유효 포인트 밀도 향상 비교(b)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 7.</strong> 보조 GPU(<code>cuda:1</code>) 채널별 실시간 연산 지연시간(<code>6.36 ~ 9.59 ms</code>, 20 Hz 예산의 12.7~19.2%)(a) 및 3차원 포인트클라우드 인지 입력 유효 포인트 밀도 향상 비교(b).</div>
+</div>
+
+
+<h2 id="camera-radar-gnss-imu">2. 카메라 · 레이더 · 측위(GNSS/IMU) 가상 센서 물리 사양</h2>
+<p>
+  아래 표는 기본 탑재 가상 센서의 광학·측위 모델 사양입니다. 자율주행 시스템(SUT)과의 폐루프 패킷 규격은 <a href="../pages/sut_interface_guide.html#sut-io-interface">SUT 연동 가이드</a>를, 센서 단절·멀티패스 등 고장 주입 항목은 <a href="../pages/adv_scenarios_ai.html#full-trigger-list">시나리오·고장 가이드</a>를 참조하십시오.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>센서 종류</th><th>장착 기준 · 해상도 · 탐지 범위</th><th>물리·광학 측정 특성</th></tr></thead>
+    <tbody><tr><td><strong>RGB 주행 카메라</strong></td><td>전방 윈드실드 상단(<code>640×360, FOV 68°</code>) 및 3인칭 추적 시점(<code>840×560</code>)</td><td>렌즈 투영 행렬 정합, 주·야간 자동 노출(Auto-Exposure), 강우·습윤 노면 반사 광학 반영</td></tr><tr><td><strong>시맨틱 분할 카메라</strong></td><td>전방 RGB 카메라와 동일 광학축·해상도 동기화</td><td>픽셀 단위 12개 클래스 의미 분할 (차도·차선·보도·건물·신호기·표지판·차량·보행자·식생 등)</td></tr><tr><td><strong>전방 레이더 &amp; 후측방(BSD)</strong></td><td>전방 중·장거리 탐지 콘 및 좌·우 사각지대(<code>전방 7 m ~ 후방 12 m</code>)</td><td>전방 객체 종·횡 상대거리 및 시선방향 상대속도 산출, 인접 차로 사각지대 점유 판별</td></tr><tr><td><strong>GNSS / RTK / IMU</strong></td><td>차량 기준점(<code>WGS84</code> 경위도 · 국소 ENU 평면좌표) 및 차체 중심 6축 관성계</td><td>위·경도/고도, RTK 고정 등급(<code>Fixed / Float / No-Fix</code>), 3축 자세각(Roll·Pitch·Yaw) 및 3-Gate 도심 멀티패스 격리·종단 구배 보정</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block fig-compact">
+  <img src="../assets/img/figures/fig_gnss_multipath_filter.png" alt="그림 8. 도심 3-Gate GNSS 멀티패스 탐지·격리 및 차륜속·IMU 융합 종단 구배 보정 — 실측 멀티패스 구간(11.92%) 자동 격리 및 비물리적 경사 스파이크(18.3%) 제거 예시." loading="lazy" />
+  <div class="fig-caption"><strong>그림 8.</strong> 도심 3-Gate GNSS 멀티패스 탐지·격리 및 차륜속·IMU 융합 종단 구배 보정 — 실측 멀티패스 구간(<code>11.92%</code>) 자동 격리 및 비물리적 경사 스파이크(<code>18.3%</code>) 제거 예시.</div>
+</div>
+
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/core_vehicle_dynamics.html" class="btn-neutral" rel="prev">← 차량 · 모빌리티 물리 모델</a>
+          <a href="../pages/core_hybrid_traffic.html" class="btn-neutral" rel="next">주변 교통류 시뮬레이션 (Traffic) →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

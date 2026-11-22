@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>검증 대상 자율주행 시스템(SUT) 연동 및 국제표준 시나리오 활용 — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1 current"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Simulation Guide · 시뮬레이션 사용법</span>
+              <span>»</span>
+              <strong>자율주행 시스템(SUT) 연동 및 표준 패키지</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">SUT Interface &amp; Standards</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>검증 대상 자율주행 시스템(SUT) 연동 및 국제표준 시나리오 활용</h1>
+          <p class="page-lead">외부 자율주행 소프트웨어를 블랙박스 형태로 연결하는 폐루프 입출력 신호 규격, 내장 기준 제어기 모드, 고장·ODD 이탈 시 3단계 안전 폴백 점검 기준, 그리고 국제표준(ISO 34501 등) 기반 논리 유즈케이스 패키지 구조를 안내합니다.</p>
+          
+<h2 id="control-modes">1. 주행 제어 모드 구분</h2>
+<p>
+  Tab 2 상단의 <code>제어</code> 메뉴에서는 평가 대상 자율주행 시스템을 연결하는 폐루프 모드와, 외부 자율주행 시스템 연결 없이 맵·센서·시나리오 동작을 먼저 확인하기 위한 3가지 내장 주행 모드를 선택할 수 있습니다.
+</p>
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_sut_closed_loop_arch.png" alt="그림 1. 시뮬레이션·고장 주입 호스트(a)와 외부 검증 대상 자율주행 시스템(Black-Box SUT, b) 간의 표준 폐루프 연동 및 독립 안전성·폴백 판정(c) 구조." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 시뮬레이션·고장 주입 호스트(a)와 외부 검증 대상 자율주행 시스템(Black-Box SUT, b) 간의 표준 폐루프 연동 및 독립 안전성·폴백 판정(c) 구조.</div>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>제어 모드</th><th>용도</th><th>동작 방식</th></tr></thead>
+    <tbody><tr><td><strong>폐루프 자율주행 시스템 연동</strong></td><td>검증 대상 자율주행 SW(SUT) 평가</td><td>시뮬레이터가 가상 센서 신호를 송출하고, 외부 자율주행 시스템이 출력한 조향·가감속·등화·안전모드 명령을 받아 자차를 구동</td></tr><tr><td><strong>내장 Stanley + PID 제어</strong></td><td>환경·시나리오 사전 점검용 기준 주행</td><td>전륜 횡오차 제어와 종방향 속도 PID 제어를 이용한 내장 경로 추종</td></tr><tr><td><strong>내장 Pure-Pursuit 제어</strong></td><td>전방 주시점 기반 기준 주행 비교</td><td>속도 비례 전방 주시 거리(Lookahead) 기반 기하학적 추종</td></tr><tr><td><strong>정밀 궤적 주행 (Kinematic)</strong></td><td>센서 데이터 취득 및 로그 궤적 재생</td><td>타이어 슬립 없이 기준 경로와 속도 프로파일을 그대로 추종</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="admonition note">
+  <p class="admonition-title"><span>ℹ️</span> 블랙박스 연동 구조</p>
+  <div class="admonition-body">
+<p>검증 대상 자율주행 소프트웨어(SUT)의 내부 소스코드나 알고리즘 구조는 요구되지 않으며, 정의된 센서 입력과 제어 출력 채널만 연결하여 실행 파일 또는 컨테이너 상태로 폐루프 시험을 수행합니다.</p>
+</div>
+</div>
+
+
+<h2 id="sut-io-interface">2. 시뮬레이터 ↔ 자율주행 시스템(SUT) 입출력 신호 규격</h2>
+<p>
+  폐루프 연동 시 교환되는 표준 입출력 채널과 데이터 필드 규격입니다(개별 센서의 광학·물리 특성은 <a href="../pages/core_sensors_lidar.html">가상 센서 문서</a>를, 센서·통신 고장 주입 모드는 <a href="../pages/adv_scenarios_ai.html#full-trigger-list">시나리오·고장 가이드</a>를 참조).
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>전송 방향</th><th>채널 구분</th><th>주기</th><th>전달 데이터 필드 및 단위 규격</th></tr></thead>
+    <tbody><tr><td><strong>시뮬레이터 → SUT</strong></td><td>3D LiDAR 점군</td><td><code>10 ~ 20 Hz</code></td><td>센서 기준 3차원 직교 좌표 <code>(x, y, z) [m]</code> 및 정규화 반사 강도 <code>intensity [0~255]</code> 배열</td></tr><tr><td><strong>시뮬레이터 → SUT</strong></td><td>전방 영상 &amp; 교통신호(SPaT)</td><td><code>20 Hz</code></td><td>RGB 영상 프레임 배열, 접근 교차로 유효 현시 코드 및 현시 잔여시간 <code>[s]</code></td></tr><tr><td><strong>시뮬레이터 → SUT</strong></td><td>전방 레이더 &amp; 후측방(BSD)</td><td><code>20 Hz</code></td><td>검출 타겟별 상대거리 <code>[m]</code> · 상대속도 <code>[m/s]</code> 리스트, 좌·우 차로 점유 불리언 플래그</td></tr><tr><td><strong>시뮬레이터 → SUT</strong></td><td>측위 · 관성 상태</td><td><code>20 Hz</code></td><td>경위도 <code>[deg]</code>, 국소 평면좌표 <code>(X, Y, Z) [m]</code>, RTK 상태 코드, 3축 자세 <code>[rad]</code> · 각속도 <code>[rad/s]</code></td></tr><tr><td><strong>시뮬레이터 → SUT</strong></td><td>노변 인프라(V2I) 메시지</td><td><code>10 Hz</code></td><td>구간 기상·노면 ODD 상태 코드, 교차로 위험 감속 권고 속도 <code>[km/h]</code> 및 무선 링크 유효 플래그</td></tr><tr><td><strong>SUT → 시뮬레이터</strong></td><td>종·횡방향 구동 명령</td><td><code>20 Hz</code></td><td>목표 조향핸들각 <code>[0.1° 단위]</code>, 목표 속도 <code>[km/h]</code> 또는 목표 가감속도 <code>[m/s²]</code>, 비상제동(AEB) 플래그</td></tr><tr><td><strong>SUT → 시뮬레이터</strong></td><td>등화 · 안전 운용 상태</td><td><code>20 Hz</code></td><td>좌·우 방향지시등 및 비상등 점등 플래그, 자체 진단 ODD 적합 여부, 활성 폴백 등급(<code>Type 0~3</code>)</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="fallback-check-criteria">3. 고장 및 ODD 이탈 시 안전 폴백(DDT Fallback) 확인 항목</h2>
+<ul>
+  <li><strong>Type 1 — 기능 저하 감속 운행 (Degraded Mode):</strong> 약우·약안개·인프라 무선 단절 등 조건부 운행 구간에서 제한 속도(예: 30 km/h 이하)로 감속 주행하는지 확인합니다.</li>
+  <li><strong>Type 2 — 제어권 전환 요청 (TOR):</strong> 단일 센서 고장 또는 기상 한계 초과 시 비상등을 점등하고 서행하면서 운전자 개입을 요청하며, 제한 시간(예: 5초) 내 수동 개입이 없을 때 3단계 비상정지로 전환하는지 확인합니다.</li>
+  <li><strong>Type 3 — 최소위험기동 비상정지 (MRM):</strong> 복합 센서 장애, 제어 통신 단절, 측위 급변, 결빙 노면 발생 시 즉시 차로 내 정차를 수행하는지 확인합니다.</li>
+</ul>
+
+<h2 id="standard-scenario-package">4. 국제표준 연계 논리 유즈케이스 패키지 구조</h2>
+<p>
+  정밀도로지도와 목표 경로를 기반으로 도출되는 논리 유즈케이스 데이터는 정량 검증 프로그램(Tab 3)과 호환되는 <strong>JSON 요약 명세서 + 10Hz(9.0초, 91스텝) 객체 기준 궤적 CSV</strong> 형식으로 관리되며 아래 4개 표준 항목을 포함합니다:
+</p>
+<ol>
+  <li><strong>ISO 34501 계층 분류:</strong> Functional → Abstract → Logical → Concrete 단계별 시나리오 정의.</li>
+  <li><strong>IEEE Std 2846 운동학 가정:</strong> 주변 차량·보행자·이륜차의 속도·가감속·반응시간 파라미터 범위.</li>
+  <li><strong>AVSC 00008 행동역량 매핑:</strong> 해당 시나리오가 평가하는 행동역량(<code>RI-1~4</code>, <code>DC-1~4</code>) 및 연계 KPI 번호.</li>
+  <li><strong>AVSC 00006 안전 기준 시각:</strong> 위험 객체 가시선 확보 시점(OEDR 기준 시각 <code>t₀</code>) 및 TTC·THW·RSS 판정 기준.</li>
+</ol>
+
+<div class="fig-block">
+  <img src="../assets/img/tech/ucd_fig2_real_road_multi_district_gallery.png" alt="그림 2. 권역별 정밀도로지도와 주행 경로 위에서 도출된 다중 에이전트 논리 유즈케이스 예시." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 권역별 정밀도로지도와 주행 경로 위에서 도출된 다중 에이전트 논리 유즈케이스 예시.</div>
+</div>
+
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/adv_scenarios_ai.html" class="btn-neutral" rel="prev">← 시나리오 · 고장 · ODD 시험 가이드</a>
+          <a href="../pages/eval_3tier_db.html" class="btn-neutral" rel="next">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

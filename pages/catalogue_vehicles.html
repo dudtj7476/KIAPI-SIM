@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>차량 · 모빌리티 · 보행자 · 장애물 카탈로그 (Vehicles, Mobility &amp; Pedestrians) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1 current"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>World &amp; Assets · 월드 및 에셋</span>
+              <span>»</span>
+              <strong>차량 · 모빌리티 · 보행자 카탈로그</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Blueprint Catalogue</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>차량 · 모빌리티 · 보행자 · 장애물 카탈로그 (Vehicles, Mobility &amp; Pedestrians)</h1>
+          <p class="page-lead">시뮬레이션에서 자차(Ego) 및 주변 교통 객체로 배치할 수 있는 자율주행 시험차 3종, 국내 4륜 차종 32종, 한국형 이륜·PM·특수 모빌리티 10종, Euro NCAP/KNCAP 기준 한국형 보행자 8종 및 해외 차종 17종의 제원을 안내합니다.</p>
+          
+
+<div class="fig-block">
+  <img src="../assets/img/vehicles/korean_fleet_35_mosaic.jpg" alt="그림 1. 시뮬레이터에 등록된 국내 4륜 차량 블루프린트 35종 전체 목록 (자율주행 시험차량 3종 + 일반·상용·긴급 차량 32종)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 시뮬레이터에 등록된 국내 4륜 차량 블루프린트 35종 전체 목록 (자율주행 시험차량 3종 + 일반·상용·긴급 차량 32종).</div>
+</div>
+
+
+<h2 id="korean-vehicle-blueprints">1. 국내 4륜 차량 블루프린트 목록 (35종 · 클릭 시 이미지 확대)</h2>
+<p>
+  Tab 2 상단 <code>차량</code> 드롭다운(자차 선택) 및 우측 수동 타겟 배치 창, 주변 교통류 생성기에서 사용되는 35종의 국내 4륜 차량 모델입니다. 모든 차량은 차급별 실측 외형 치수(경차 ~ 12m 대형 버스), 4륜 회전·조향·서스펜션 골격, 국내 규격 번호판(일반 백색·전기차 청색·영업용 황색), 그리고 카메라·라이다 객체 분할 라벨(<code>Car / Truck / Bus</code>)을 갖추고 있습니다.
+</p>
+
+<div class="filter-toolbar" data-filter-scope="veh-cat">
+  <button class="filter-btn active" type="button" data-filter-cat="all">전체 (35)</button>
+  <button class="filter-btn" type="button" data-filter-cat="ego">시험차량 Ego (3)</button>
+  <button class="filter-btn" type="button" data-filter-cat="sedan">세단 · 택시 (6)</button>
+  <button class="filter-btn" type="button" data-filter-cat="ev_suv">전기차 · SUV (13)</button>
+  <button class="filter-btn" type="button" data-filter-cat="mpv_kei">승합 · 경차 (5)</button>
+  <button class="filter-btn" type="button" data-filter-cat="commercial">화물 · 버스 · 긴급 (9)</button>
+  <span class="badge badge-blue" data-filter-count>35 / 35</span>
+  <input class="filter-input" type="text" data-filter-input placeholder="차량명 · Blueprint ID 검색..." />
+</div>
+
+<div class="vehicle-grid">
+  
+  <div class="vehicle-card ego-highlight" data-filter-target="veh-cat" data-cat="ego">
+    <img src="../assets/img/vehicles/vehicle_kiapi_ioniq5.jpg" alt="현대 아이오닉 5 (시험차)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">시험차량 (Ego)</span></div>
+      <h4>현대 아이오닉 5 (시험차)</h4>
+      <div class="vehicle-bp">vehicle.kiapi.ioniq5</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.68 × 2.17 × 2.40 m</code><br/>
+        루프 센서 마운트(LiDAR·Camera) 구성 기본 자차 모델
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card ego-highlight" data-filter-target="veh-cat" data-cat="ego">
+    <img src="../assets/img/vehicles/vehicle_kiapi_ioniq_q.jpg" alt="현대 아이오닉 일렉트릭 (IONIQ Q)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">시험차량 (Ego)</span></div>
+      <h4>현대 아이오닉 일렉트릭 (IONIQ Q)</h4>
+      <div class="vehicle-bp">vehicle.kiapi.ioniq_q</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.62 × 2.07 × 1.91 m</code><br/>
+        실차 계측 기반 14-DOF 동역학 모델 연동 자차 모델
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card ego-highlight" data-filter-target="veh-cat" data-cat="ego">
+    <img src="../assets/img/vehicles/vehicle_kiapi_avante.jpg" alt="현대 아반떼 CN7 (시험차)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">시험차량 (Ego)</span></div>
+      <h4>현대 아반떼 CN7 (시험차)</h4>
+      <div class="vehicle-bp">vehicle.kiapi.avante</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.78 × 2.14 × 1.84 m</code><br/>
+        준중형 세단 자율주행 시험용 자차 모델
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="sedan">
+    <img src="../assets/img/vehicles/vehicle_korean_grandeur.jpg" alt="현대 그랜저 IG" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">승용 세단</span></div>
+      <h4>현대 그랜저 IG</h4>
+      <div class="vehicle-bp">vehicle.korean.grandeur</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.02 × 2.06 × 1.47 m</code><br/>
+        준대형 승용 세단 (4륜 서스펜션 리깅)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="sedan">
+    <img src="../assets/img/vehicles/vehicle_korean_avante.jpg" alt="현대 아반떼 CN7" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">승용 세단</span></div>
+      <h4>현대 아반떼 CN7</h4>
+      <div class="vehicle-bp">vehicle.korean.avante</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.78 × 2.14 × 1.84 m</code><br/>
+        준중형 일반 승용 세단
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="sedan">
+    <img src="../assets/img/vehicles/vehicle_korean_sonata_dn8.jpg" alt="현대 쏘나타 (DN8)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">승용 세단</span></div>
+      <h4>현대 쏘나타 (DN8)</h4>
+      <div class="vehicle-bp">vehicle.korean.sonata_dn8</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.96 × 1.96 × 1.44 m</code><br/>
+        중형 승용 세단
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="sedan">
+    <img src="../assets/img/vehicles/vehicle_korean_k5.jpg" alt="기아 K5 (DL3)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">승용 세단</span></div>
+      <h4>기아 K5 (DL3)</h4>
+      <div class="vehicle-bp">vehicle.korean.k5</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.95 × 1.98 × 1.45 m</code><br/>
+        중형 패스트백 세단
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="sedan">
+    <img src="../assets/img/vehicles/vehicle_korean_genesis_g80.jpg" alt="제네시스 G80 (RG3)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-purple">대형 세단</span></div>
+      <h4>제네시스 G80 (RG3)</h4>
+      <div class="vehicle-bp">vehicle.korean.genesis_g80</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.04 × 2.04 × 1.46 m</code><br/>
+        대형 승용 세단
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="sedan commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_sonata_taxi.jpg" alt="현대 쏘나타 중형택시" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">영업용 택시</span></div>
+      <h4>현대 쏘나타 중형택시</h4>
+      <div class="vehicle-bp">vehicle.korean.sonata_taxi</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.95 × 1.98 × 1.56 m</code><br/>
+        루프 택시 표시등 장착 도심 영업용 세단
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_ioniq5.jpg" alt="현대 아이오닉 5 (일반형)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">전기차 (EV)</span></div>
+      <h4>현대 아이오닉 5 (일반형)</h4>
+      <div class="vehicle-bp">vehicle.korean.ioniq5</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.68 × 2.17 × 1.61 m</code><br/>
+        준중형 전기 크로스오버
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_ioniq6.jpg" alt="현대 아이오닉 6" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">전기차 (EV)</span></div>
+      <h4>현대 아이오닉 6</h4>
+      <div class="vehicle-bp">vehicle.korean.ioniq6</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.90 × 1.98 × 1.50 m</code><br/>
+        중형 전기 세단
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_ev6.jpg" alt="기아 EV6" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">전기차 (EV)</span></div>
+      <h4>기아 EV6</h4>
+      <div class="vehicle-bp">vehicle.korean.ev6</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.71 × 1.98 × 1.55 m</code><br/>
+        전기 크로스오버 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_genesis_gv80.jpg" alt="제네시스 GV80" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-purple">대형 SUV</span></div>
+      <h4>제네시스 GV80</h4>
+      <div class="vehicle-bp">vehicle.korean.genesis_gv80</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.97 × 2.10 × 1.71 m</code><br/>
+        준대형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_genesis_gv70.jpg" alt="제네시스 GV70" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-purple">중형 SUV</span></div>
+      <h4>제네시스 GV70</h4>
+      <div class="vehicle-bp">vehicle.korean.genesis_gv70</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.74 × 2.02 × 1.63 m</code><br/>
+        중형 도심형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_sorento.jpg" alt="기아 쏘렌토 (MQ4)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">중형 SUV</span></div>
+      <h4>기아 쏘렌토 (MQ4)</h4>
+      <div class="vehicle-bp">vehicle.korean.sorento</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.84 × 2.12 × 1.70 m</code><br/>
+        중형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_santafe_mx5.jpg" alt="현대 싼타페 (MX5)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">중형 SUV</span></div>
+      <h4>현대 싼타페 (MX5)</h4>
+      <div class="vehicle-bp">vehicle.korean.santafe_mx5</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.88 × 2.02 × 1.72 m</code><br/>
+        박스형 중형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_santafe_tm.jpg" alt="현대 싼타페 (TM)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">중형 SUV</span></div>
+      <h4>현대 싼타페 (TM)</h4>
+      <div class="vehicle-bp">vehicle.korean.santafe_tm</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.81 × 2.02 × 1.68 m</code><br/>
+        중형 패밀리 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_palisade.jpg" alt="현대 팰리세이드 (LX2)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">대형 SUV</span></div>
+      <h4>현대 팰리세이드 (LX2)</h4>
+      <div class="vehicle-bp">vehicle.korean.palisade</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.02 × 2.10 × 1.75 m</code><br/>
+        대형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_tucson.jpg" alt="현대 투싼 (NX4)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">준중형 SUV</span></div>
+      <h4>현대 투싼 (NX4)</h4>
+      <div class="vehicle-bp">vehicle.korean.tucson</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.67 × 1.98 × 1.66 m</code><br/>
+        준중형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_sportage.jpg" alt="기아 스포티지 (NQ5)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">준중형 SUV</span></div>
+      <h4>기아 스포티지 (NQ5)</h4>
+      <div class="vehicle-bp">vehicle.korean.sportage</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.69 × 1.98 × 1.66 m</code><br/>
+        준중형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_seltos.jpg" alt="기아 셀토스" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">소형 SUV</span></div>
+      <h4>기아 셀토스</h4>
+      <div class="vehicle-bp">vehicle.korean.seltos</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.42 × 1.90 × 1.60 m</code><br/>
+        소형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="ev_suv">
+    <img src="../assets/img/vehicles/vehicle_korean_torres.jpg" alt="KGM 토레스" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">중형 SUV</span></div>
+      <h4>KGM 토레스</h4>
+      <div class="vehicle-bp">vehicle.korean.torres</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.72 × 2.00 × 1.72 m</code><br/>
+        중형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="mpv_kei">
+    <img src="../assets/img/vehicles/vehicle_korean_carnival.jpg" alt="기아 카니발 (KA4)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">대형 MPV</span></div>
+      <h4>기아 카니발 (KA4)</h4>
+      <div class="vehicle-bp">vehicle.korean.carnival</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.16 × 2.08 × 1.77 m</code><br/>
+        대형 다인승 미니밴
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="mpv_kei">
+    <img src="../assets/img/vehicles/vehicle_korean_staria.jpg" alt="현대 스타리아" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">승합 밴</span></div>
+      <h4>현대 스타리아</h4>
+      <div class="vehicle-bp">vehicle.korean.staria</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.28 × 2.10 × 1.99 m</code><br/>
+        대형 승합 밴
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="mpv_kei">
+    <img src="../assets/img/vehicles/vehicle_korean_ray.jpg" alt="기아 레이" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">경차</span></div>
+      <h4>기아 레이</h4>
+      <div class="vehicle-bp">vehicle.korean.ray</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>3.65 × 1.72 × 1.70 m</code><br/>
+        소형 객체 인지 검증용 경형 박스카
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="mpv_kei">
+    <img src="../assets/img/vehicles/vehicle_korean_casper.jpg" alt="현대 캐스퍼" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">경형 SUV</span></div>
+      <h4>현대 캐스퍼</h4>
+      <div class="vehicle-bp">vehicle.korean.casper</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>3.65 × 1.70 × 1.57 m</code><br/>
+        경형 소형 SUV
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="mpv_kei">
+    <img src="../assets/img/vehicles/vehicle_korean_morning.jpg" alt="기아 모닝" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">경차</span></div>
+      <h4>기아 모닝</h4>
+      <div class="vehicle-bp">vehicle.korean.morning</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>3.62 × 1.70 × 1.49 m</code><br/>
+        경형 해치백
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_porter2_cargo.jpg" alt="현대 포터 II 1톤 카고" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">소형 화물</span></div>
+      <h4>현대 포터 II 1톤 카고</h4>
+      <div class="vehicle-bp">vehicle.korean.porter2_cargo</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.21 × 2.02 × 1.97 m</code><br/>
+        1톤 소형 화물트럭 (후륜 복륜)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_porter2_box.jpg" alt="현대 포터 II 1톤 탑차" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">소형 탑차</span></div>
+      <h4>현대 포터 II 1톤 탑차</h4>
+      <div class="vehicle-bp">vehicle.korean.porter2_box</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.23 × 1.98 × 2.48 m</code><br/>
+        전방 시야 차폐(Occlusion) 시험용 소형 탑차
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_mighty_wingbody.jpg" alt="현대 파비스/마이티 5톤 윙바디" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">중형 화물</span></div>
+      <h4>현대 파비스/마이티 5톤 윙바디</h4>
+      <div class="vehicle-bp">vehicle.korean.mighty_wingbody</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>7.83 × 2.38 × 3.25 m</code><br/>
+        산업단지·간선도로 중형 화물차
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_daegu_bus.jpg" alt="현대 슈퍼에어로시티 시내버스" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">시내버스</span></div>
+      <h4>현대 슈퍼에어로시티 시내버스</h4>
+      <div class="vehicle-bp">vehicle.korean.daegu_bus</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>10.63 × 2.75 × 3.18 m</code><br/>
+        도심 정류장 정차·차선변경 시험용 대형 시내버스
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_express_bus.jpg" alt="현대 유니버스 고속·통근버스" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">대형버스</span></div>
+      <h4>현대 유니버스 고속·통근버스</h4>
+      <div class="vehicle-bp">vehicle.korean.express_bus</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>12.02 × 2.68 × 3.48 m</code><br/>
+        전장 12m 대형 버스
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_county_schoolbus.jpg" alt="현대 카운티 어린이통학버스" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">어린이통학버스</span></div>
+      <h4>현대 카운티 어린이통학버스</h4>
+      <div class="vehicle-bp">vehicle.korean.county_schoolbus</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>7.11 × 2.24 × 2.75 m</code><br/>
+        보호구역·주정차 시나리오용 중형 통학버스
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_police_sonata.jpg" alt="경찰 순찰차 (쏘나타)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-red">긴급차량</span></div>
+      <h4>경찰 순찰차 (쏘나타)</h4>
+      <div class="vehicle-bp">vehicle.korean.police_sonata</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>4.94 × 1.98 × 1.62 m</code><br/>
+        사고 현장 통제·긴급차량 대응 시험용
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="veh-cat" data-cat="commercial">
+    <img src="../assets/img/vehicles/vehicle_korean_ambulance_119.jpg" alt="119 소방 구급차 (스타리아)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-red">긴급차량</span></div>
+      <h4>119 소방 구급차 (스타리아)</h4>
+      <div class="vehicle-bp">vehicle.korean.ambulance_119</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>5.28 × 2.08 × 2.38 m</code><br/>
+        긴급차량 진로 양보 시나리오용 구급차
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="korean-mobility-blueprints">2. 한국형 이륜 · PM · 특수 모빌리티 (10종)</h2>
+<p>
+  국내 도로 시험용 배달 이륜차, 도심 스쿠터, 스포츠 바이크, 자전거, 전동킥보드(PM), 세그웨이, 고령자 전동보장구 및 대동 경운기 10종입니다. 각 모델은 <code>Motorcycle / Bicycle / Truck</code> 시맨틱 라벨을 지원하며, 전용 다물체 동역학 수식은 <a href="../pages/core_vehicle_dynamics.html#mobility-rk4-dynamics">차량·모빌리티 물리 모델 3절</a>에서 다룹니다.
+</p>
+
+<div class="fig-block">
+  <img src="../assets/img/vehicles/korean_mobility_10_mosaic.jpg" alt="그림 2. 한국형 이륜 · PM · 특수 모빌리티 10종 전체 목록." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 한국형 이륜 · PM · 특수 모빌리티 10종 전체 목록.</div>
+</div>
+
+
+<div class="filter-toolbar" data-filter-scope="mob-cat">
+  <button class="filter-btn active" type="button" data-filter-cat="all">전체 (10)</button>
+  <button class="filter-btn" type="button" data-filter-cat="moto">이륜차 (4)</button>
+  <button class="filter-btn" type="button" data-filter-cat="pm">자전거 · PM (4)</button>
+  <button class="filter-btn" type="button" data-filter-cat="special">전동보장구 · 경운기 (2)</button>
+  <span class="badge badge-blue" data-filter-count>10 / 10</span>
+  <input class="filter-input" type="text" data-filter-input placeholder="모빌리티명 · Blueprint ID 검색..." />
+</div>
+
+<div class="vehicle-grid">
+  
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="moto">
+    <img src="../assets/img/vehicles/vehicle_korean_pcx_delivery.jpg" alt="혼다 PCX125 배달 오토바이" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-red">배달 이륜차</span></div>
+      <h4>혼다 PCX125 배달 오토바이</h4>
+      <div class="vehicle-bp">vehicle.korean.pcx_delivery</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.79 × 0.74 × 1.56 m</code><br/>
+        배달 이륜차 (2륜 · 최고 105 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="moto">
+    <img src="../assets/img/vehicles/vehicle_korean_supercub_delivery.jpg" alt="혼다 슈퍼커브 110 배달 오토바이" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-red">배달 이륜차</span></div>
+      <h4>혼다 슈퍼커브 110 배달 오토바이</h4>
+      <div class="vehicle-bp">vehicle.korean.supercub_delivery</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.78 × 0.71 × 1.54 m</code><br/>
+        배달 이륜차 (2륜 · 최고 85 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="moto">
+    <img src="../assets/img/vehicles/vehicle_korean_scooter_pcx.jpg" alt="혼다 PCX125 스쿠터" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">도심 스쿠터</span></div>
+      <h4>혼다 PCX125 스쿠터</h4>
+      <div class="vehicle-bp">vehicle.korean.scooter_pcx</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.60 × 0.77 × 1.52 m</code><br/>
+        도심 통근 스쿠터 (2륜 · 최고 105 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="moto">
+    <img src="../assets/img/vehicles/vehicle_korean_naked_bike.jpg" alt="300cc 네이키드 오토바이" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">스포츠 바이크</span></div>
+      <h4>300cc 네이키드 오토바이</h4>
+      <div class="vehicle-bp">vehicle.korean.naked_bike</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.89 × 0.70 × 1.48 m</code><br/>
+        스포츠 이륜차 (2륜 · 최고 145 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="pm">
+    <img src="../assets/img/vehicles/vehicle_korean_city_bicycle.jpg" alt="공영 시티 자전거" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">공영 자전거</span></div>
+      <h4>공영 시티 자전거</h4>
+      <div class="vehicle-bp">vehicle.korean.city_bicycle</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.56 × 0.63 × 1.64 m</code><br/>
+        도심 생활 자전거 (2륜 · 최고 25 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="pm">
+    <img src="../assets/img/vehicles/vehicle_korean_ebike_delivery.jpg" alt="배달 전기자전거" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">배달 전기자전거</span></div>
+      <h4>배달 전기자전거</h4>
+      <div class="vehicle-bp">vehicle.korean.ebike_delivery</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.68 × 0.63 × 1.60 m</code><br/>
+        PAS 전기자전거 (2륜 · 최고 25 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="pm">
+    <img src="../assets/img/vehicles/vehicle_korean_kickboard.jpg" alt="공유 전동킥보드" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">전동킥보드</span></div>
+      <h4>공유 전동킥보드</h4>
+      <div class="vehicle-bp">vehicle.korean.kickboard</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.27 × 0.63 × 1.78 m</code><br/>
+        개인형 이동장치 PM (2륜 · 최고 25 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="pm">
+    <img src="../assets/img/vehicles/vehicle_korean_segway.jpg" alt="세그웨이 PT" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">자립형 PM</span></div>
+      <h4>세그웨이 PT</h4>
+      <div class="vehicle-bp">vehicle.korean.segway</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>0.57 × 0.73 × 1.82 m</code><br/>
+        동축 2륜 자립형 PM (최고 20 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="special">
+    <img src="../assets/img/vehicles/vehicle_korean_mobility_scooter.jpg" alt="고령자 전동스쿠터" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">전동보장구</span></div>
+      <h4>고령자 전동스쿠터</h4>
+      <div class="vehicle-bp">vehicle.korean.mobility_scooter</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>1.40 × 0.71 × 1.42 m</code><br/>
+        4륜 전동보장구 (최고 15 km/h)
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="mob-cat" data-cat="special">
+    <img src="../assets/img/vehicles/vehicle_korean_cultivator.jpg" alt="대동 경운기" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">농기계</span></div>
+      <h4>대동 경운기</h4>
+      <div class="vehicle-bp">vehicle.korean.cultivator</div>
+      <div class="vehicle-meta">
+        <strong>크기(전장×전폭×전고):</strong> <code>3.65 × 1.23 × 1.54 m</code><br/>
+        트레일러 결합 농기계 (4륜 · 최고 18 km/h)
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fig-block fig-compact">
+  <img src="../assets/img/figures/fig_mobility_wheels_spin.jpg" alt="그림 3. 한국형 모빌리티 10종 바퀴 회전 · 조향 · 노면 접지 검증." loading="lazy" />
+  <div class="fig-caption"><strong>그림 3.</strong> 한국형 모빌리티 10종 바퀴 회전 · 조향 · 노면 접지 검증.</div>
+</div>
+
+
+<h2 id="korean-pedestrian-blueprints">3. 연령대별 한국형 보행자 NPC (8종 · NCAP 기준)</h2>
+<p>
+  Euro NCAP / KNCAP (ISO 19206-2) 체형·속도 기준(어린이 <code>EPTc 1.18 m</code> ~ 성인 <code>EPTa 1.78 m</code>)을 반영한 한국형 보행자 8종입니다. 모든 모델은 <code>Pedestrians</code> 시맨틱 라벨과 보행·주행 애니메이션을 지원합니다.
+</p>
+
+<div class="fig-block">
+  <img src="../assets/img/vehicles/korean_walkers_8_mosaic.jpg" alt="그림 4. Euro NCAP / KNCAP 기준 연령대별 한국형 보행자 NPC 8종 목록." loading="lazy" />
+  <div class="fig-caption"><strong>그림 4.</strong> Euro NCAP / KNCAP 기준 연령대별 한국형 보행자 NPC 8종 목록.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_ncap_walkers8_lineup.jpg" alt="그림 5. 한국형 보행자 8종 신장 비교 (EPTc 1.18 m ~ EPTa 1.78 m)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 5.</strong> 한국형 보행자 8종 신장 비교 (<code>EPTc 1.18 m</code> ~ <code>EPTa 1.78 m</code>).</div>
+</div>
+
+
+<div class="filter-toolbar" data-filter-scope="walk-cat">
+  <button class="filter-btn active" type="button" data-filter-cat="all">전체 (8)</button>
+  <button class="filter-btn" type="button" data-filter-cat="youth">어린이 · 학생 (3)</button>
+  <button class="filter-btn" type="button" data-filter-cat="adult">성인 (2)</button>
+  <button class="filter-btn" type="button" data-filter-cat="special">고령자 · 작업자 · 배달원 (3)</button>
+  <span class="badge badge-blue" data-filter-count>8 / 8</span>
+  <input class="filter-input" type="text" data-filter-input placeholder="보행자 · NCAP · Blueprint ID 검색..." />
+</div>
+
+<div class="vehicle-grid">
+  
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="youth">
+    <img src="../assets/img/vehicles/walker_korean_child.jpg" alt="초등학생" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-red">NCAP EPTc · 어린이</span></div>
+      <h4>초등학생</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_child</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.18 m</code> · <strong>속도:</strong> <code>5.0 / 8.0 km/h</code><br/>
+        어린이보호구역 횡단·돌출(EPTc) 기준 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="youth">
+    <img src="../assets/img/vehicles/walker_korean_student.jpg" alt="남고생" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">청소년</span></div>
+      <h4>남고생</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_student</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.72 m</code> · <strong>속도:</strong> <code>5.2 / 15.1 km/h</code><br/>
+        교복 착용 청소년 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="youth">
+    <img src="../assets/img/vehicles/walker_korean_student_f.jpg" alt="여고생" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-blue">청소년</span></div>
+      <h4>여고생</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_student_f</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.62 m</code> · <strong>속도:</strong> <code>5.0 / 13.7 km/h</code><br/>
+        교복 착용 청소년 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="adult">
+    <img src="../assets/img/vehicles/walker_korean_office_m.jpg" alt="성인 남성 (직장인)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">NCAP EPTa · 성인</span></div>
+      <h4>성인 남성 (직장인)</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_office_m</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.78 m</code> · <strong>속도:</strong> <code>5.0 / 13.0 km/h</code><br/>
+        성인 표준(EPTa) 도심 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="adult">
+    <img src="../assets/img/vehicles/walker_korean_office_f.jpg" alt="성인 여성 (직장인)" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-dark">성인</span></div>
+      <h4>성인 여성 (직장인)</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_office_f</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.65 m</code> · <strong>속도:</strong> <code>4.8 / 11.9 km/h</code><br/>
+        도심 일반 성인 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="special">
+    <img src="../assets/img/vehicles/walker_korean_elderly.jpg" alt="고령 보행자" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-amber">고령자</span></div>
+      <h4>고령 보행자</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_elderly</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.62 m</code> · <strong>속도:</strong> <code>3.1 / 5.2 km/h</code><br/>
+        지팡이 휴대 저속 횡단 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="special">
+    <img src="../assets/img/vehicles/walker_korean_worker.jpg" alt="도로 작업자" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">현장 작업자</span></div>
+      <h4>도로 작업자</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_worker</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.78 m</code> · <strong>속도:</strong> <code>4.3 / 10.1 km/h</code><br/>
+        안전모·반사조끼 착용 공사구간 보행자
+      </div>
+    </div>
+  </div>
+  <div class="vehicle-card" data-filter-target="walk-cat" data-cat="special">
+    <img src="../assets/img/vehicles/walker_korean_delivery_walker.jpg" alt="도심 배달원" loading="lazy" />
+    <div class="vehicle-card-body">
+      <div><span class="badge badge-green">배달원</span></div>
+      <h4>도심 배달원</h4>
+      <div class="vehicle-bp">walker.pedestrian.korean_delivery_walker</div>
+      <div class="vehicle-meta">
+        <strong>신장:</strong> <code>1.77 m</code> · <strong>속도:</strong> <code>5.6 / 14.4 km/h</code><br/>
+        헬멧·배달가방 착용 도보 배달원
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fig-block fig-compact">
+  <img src="../assets/img/figures/fig_walkers_stride_motion.jpg" alt="그림 6. 한국형 보행자 8종 보행·주행 동작 및 소품 추종 검증." loading="lazy" />
+  <div class="fig-caption"><strong>그림 6.</strong> 한국형 보행자 8종 보행·주행 동작 및 소품 추종 검증.</div>
+</div>
+
+
+<h2 id="standard-vehicle-blueprints">4. 기본 해외 차량 블루프린트 목록 (17종)</h2>
+<p>
+  배경 교통류 자동 생성 시에는 국내 실도로 차종 통계를 반영하여 국내 민간·상용 차종 32종(84%)과 아래 해외 표준 차종 17종(16%)이 가중 혼합 스폰됩니다(<a href="../pages/core_hybrid_traffic.html#multilane-spawn-topology">주변 교통류 생성 1절</a> 참조).
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>차량 명칭</th><th>Blueprint ID</th><th>비고</th></tr></thead>
+    <tbody><tr><td><strong>링컨 MKZ 세단 (Lincoln MKZ)</strong></td><td><code>vehicle.lincoln.mkz</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>미니 쿠퍼 (Mini Cooper)</strong></td><td><code>vehicle.mini.cooper</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>닷지 차저 (Dodge Charger)</strong></td><td><code>vehicle.dodge.charger</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>닷지 차저 경찰차 (Dodge Police)</strong></td><td><code>vehicle.dodgecop.charger</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>닛산 패트롤 SUV (Nissan Patrol)</strong></td><td><code>vehicle.nissan.patrol</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>포드 크라운 택시 (Ford Taxi)</strong></td><td><code>vehicle.taxi.ford</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>벤츠 스프린터 밴 (Mercedes Sprinter)</strong></td><td><code>vehicle.sprinter.mercedes</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>미쓰비시 로사 버스 (Mitsubishi Bus)</strong></td><td><code>vehicle.fuso.mitsubishi</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>포드 구급차 (Ford Ambulance)</strong></td><td><code>vehicle.ambulance.ford</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>악트로스 소방차 (Actros Firetruck)</strong></td><td><code>vehicle.firetruck.actors</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>칼라콜라 대형트럭 (CarlaCola Truck)</strong></td><td><code>vehicle.carlacola.actors</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>포드 머스탱 (UE4 Ford Mustang)</strong></td><td><code>vehicle.ue4.ford.mustang</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>포드 크라운 (UE4 Ford Crown)</strong></td><td><code>vehicle.ue4.ford.crown</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>BMW 그란투어러 (UE4 BMW GranTourer)</strong></td><td><code>vehicle.ue4.bmw.grantourer</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>아우디 TT (UE4 Audi TT)</strong></td><td><code>vehicle.ue4.audi.tt</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>벤츠 CCC (UE4 Mercedes CCC)</strong></td><td><code>vehicle.ue4.mercedes.ccc</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr><tr><td><strong>쉐보레 임팔라 (UE4 Chevrolet Impala)</strong></td><td><code>vehicle.ue4.chevrolet.impala</code></td><td>기본 내장 해외 차종 (주변 교통류 16% 혼합 및 수동 배치 지원)</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="pedestrians-cyclists-obstacles">5. 도로 작업 · 사고 장애물 객체 (Props)</h2>
+<ul>
+  <li><strong>도로 장애물 (Props):</strong> 라바콘(안전 삼각뿔), 바리케이드, 정차·사고 차량 객체 등을 조합해 차로 축소, 공사 구간 및 긴급 회피 기동 시험을 구성합니다.</li>
+</ul>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/core_korean_streetscape.html" class="btn-neutral" rel="prev">← 신호등 · 표지판 · 가로등 · 특수노면</a>
+          <a href="../pages/core_vehicle_dynamics.html" class="btn-neutral" rel="next">차량 · 모빌리티 물리 모델 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

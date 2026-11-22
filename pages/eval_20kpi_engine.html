@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정량 검증 프로그램(Tab 3) 사용법 및 20-KPI 판정 기준 — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1 current"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Verification Guide · 검증 프로그램 사용법</span>
+              <span>»</span>
+              <strong>[Tab 3] 20-KPI 정량 검증 매뉴얼</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Tab 3 User Guide</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>정량 검증 프로그램(Tab 3) 사용법 및 20-KPI 판정 기준</h1>
+          <p class="page-lead">실도로 주행 데이터 또는 20Hz 시뮬레이션 기록에 대해 AVSC 00008 8대 행동역량 및 UN R157 · RSS 기반 20개 안전 평가지표(KPI 01~20)를 평가하고, 12축 레이더 차트·시계열 동기화·질의응답 콘솔을 활용하는 방법을 안내합니다.</p>
+          
+
+<div class="fig-block">
+  <img src="../assets/img/ui/ui_tab3_evaluation.png" alt="그림 1. [Tab 3: 정량 검증] 화면 — 상단 데이터 로더, 좌측 식별 이벤트·정량 결과·시계열 분석 탭, 우측 동기화 2D 궤적 재생기, 하단 행동역량 매핑 및 질의응답 콘솔." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> [Tab 3: 정량 검증] 화면 — 상단 데이터 로더, 좌측 식별 이벤트·정량 결과·시계열 분석 탭, 우측 동기화 2D 궤적 재생기, 하단 행동역량 매핑 및 질의응답 콘솔.</div>
+</div>
+
+
+<h2 id="tab3-usage-steps">1. 정량 검증 화면(Tab 3) 사용 방법 및 동기화 리플레이 뷰어 명세</h2>
+<ol>
+  <li><strong>주행 기록 로드:</strong> Tab 1·Tab 2에서 <code>[정량 검증 →]</code>으로 전달받거나, 상단 바에서 <code>실도로 수집 DB</code> 이벤트 또는 <code>20Hz 시뮬레이션</code> 저장 파일을 선택해 <code>[불러오기]</code>(또는 <code>[파일 열기...]</code>)를 클릭합니다.</li>
+  <li><strong>이벤트 목록 · 레이더 · 시계열 파형 동기화 분석:</strong>
+    <ul>
+      <li><code>[식별 이벤트]</code> 탭의 위반 행을 클릭하면 우측 2D 지도 재생기가 해당 발생 구간으로 이동하며, <code>[▶ 재생]</code> 및 프레임 슬라이더로 위반 전후 궤적과 물리량을 확인합니다.</li>
+      <li><code>[정량 평가 결과]</code> 탭에서는 20개 KPI 집계표와 12축 레이더 차트를 확인합니다.</li>
+      <li><code>[시계열 분석]</code> 탭에서는 파형 패널 수(<code>1~6개</code>)를 지정해 전 구간 그래프를 열람하며, <strong>붉은 반투명 위반 구간이나 그래프의 특정 시점을 클릭하면 우측 2D 지도 재생기가 해당 프레임으로 동기화 이동</strong>합니다.</li>
+    </ul>
+  </li>
+  <li><strong>행동역량 매핑 조회 및 질의응답 콘솔:</strong> 하단 <code>[RI-1] ~ [DC-4]</code> 버튼으로 역량별 세부 내역을 필터링하거나, <code>■ 정량 진단 질의응답 콘솔</code>(<code>[질의 실행]</code>)에서 평가 수치 기반 원인 질의를 수행할 수 있습니다. 결과 요약표는 <code>[CSV 내보내기]</code>로 저장하거나 <code>[검증 보고서 생성 →]</code>으로 Tab 4에 전달합니다.</li>
+</ol>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>Tab 3 리플레이 뷰어 구성 요소</th><th>표시 정보 및 상호작용 방식</th><th>검증 분석 시 활용 포인트</th></tr></thead>
+    <tbody><tr><td><strong>상단 프레임 정량 지표 블랙박스</strong></td><td>현재 재생 프레임의 주행 시각(<code>s</code>), 차속·제한속도, 전방 TTC·THW, 차선·정지선 거리 및 해당 시점 활성 위반 KPI 배지 표시</td><td>위반 시작·종료 경계 프레임에서의 정확한 수치 임계치 초과 여부 판독</td></tr><tr><td><strong>하단 2D 정밀지도 궤적 재생기</strong></td><td>정밀지도 차선·중앙선·보도경계·정지선 도면 위에 <strong>자차 전 구간 주행 궤적 실선</strong>과 현재 프레임의 <strong>자차·주변 타겟 회전 박스(OBB) 및 속도 벡터</strong> 표시</td><td>위반 당시 차선 침범 깊이, 정지선 통과 위치, 끼어들기 차량과의 기하학적 상대 위치 확인</td></tr><tr><td><strong>3방향 양방향 프레임 동기화</strong></td><td>① 좌측 <code>[식별 이벤트]</code> 표 클릭 ↔ ② 우측 상단 위반 이벤트 선택창 ↔ ③ <code>[시계열 분석]</code> 그래프의 적색 위반 음영 구간 클릭 연동</td><td>표·파형·2D 지도 중 어느 곳을 클릭하더라도 동일한 위반 발생 프레임으로 즉시 동기화 이동</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="corridor-projection-and-formulas">2. 곡선 주행회랑 투영 및 동적 지표 산출식</h2>
+<p>
+  곡선 도로에서 인접 차로 차량을 전방 타겟(CIPV)으로 오인하는 현상을 줄이기 위해, 전방 <code>80 m</code> 주행 경로 폴리라인 위로 주변 객체를 투영하여 차로 곡선 거리(<code>s</code>)와 차로 내 횡오프셋(<code>d</code>)을 계산한 뒤 아래 수식을 적용합니다.
+</p>
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_kpi_evaluation_pipeline.png" alt="그림 2. 곡선 도로 주행회랑(s, d) 투영을 통한 선행 타겟(CIPV) 판별 기하(a) 및 AVSC 00008 연계 20-KPI·위반 에피소드 판정 파이프라인(b)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 곡선 도로 주행회랑(s, d) 투영을 통한 선행 타겟(CIPV) 판별 기하(a) 및 AVSC 00008 연계 20-KPI·위반 에피소드 판정 파이프라인(b).</div>
+</div>
+
+
+<div class="math-box">
+  <span class="math-label">동적 안전 평가지표 산출 수식 (UN R157 · RSS · STN · BTN)</span>
+  <div>
+<b>1) UN R157 속도별 최소 차두시간:</b> &nbsp; <i>t</i><sub>front</sub>(<i>v</i><sub>kph</sub>) = interp(<i>v</i><sub>kph</sub>, [7.2, 10, 20, 30, 40, 50, 60] km/h → [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6] s)<br/>
+<b>2) TTC · THW · RSS 여유거리:</b> &nbsp; TTC = <i>s</i><sub>CIPV</sub> / <i>v</i><sub>rel</sub>, &nbsp;&nbsp; THW = <i>s</i><sub>CIPV</sub> / <i>v</i><sub>ego</sub>, &nbsp;&nbsp; <i>M</i><sub>RSS</sub> = <i>d</i><sub>CIPV</sub> − <i>v</i><sub>ego</sub> · <i>t</i><sub>front</sub>(<i>v</i><sub>kph</sub>)<br/>
+<b>3) 조향 회피 위협도 (KPI 19):</b> &nbsp; STN = clip( (6 · <i>v</i><sub>ego</sub><sup>2</sup> / <i>d</i><sup>2</sup>) / 5.0, &nbsp;0.0, &nbsp;5.0 ) &nbsp;&nbsp;(3.0m 횡회피 기준, 횡가속도 한계 5.0 m/s²)<br/>
+<b>4) 제동 회피 위협도 (KPI 20):</b> &nbsp; BTN = clip( (<i>v</i><sub>ego</sub><sup>2</sup> / (2<i>d</i>)) / 8.0, &nbsp;0.0, &nbsp;5.0 ) = clip( <i>v</i><sub>ego</sub><sup>2</sup> / (16<i>d</i>), &nbsp;0.0, &nbsp;5.0 ) &nbsp;&nbsp;(제동 한계 −8.0 m/s²)
+</div>
+</div>
+
+
+<h2 id="avsc-competencies-and-20kpi">3. AVSC 00008 8대 행동역량 및 20-KPI 판정 기준표</h2>
+<p>
+  전체 주행 세션은 20개 KPI 위반 에피소드 합계가 0건일 때 <code>적합 [PASS]</code>, 1건 이상일 때 <code>부적합 [FAIL]</code>로 판정됩니다.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>역량 코드</th><th>AVSC 00008 행동역량 명칭</th><th>연계 평가지표 (KPI)</th><th>핵심 요구 행동 요약</th></tr></thead>
+    <tbody><tr><td><code>RI-1</code></td><td>도로 제한속도 및 차로 경계 준수</td><td>KPI 01, 02, 03, 04</td><td>구간별 법정 속도 준수 및 차선·중앙선·보도 연석 외곽 비침범 유지</td></tr><tr><td><code>RI-2</code></td><td>진로 변경 및 교차로 방향지시 신호 이행</td><td>KPI 07</td><td>회전 및 차로 변경 진입 전 사전 방향지시등 연속 점등(3초 또는 30 m 이상)</td></tr><tr><td><code>RI-3</code></td><td>교차로 통행 우선권 및 통행방법 준수</td><td>KPI 05, 11, 12, 15</td><td>비신호 정지선 일시정지, 좌·우회전 선회 속도 관리 및 정체 시 진입 억제</td></tr><tr><td><code>RI-4</code></td><td>교통약자(어린이) 보호구역 법규 준수</td><td>KPI 06</td><td>어린이보호구역 내 강화 제한속도(30~40 km/h 이하) 엄격 준수</td></tr><tr><td><code>DC-1</code></td><td>보행자 등 취약 도로이용자(VRU) 보호</td><td>KPI 10</td><td>우회전 횡단보도 보행자 검지 시 일시정지 및 안전 통과 대기</td></tr><tr><td><code>DC-2</code></td><td>종방향 추종 안전거리 및 끼어들기 대응</td><td>KPI 08, 09, 13</td><td>선행차 추종 및 끼어들기·이탈 상황에서 요구 TTC·UN R157 차두시간 확보</td></tr><tr><td><code>DC-3</code></td><td>교통신호 및 노면표시 지시 준수</td><td>KPI 14, 16, 17, 18</td><td>차로 진행 방향 화살표 일치 및 적·황·녹색 현시별 정지·진행 판단</td></tr><tr><td><code>DC-4</code></td><td>장애물 비상 조향·제동 회피 여유도 확보</td><td>KPI 19, 20</td><td>전방 급접근 위험 시 타이어·제동 물리 한계 이내의 회피 여유(STN·BTN ≤ 1.0) 유지</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="filter-toolbar" data-filter-scope="kpi-cat">
+  <button class="filter-btn active" type="button" data-filter-cat="all">전체 20개 KPI</button>
+  <button class="filter-btn" type="button" data-filter-cat="ri">RI-1~4 법규·인프라 (9)</button>
+  <button class="filter-btn" type="button" data-filter-cat="dc">DC-1~4 동적 주행·회피 (11)</button>
+  <button class="filter-btn" type="button" data-filter-cat="critical">Critical / Major 항목 (11)</button>
+  <span class="badge badge-blue" data-filter-count>20 / 20</span>
+  <input class="filter-input" type="text" data-filter-input placeholder="KPI 번호 · 지표명 검색..." />
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>KPI</th><th>역량</th><th>평가지표 명칭</th><th>위반 판정 조건 · 면제 규칙 · 최소 지속시간</th><th>심각도 등급</th></tr></thead>
+    <tbody><tr data-filter-target="kpi-cat" data-cat="ri minor"><td><strong>KPI 01</strong></td><td><span class='badge badge-blue'>RI-1</span></td><td><strong>일반 도로 제한속도 준수</strong></td><td>어린이보호구역 외 도로(제한속도 40 km/h 초과): 초과분 1~20 km/h(Minor), 20 km/h 초과(Critical)가 1.0초 이상 연속 지속 시 위반</td><td><span class='badge badge-red'>Minor / Critical</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri minor"><td><strong>KPI 02</strong></td><td><span class='badge badge-blue'>RI-1</span></td><td><strong>차로 유지 (차선 침범 금지)</strong></td><td>5 km/h 이상 주행 중 차선과의 거리가 차폭 절반(0.91 m) 미만으로 0.3초 이상 지속 (방향지시등 점등·교차로 회전·유턴 구간 면제)</td><td><span class='badge badge-amber'>Minor</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri critical"><td><strong>KPI 03</strong></td><td><span class='badge badge-blue'>RI-1</span></td><td><strong>중앙선 침범 금지</strong></td><td>5 km/h 이상 주행 중 황색 중앙선 침범 깊이가 0.6 m를 초과하여 0.6초 이상 지속 시 위반</td><td><span class='badge badge-red'>Critical_violation</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri critical"><td><strong>KPI 04</strong></td><td><span class='badge badge-blue'>RI-1</span></td><td><strong>보도(도로경계) 침범 금지</strong></td><td>5 km/h 이상 주행 중 보도 연석·도로경계 침범 깊이가 0.5 m를 초과할 경우(1프레임 이상) 위반</td><td><span class='badge badge-red'>Critical_violation</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri critical"><td><strong>KPI 05</strong></td><td><span class='badge badge-blue'>RI-3</span></td><td><strong>비신호 교차로 일시정지</strong></td><td>비신호 정지선 전방 20m 접근 중 속도 15 km/h 초과 이력이 있으면서 정지 누적시간 3.0초 미만으로 정지선 2.0m 이내 진입 시 위반</td><td><span class='badge badge-red'>Major</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri critical"><td><strong>KPI 06</strong></td><td><span class='badge badge-blue'>RI-4</span></td><td><strong>어린이보호구역 제한속도 준수</strong></td><td>어린이보호구역(제한속도 40 km/h 이하 구간)에서 제한속도를 1.0 km/h 초과하여 1.0초 이상 주행 시 위반</td><td><span class='badge badge-red'>Critical</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri minor"><td><strong>KPI 07</strong></td><td><span class='badge badge-blue'>RI-2</span></td><td><strong>교차로 진입 방향지시등 이행</strong></td><td>교차로 좌·우회전 수행 시 진입 전 최소 3.0초 또는 30.0m 이상 해당 방향지시등을 연속 점등하지 않은 경우 위반</td><td><span class='badge badge-amber'>Minor</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc critical"><td><strong>KPI 08</strong></td><td><span class='badge badge-green'>DC-2</span></td><td><strong>전방 추종 안전거리 (TTC / UN R157)</strong></td><td>전방 선행차(CIPV) 대비 TTC &lt; 0.5초 또는 THW &lt; UN R157 최소 차두시간(1.0~1.6초)이 0.5초 이상 지속 시 위반 (TTC &lt; 2.0초 Moderate)</td><td><span class='badge badge-red'>Moderate / Critical</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc critical"><td><strong>KPI 09</strong></td><td><span class='badge badge-green'>DC-2</span></td><td><strong>끼어들기(Cut-In) 안전 대응</strong></td><td>끼어들기 차량 인지 후 0.72초 경과 뒤에도 요구 TTC 또는 UN R157 차두시간을 회복하지 못한 상태가 0.5초 이상 지속 시 위반</td><td><span class='badge badge-red'>Major</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc critical"><td><strong>KPI 10</strong></td><td><span class='badge badge-green'>DC-1</span></td><td><strong>우회전 시 횡단보도 보행자 보호</strong></td><td>우회전 중 정밀지도 횡단보도 영역(전방 10m × 좌우 3m) 내 보행자 존재 시 정지하지 않고 0.3 m/s 초과 속도로 주행 시 위반</td><td><span class='badge badge-red'>Critical</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri minor"><td><strong>KPI 11</strong></td><td><span class='badge badge-blue'>RI-3</span></td><td><strong>신호교차로 좌회전 통행방법</strong></td><td>신호교차로 내부 좌회전 통과 중 주행속도 30.0 km/h를 0.5초 이상 초과 시 위반</td><td><span class='badge badge-amber'>Moderate</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri minor"><td><strong>KPI 12</strong></td><td><span class='badge badge-blue'>RI-3</span></td><td><strong>신호교차로 우회전 통행방법</strong></td><td>우회전 진입 전 30m 구간 우측 가장자리 차로 미이용 또는 교차로 내부 선회 속도 30.0 km/h 0.5초 이상 초과 시 위반</td><td><span class='badge badge-amber'>Moderate</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc minor"><td><strong>KPI 13</strong></td><td><span class='badge badge-green'>DC-2</span></td><td><strong>선행차 이탈(Cut-Out) 급가속 억제</strong></td><td>직전 선행차 이탈 후 노출된 전방 차량이 안전거리 이내에 있음에도 1.5초 이내에 0.3 m/s² 이상 가속 시 위반</td><td><span class='badge badge-amber'>Moderate</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc minor"><td><strong>KPI 14</strong></td><td><span class='badge badge-green'>DC-3</span></td><td><strong>노면표시 방향 화살표 지시 준수</strong></td><td>차로 노면의 직진·좌회전·우회전 화살표를 통과한 뒤 다음 교차로에서 지시와 다른 방향으로 진행 시 위반</td><td><span class='badge badge-amber'>Moderate</span></td></tr><tr data-filter-target="kpi-cat" data-cat="ri critical"><td><strong>KPI 15</strong></td><td><span class='badge badge-blue'>RI-3</span></td><td><strong>교차로 꼬리물기 금지</strong></td><td>신호교차로 내부에서 전방 10m 이내 선행차 정체로 인해 3.0초 초과 정차 시 위반</td><td><span class='badge badge-red'>Major</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc critical"><td><strong>KPI 16</strong></td><td><span class='badge badge-green'>DC-3</span></td><td><strong>적색 교통신호 정지 준수</strong></td><td>진행 방향 신호가 적색일 때 0.3 m/s 초과 속도로 교차로에 진입 시 위반</td><td><span class='badge badge-red'>Critical</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc minor"><td><strong>KPI 17</strong></td><td><span class='badge badge-green'>DC-3</span></td><td><strong>황색 교통신호 딜레마존 판단</strong></td><td>황색 전환 시점 속도 기준 안락 감속(5.0 m/s², 정지거리 v²/10)으로 정지선 전 정지가 가능했음에도 진입 시 위반</td><td><span class='badge badge-amber'>Moderate</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc minor"><td><strong>KPI 18</strong></td><td><span class='badge badge-green'>DC-3</span></td><td><strong>녹색 교통신호 불필요 정지 금지</strong></td><td>녹색 진행 신호이고 전방 선행차 막힘이 없음에도 교차로 전방에서 3.0초 이상 정차 시 위반</td><td><span class='badge badge-amber'>Minor</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc critical"><td><strong>KPI 19</strong></td><td><span class='badge badge-green'>DC-4</span></td><td><strong>조향 회피 위협도 (STN)</strong></td><td>전방 장애물 3.0m 횡방향 회피 요구 횡가속도 비율 STN &gt; 1.0 상태가 0.3초 이상 지속 시 위반</td><td><span class='badge badge-red'>Critical</span></td></tr><tr data-filter-target="kpi-cat" data-cat="dc critical"><td><strong>KPI 20</strong></td><td><span class='badge badge-green'>DC-4</span></td><td><strong>제동 회피 위협도 (BTN)</strong></td><td>전방 장애물 앞 정지 요구 감속도 비율(한계 -8.0 m/s² 기준) BTN &gt; 1.0 상태가 0.3초 이상 지속 시 위반</td><td><span class='badge badge-red'>Critical</span></td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="radar-12-axes">4. 12축 레이더 차트 구성 (준수율 % 및 안전여유도 %)</h2>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>레이더 축 (12축)</th><th>연계 KPI</th><th>준수율 (Compliance %) 기준</th><th>안전여유도 (Safety Margin %) 기준</th></tr></thead>
+    <tbody><tr><td><code>01. 제한속도</code></td><td>KPI 01</td><td>비위반 프레임 비율 (위반 발생 시 75% 상한)</td><td>제한속도 대비 여유 속도 비율 <code>(V_limit - V) / V_limit</code></td></tr><tr><td><code>02. 어린이보호</code></td><td>KPI 06</td><td>스쿨존 속도 준수 비율 (위반 시 75% 상한)</td><td>스쿨존 제한속도 대비 여유 비율</td></tr><tr><td><code>03. 차로유지</code></td><td>KPI 02</td><td>차선 비침범 비율 (위반 시 75% 상한)</td><td>차선 경계 최소 이격거리 정규화 (<code>d_lane / 1.60m</code>)</td></tr><tr><td><code>04. 중앙·보도선</code></td><td>KPI 03, 04</td><td>중앙선·보도 비침범 비율 (위반 시 75% 상한)</td><td>중앙선·도로경계 최소 거리 정규화 (<code>d / 1.80m</code>)</td></tr><tr><td><code>05. 방향지시등</code></td><td>KPI 07</td><td>회전 전 사전 점등 이행 비율</td><td>진입 전 점등 시간·거리 여유</td></tr><tr><td><code>06. 교차로통행</code></td><td>KPI 05, 11, 12, 15</td><td>일시정지·회전속도·꼬리물기 준수율</td><td>교차로 통과 속도 및 정지선 정차 여유</td></tr><tr><td><code>07. 노면지시</code></td><td>KPI 14</td><td>노면 방향 화살표 일치 비율</td><td>진입 차로 지시 대비 진행 방향 일치도</td></tr><tr><td><code>08. 교통신호</code></td><td>KPI 16, 17, 18</td><td>적·황·녹색 신호 준수율 (위반 시 75% 상한)</td><td>황색 감속 여유 및 신호 준수 마진</td></tr><tr><td><code>09. 추종안전</code></td><td>KPI 08</td><td>전방 TTC·THW 충족 비율</td><td><code>min(TTC / 4.0s, THW / 2.5s)</code></td></tr><tr><td><code>10. 끼어들기</code></td><td>KPI 09, 13</td><td>끼어들기·선행차 이탈 대응 비율</td><td>끼어들기 차량 대비 종방향 간격 여유</td></tr><tr><td><code>11. 보행자보호</code></td><td>KPI 10</td><td>횡단보도 보행자 보호 준수율</td><td>횡단보도 보행자와의 정지 이격거리 여유</td></tr><tr><td><code>12. 회피여유</code></td><td>KPI 19, 20</td><td>STN·BTN 임계 이하 비율 (위반 시 75% 상한)</td><td><code>1 - max(STN, BTN)</code></td></tr></tbody>
+  </table>
+</div>
+
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/eval_3tier_db.html" class="btn-neutral" rel="prev">← [Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a>
+          <a href="../pages/eval_pdf_certificate.html" class="btn-neutral" rel="next">[Tab 4] 검증 보고서 생성 &amp; 기술문서 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

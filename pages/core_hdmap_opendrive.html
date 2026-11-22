@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정밀도로지도 기반 맵 · 도로망 · 교량 및 터널 환경 (Maps, Roads &amp; Tunnels) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1 current"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>World &amp; Assets · 월드 및 에셋</span>
+              <span>»</span>
+              <strong>맵 · 도로망 · 교량·터널</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Maps &amp; Civil Roads</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>정밀도로지도 기반 맵 · 도로망 · 교량 및 터널 환경 (Maps, Roads &amp; Tunnels)</h1>
+          <p class="page-lead">기본 탑재된 국내 17개 실증 권역과 외부 국토지리정보원(NGII) 정밀도로지도(.shp) 호환 규격, OpenDRIVE 1.6 도로망 생성 원리, 교차로·노면표시 및 고가교량·옹벽·지하차도·터널 구현 방식을 설명합니다.</p>
+          
+<h2 id="builtin-17-regions">1. 기본 내장 17개 국내 권역</h2>
+<p>
+  상단 툴바의 <code>구역</code> 메뉴에서 바로 선택할 수 있는 17개 국내 실증 권역 목록입니다. 사용자가 지도에서 출발점(S)과 목적지(G)를 지정하면 경로 주변 반경(기본 <code>65 m</code>)에 포함되는 병렬 차로, 반대편 대향 차로, 교차로 내부 연결 링크를 묶어 <strong>ASAM OpenDRIVE 1.6</strong> 도로망과 3D 환경을 생성합니다.
+</p>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>#</th><th>권역 선택 키</th><th>지역 명칭</th><th>도로 구성 및 주요 시험 용도</th></tr></thead>
+    <tbody><tr><td>01</td><td><code>KIAPI</code></td><td>대구 달성 주행시험장</td><td>고속주회로, 다차선 도심시험로, 특수 내구 노면 (전용 3D 맵 지원)</td></tr><tr><td>02</td><td><code>SEC06_대구주행시험장</code></td><td>주행시험장 외곽 연계도로</td><td>시험장 진·출입 연결로 및 인접 교차로</td></tr><tr><td>03</td><td><code>SEC05_달성2차산업단지</code></td><td>대구 달성2차산업단지</td><td>화물차 혼재 산업단지 격자형 도로망</td></tr><tr><td>04</td><td><code>SEC04_국가산업단지</code></td><td>대구 국가산업단지</td><td>광폭 간선도로 및 물류 진출입 교차로</td></tr><tr><td>05</td><td><code>SEC03_과학남북로</code></td><td>대구 과학남북로</td><td>중·고속 직선 간선도로 및 연동 신호교차로</td></tr><tr><td>06</td><td><code>SEC02_테크노폴리스</code></td><td>대구 테크노폴리스</td><td>신호교차로 20개소, 어린이보호구역, 노변 인프라 기지국 실증 구간</td></tr><tr><td>07</td><td><code>Yugok-ri</code></td><td>대구 달성 유곡리</td><td>교외 연결로 및 비신호 교차로 일시정지 시험 구간</td></tr><tr><td>08</td><td><code>SEC01_테크노폴리스로</code></td><td>대구 테크노폴리스로</td><td>80 km/h 연속류 자동차전용도로, 입체 램프·지하차도·터널 구간</td></tr><tr><td>09</td><td><code>SEC001_설화명곡역_수목원입구</code></td><td>설화명곡역 ~ 수목원입구</td><td>역세권 다차선 간선도로</td></tr><tr><td>10</td><td><code>SEC301_헐티로</code></td><td>대구 달성 헐티로</td><td>종단 경사 및 연속 곡선 산악·외곽 도로 ODD 시험</td></tr><tr><td>11</td><td><code>SEC02_앞산터널로종점_수성의료지구</code></td><td>앞산터널로 ~ 수성의료지구</td><td>터널 진출입부 및 간선 합·분류 구간</td></tr><tr><td>12</td><td><code>SEC01_수성의료지구내부도로</code></td><td>대구 수성알파시티</td><td>회전교차로 및 도심 블록 도로망</td></tr><tr><td>13</td><td><code>SEC001_대구자율주행</code></td><td>대구 자율주행 시범운행지구</td><td>광역 도심 연속 주행 노선</td></tr><tr><td>14</td><td><code>SEC001_대구동성로시범운행지구</code></td><td>대구 반월당·동성로 일대</td><td>고밀도 상업지구 다차선 간선도로 및 대중교통 혼재 구간</td></tr><tr><td>15</td><td><code>Pangyo Zero-city</code></td><td>성남 판교 제로시티</td><td>수도권 도심·업무지구 실증 도로망</td></tr><tr><td>16</td><td><code>Pangyo Test-bed</code> / <code>Test-bed-2</code></td><td>성남 판교 테스트베드 1·2</td><td>복합 교차로 및 보행자 횡단 밀집 구간</td></tr><tr><td>17</td><td><code>songdo_convensia</code></td><td>인천 송도 컨벤시아 일대</td><td>광폭 대로 및 대형 사거리 구간</td></tr></tbody>
+  </table>
+</div>
+
+<div class="fig-grid-3">
+  <div class="fig-block">
+    <img src="../assets/img/hdmap_regions/05_KIAPI_2d.png" alt="KIAPI 주행시험장: 전체 시험로 도로 위상" loading="lazy" />
+    <div class="fig-caption"><strong>KIAPI 주행시험장:</strong> 전체 시험로 도로 위상</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/hdmap_regions/13_SEC02_테크노폴리스_2d.png" alt="대구 테크노폴리스: 도심 격자형 신호교차로망" loading="lazy" />
+    <div class="fig-caption"><strong>대구 테크노폴리스:</strong> 도심 격자형 신호교차로망</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/hdmap_regions/10_Pangyo_Zero-city_2d.png" alt="성남 판교 제로시티: 도심 실증지구 변환 결과" loading="lazy" />
+    <div class="fig-caption"><strong>성남 판교 제로시티:</strong> 도심 실증지구 변환 결과</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/hdmap_regions/08_Pangyo_Test-bed_2d.png" alt="성남 판교 테스트베드 1: 복합 도심 교차로망" loading="lazy" />
+    <div class="fig-caption"><strong>성남 판교 테스트베드 1:</strong> 복합 도심 교차로망</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/hdmap_regions/09_Pangyo_Test-bed-2_2d.png" alt="성남 판교 테스트베드 2: 보행·교차 밀집 구간" loading="lazy" />
+    <div class="fig-caption"><strong>성남 판교 테스트베드 2:</strong> 보행·교차 밀집 구간</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/hdmap_regions/03_Yugok-ri_2d.png" alt="대구 달성 유곡리: 교외 연결로 및 비신호 교차로" loading="lazy" />
+    <div class="fig-caption"><strong>대구 달성 유곡리:</strong> 교외 연결로 및 비신호 교차로</div>
+  </div>
+</div>
+
+<h2 id="external-ngii-shp-support">2. 외부 정밀도로지도(<code>.shp</code>) 불러오기 호환 규격</h2>
+<p>
+  <code>[폴더]</code> 버튼을 통해 외부 지역의 국토지리정보원 정밀도로지도 폴더를 직접 로드할 수 있으며, 구형(<code>A1~C6</code>)과 2024년 신형(<code>NT/RM/SF</code>) 레이어 명칭 및 CP949/UTF-8 속성 인코딩을 자동으로 인식합니다.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>구형 표준 레이어 (A1~C6)</th><th>2024 신형 표준 레이어 (NT/RM/SF)</th><th>공간 도형</th><th>시뮬레이션 변환 대상</th></tr></thead>
+    <tbody><tr><td><code>A1_NODE</code></td><td><code>NT_TRAFFIC_NODE</code></td><td>PointZ</td><td>교차로 접속 노드 및 도엽 경계 연결점</td></tr><tr><td><code>A2_LINK</code></td><td><code>NT_TRAFFIC_LINK</code></td><td>LineStringZ</td><td>주행 차로 중심선, 제한속도, 좌·우 인접 링크, 교량·터널·지하차도 속성</td></tr><tr><td><code>B2_SURFACELINEMARK</code></td><td><code>RM_LANE</code></td><td>LineStringZ</td><td>황색 중앙선, 백색 실선·점선 차선, 청색 버스전용차선, 정지선</td></tr><tr><td><code>B3_SURFACEMARK</code></td><td><code>RM_SURFACEMARK</code></td><td>PolygonZ</td><td>일반·대각선·고원식 횡단보도 및 차로별 진행 방향 화살표</td></tr><tr><td><code>A3_DRIVEWAYSECTION</code> / <code>C3_*</code></td><td><code>SF_ROADBOUNDARY</code> / <code>SF_MEDIANSTRIP</code></td><td>Line / Polygon</td><td>도로 외곽 경계 및 중앙분리대</td></tr><tr><td><code>C1_TRAFFICLIGHT</code></td><td><code>SF_TRAFFICLIGHT</code></td><td>PointZ</td><td>차량용 4구 수평 신호등 및 보행자 신호등 위치</td></tr><tr><td><code>B1_SAFETYSIGN</code></td><td><code>SF_SAFETYSIGN</code></td><td>PointZ</td><td>제한속도·주의·규제 안전표지 및 어린이보호구역 표지</td></tr><tr><td><code>C4_SPEEDBUMP</code></td><td>— (노면시설)</td><td>PolygonZ</td><td>과속방지턱 물리 형상</td></tr><tr><td><code>C6_POSTPOINT</code></td><td><code>SF_POSTPOINT</code></td><td>PointZ</td><td>가로등 지주(Type=3) 위치</td></tr></tbody>
+  </table>
+</div>
+
+
+<h2 id="road-tunnel-generation-details">3. 도로 · 교차로 · 노면표시 및 전역 표고 처리 방식</h2>
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_hdmap_env_pipeline.png" alt="그림 1. 다중 공간정보(정밀도로지도 · 수치건축물 · 지형 표고) 파싱부터 위상·종단 고도 해법, 한국형 3D 구조물 합성, 실시간 월드 동기화까지의 4단계 자동 구축 파이프라인." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 다중 공간정보(정밀도로지도 · 수치건축물 · 지형 표고) 파싱부터 위상·종단 고도 해법, 한국형 3D 구조물 합성, 실시간 월드 동기화까지의 4단계 자동 구축 파이프라인.</div>
+</div>
+
+
+<div class="math-box">
+  <span class="math-label">곡선 차로 자기교차 방지 조건 및 전역 표고 평활화</span>
+  <div>
+<i>J</i>(<i>s</i>, <i>t</i>) = 1 − <i>t</i>(<i>s</i>)·<i>κ</i>(<i>s</i>) ≥ 0.26 &nbsp;&nbsp;(급커브·유턴 외곽 차선 메쉬 뒤집힘 방지)<br/>
+min<sub><b>z</b></sub> <i>E</i>(<b>z</b>) = ∑ <i>w<sub>i</sub></i>(<i>z<sub>i</sub></i> − <i>z</i><sub>raw,<i>i</i></sub>)<sup>2</sup> + <i>λ</i><sub>tie</sub> ∑ (<i>z<sub>i</sub></i> − <i>z<sub>j</sub></i>)<sup>2</sup> + <i>λ</i><sub>smooth</sub> ∑ (<i>z</i><sub><i>i</i>+1</sub> − 2<i>z<sub>i</sub></i> + <i>z</i><sub><i>i</i>−1</sub>)<sup>2</sup>
+</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/tech/doc1_fig1_corridor_topology_and_layers.png" alt="그림 2. 경로 주변 65 m 회랑 추출 기하 — 본선·대향차선·교차로 회전 연결로 위상 보존 및 정밀도로지도 다중 레이어 중첩 구조." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 경로 주변 65 m 회랑 추출 기하 — 본선·대향차선·교차로 회전 연결로 위상 보존 및 정밀도로지도 다중 레이어 중첩 구조.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_curb_and_terrain_cross_sections.png" alt="그림 3. 한국형 도로·화강암 연석(+14 cm)·횡단보도 턱낮춤 표준 횡단면(a) 및 지형 매립 깊이 기반 개착식 지하차도·상시 조명 박스형 터널 종단 기하(b)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 3.</strong> 한국형 도로·화강암 연석(+14 cm)·횡단보도 턱낮춤 표준 횡단면(a) 및 지형 매립 깊이 기반 개착식 지하차도·상시 조명 박스형 터널 종단 기하(b).</div>
+</div>
+
+
+<ul>
+  <li><strong>국소 원점 정렬 (Local Origin Shift):</strong> UTM 좌표의 큰 수치로 인해 3D 엔진(32-bit float)에서 발생하는 정점 떨림 현상을 막기 위해 회랑 중심을 국소 원점 <code>(0, 0)</code> 부근으로 평행 이동하고 오프셋을 OpenDRIVE 헤더에 기록합니다.</li>
+  <li><strong>교차로 포장 보완 및 +2.2 cm 노면표시:</strong> 다지 교차로 내부 좌·우회전 차로 사이의 빈 삼각형 영역을 아스팔트 메쉬로 메워 주행 중 불필요한 타이어 낙하 충격을 없애고, 차선·정지선·화살표·횡단보도를 노면 위 <code>+2.2 cm</code>에 생성하여 카메라 영상 내 깜빡임(Z-fighting)을 줄였습니다(보도 연석 및 노변 시설물 사양은 <a href="../pages/core_korean_streetscape.html#roadside-signs-curbs-lighting">신호등·표지판·가로등</a> 문서 참조).</li>
+  <li><strong>도로 유형별 지하차도 · 박스 터널 · NATM 아치 터널 자동 분기:</strong> 도심 지하차도(<code>RoadType == '4'</code>) 및 상부 도심 도로와 중첩되는 입체 구간은 매립 깊이에 따라 개착식 U자형 옹벽(<code>0.22 ~ 4.55 m</code>) 또는 밀폐형 사각 박스 터널(<code>4.55 m</code> 이상)로 생성하며, 상부 도로가 중첩되지 않는 고속도로·산악 터널(<code>RoadType == '2'</code>)은 아래 4절의 한국형 NATM 말굽형 아치 터널 구조로 자동 분기합니다.</li>
+</ul>
+
+<h2 id="natm-arch-tunnel-structures">4. 한국형 NATM 말굽형 아치 터널 · 도심 지하차도 · PSC 교량 입체 구조물</h2>
+<p>
+  고속도로·산악 구간(<code>SEC01_테크노폴리스로</code>, <code>SEC02_앞산터널로종점_수성의료지구</code> 등)의 장대 터널과 입체 교량·성토 옹벽을 정밀도로지도 링크 속성(<code>RoadType 2 · 3 · 4 · 5</code>) 및 수치표고모델로부터 자동 합성합니다.
+</p>
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>입체 구조 유형</th><th>자동 판별 조건</th><th>3D 단면 · 갱구 · 내부 설비 구성</th><th>지형 정합 및 통과 한계 검증</th></tr></thead>
+    <tbody><tr><td><strong>고속도로·산악 NATM 말굽형 아치 터널</strong></td><td><code>RoadType == '2'</code><br/>(상부 도심 도로 미중첩)</td><td>16분할 말굽형 아치(하부 <code>3.05 m</code> 백색 세라믹 타일 + 상부 NATM 콘크리트 라이닝), 좌·우 점검로·방호연석·안전난간, 2열 연속 천장 LED(갱구 <code>4.5 m</code> / 내부 <code>11 m</code>), 천장 제트팬(<code>90 m</code> 간격), 갱구 상단 차로제어 표지함(LCS), 대나무형 경사 콘크리트 갱구 링</td><td>19분할 코사인 수밀 산지 잔디 후드 및 후면 배플로 갱구 하늘 틈새 방지 · 내부 아치 천정 지형 처짐 0건(최소 여유고 <code>+0.99 m</code>)</td></tr><tr><td><strong>도심 사각 박스형 지하차도 · 개착식 램프</strong></td><td><code>RoadType == '4'</code><br/>또는 상부 도심 도로 중첩</td><td>매립 깊이 <code>0.22 ~ 4.55 m</code> 개착식 U자형 옹벽 및 <code>4.55 m</code> 이상 밀폐 사각 박스 터널, <code>16 m</code> 간격 상시 점등 천장 LED 조명</td><td>상부 평면도로 표고 보존 및 대형 버스·화물차 통과 한계 높이(<code>4.30 m</code> 이상) 확보</td></tr><tr><td><strong>PSC 박스거더 교량 · 고가교 · 성토 옹벽</strong></td><td><code>RoadType == '3·5'</code> (<code>over</code>)<br/>및 외측 단차 <code>≥ 1.50 m</code></td><td>PSC 박스거더 상판·하면 소피트, 좌·우 콘크리트 Jersey 방호벽, 하부 차로 회피 팔각 교각·코핑 보·3D 교대, 고성토 구간 수직 콘크리트 옹벽 및 도로 정렬 평활 잔디 에이프런</td><td>교량 하부 교차도로 지형 자동 절개(통과 여유고 <code>5.35 m+</code>) 및 직교 지형 격자 톱니(Sawtooth) 돌출 제거</td></tr></tbody>
+  </table>
+</div>
+
+<div class="fig-grid-3">
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/07_sec01_twin_tunnel_portal.jpg" alt="(a) SEC01 2차로 쌍굴 NATM 아치 갱구: 대나무형 백색 콘크리트 갱구 링과 수밀 산지 잔디 후드 통합" loading="lazy" />
+    <div class="fig-caption"><strong>(a) SEC01 2차로 쌍굴 NATM 아치 갱구:</strong> 대나무형 백색 콘크리트 갱구 링과 수밀 산지 잔디 후드 통합</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/11_sec02_apsan_arch_portal_roadlevel.jpg" alt="(b) SEC02 3차로 앞산터널 진입부: 차로제어 표지함(LCS), 쌍열 제트팬, 2열 연속 LED 조명" loading="lazy" />
+    <div class="fig-caption"><strong>(b) SEC02 3차로 앞산터널 진입부:</strong> 차로제어 표지함(LCS), 쌍열 제트팬, 2열 연속 LED 조명</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/13_sec02_apsan_arch_inside.jpg" alt="(c) 3차로 NATM 아치 내부: 백색 세라믹 타일·콘크리트 라이닝·점검로·난간·쌍열 제트팬" loading="lazy" />
+    <div class="fig-caption"><strong>(c) 3차로 NATM 아치 내부:</strong> 백색 세라믹 타일·콘크리트 라이닝·점검로·난간·쌍열 제트팬</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/15_sec01_arch_looking_out.jpg" alt="(d) 아치 갱구 내부→외부 시점: 말굽형 갱구 개구부 너머 본선 고속도로 및 후속 쌍굴 갱구" loading="lazy" />
+    <div class="fig-caption"><strong>(d) 아치 갱구 내부→외부 시점:</strong> 말굽형 갱구 개구부 너머 본선 고속도로 및 후속 쌍굴 갱구</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/16_sec02_urban_box_underpass_ramp.jpg" alt="(e) 도심 박스 지하차도(RoadType 4): 동일 권역 내 개착식 진입 램프 및 사각 박스 지하차도" loading="lazy" />
+    <div class="fig-caption"><strong>(e) 도심 박스 지하차도(RoadType 4):</strong> 동일 권역 내 개착식 진입 램프 및 사각 박스 지하차도</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/10_pangyo_urban_underpass.jpg" alt="(f) 판교 도심 지하차도 포털: 상부 평면도로 표고를 보존하며 진입하는 도심 지하차도" loading="lazy" />
+    <div class="fig-caption"><strong>(f) 판교 도심 지하차도 포털:</strong> 상부 평면도로 표고를 보존하며 진입하는 도심 지하차도</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/01_sec03_overpass_psc.jpg" alt="(g) 대구 과학남북로 입체교차 PSC 고가교: 박스거더 상판, Jersey 방호벽, 팔각 교각·코핑 보" loading="lazy" />
+    <div class="fig-caption"><strong>(g) 대구 과학남북로 입체교차 PSC 고가교:</strong> 박스거더 상판, Jersey 방호벽, 팔각 교각·코핑 보</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/03_sec02_tech_under_bridge.jpg" alt="(h) 교량 하부 6차로 통과 시점: 하부 차로를 자동 회피한 교각 배치 및 통과 여유고 확보" loading="lazy" />
+    <div class="fig-caption"><strong>(h) 교량 하부 6차로 통과 시점:</strong> 하부 차로를 자동 회피한 교각 배치 및 통과 여유고 확보</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/bridges_tunnels/04_sec01_embankment_retaining_wall.jpg" alt="(i) 고성토 콘크리트 옹벽 및 평활 사면: 급단차 외측 연속 방호벽·옹벽과 톱니 없는 잔디 에이프런" loading="lazy" />
+    <div class="fig-caption"><strong>(i) 고성토 콘크리트 옹벽 및 평활 사면:</strong> 급단차 외측 연속 방호벽·옹벽과 톱니 없는 잔디 에이프런</div>
+  </div>
+</div>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/sys_architecture.html" class="btn-neutral" rel="prev">← 화면 구성 및 워크플로우</a>
+          <a href="../pages/core_korean_buildings.html" class="btn-neutral" rel="next">건물 및 도심 가로 경관 (Buildings) →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

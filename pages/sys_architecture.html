@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>통합 화면 구성 및 검증 워크플로우 (UI &amp; Workflow) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1 current"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Getting Started · 시작하기</span>
+              <span>»</span>
+              <strong>화면 구성 및 워크플로우</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">System Workflow</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>통합 화면 구성 및 검증 워크플로우 (UI &amp; Workflow)</h1>
+          <p class="page-lead">실도로 주행 모니터링(Tab 1), 가상 주행 시뮬레이션(Tab 2), 정량 검증(Tab 3), 검증 보고서 생성(Tab 4)의 4개 메인 탭과 독립 3D 관제 모니터의 기능 및 데이터 연동 구조를 설명합니다.</p>
+          
+<h2 id="four-tab-overview">1. 메인 4-Tab 화면 역할 분담</h2>
+<p>
+  메인 프로그램은 시험·검증 단계에 따라 4개의 독립 탭으로 구성되며, 각 탭의 세부 컨트롤과 조작 절차는 개별 매뉴얼 문서에서 다룹니다.
+</p>
+
+<div class="fig-grid-2">
+  <div class="fig-block">
+    <img src="../assets/img/ui/ui_tab1_monitor.png" alt="Tab 1 [실도로 주행 모니터링]: 실차·RSU 주행 로그 관제 및 상충 구간 추출 (매뉴얼 보기)" loading="lazy" />
+    <div class="fig-caption"><strong>Tab 1 [실도로 주행 모니터링]:</strong> 실차·RSU 주행 로그 관제 및 상충 구간 추출 (<a href='../pages/eval_3tier_db.html'>매뉴얼 보기</a>)</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/ui/ui_tab2_workbench.png" alt="Tab 2 [가상 주행 시뮬레이션]: 경로 기반 3D 월드 생성 및 시나리오·고장 주입 (매뉴얼 보기)" loading="lazy" />
+    <div class="fig-caption"><strong>Tab 2 [가상 주행 시뮬레이션]:</strong> 경로 기반 3D 월드 생성 및 시나리오·고장 주입 (<a href='../pages/guide_tab2_simulation.html'>매뉴얼 보기</a>)</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/ui/ui_tab3_evaluation.png" alt="Tab 3 [정량 검증]: 20-KPI 적부 판정 및 2D 궤적·파형 동기화 분석 (매뉴얼 보기)" loading="lazy" />
+    <div class="fig-caption"><strong>Tab 3 [정량 검증]:</strong> 20-KPI 적부 판정 및 2D 궤적·파형 동기화 분석 (<a href='../pages/eval_20kpi_engine.html'>매뉴얼 보기</a>)</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/ui/ui_tab4_export.png" alt="Tab 4 [검증 보고서 생성]: 챕터별 결과 차트 구성 및 시험성적서 PDF 출력 (매뉴얼 보기)" loading="lazy" />
+    <div class="fig-caption"><strong>Tab 4 [검증 보고서 생성]:</strong> 챕터별 결과 차트 구성 및 시험성적서 PDF 출력 (<a href='../pages/eval_pdf_certificate.html'>매뉴얼 보기</a>)</div>
+  </div>
+</div>
+
+<h2 id="workflow-scenarios">2. 탭 간 연동 워크플로우 및 20 Hz 정합 스키마</h2>
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_sys_overall_workflow.png" alt="그림 1. 실도로 계측 로그(Tab 1)와 가상 시뮬레이션 로그(Tab 2)의 단일 20 Hz 스키마 정합, 외부 검증 대상 제어기(Black-Box SUT) 폐루프 연동, 그리고 8대 행동역량·20-KPI 판정 및 성적서 출력 데이터 흐름도." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 실도로 계측 로그(Tab 1)와 가상 시뮬레이션 로그(Tab 2)의 단일 20 Hz 스키마 정합, 외부 검증 대상 제어기(Black-Box SUT) 폐루프 연동, 그리고 8대 행동역량·20-KPI 판정 및 성적서 출력 데이터 흐름도.</div>
+</div>
+
+<ul>
+  <li><strong>실도로 주행 로그 직접 검증 (Tab 1 → Tab 3 → Tab 4):</strong>
+    실차 주행 세션이나 CSV 기록을 Tab 1에서 점검한 뒤 <code>[정량 검증 →]</code>으로 Tab 3에 전달하여 20개 KPI 적부 판정 및 PDF 성적서를 생성합니다.</li>
+  <li><strong>실도로 상충 이벤트 가상 재현 (Tab 1 Log-to-Sim → Tab 2 → Tab 3 → Tab 4):</strong>
+    Tab 1에서 다중 객체 상충 구간을 추출하여 Tab 2의 동일 도로 위치에 배치함으로써, 제어기 수정 전·후 거동을 가상환경에서 반복 비교합니다(추출 조건은 <a href="../pages/eval_3tier_db.html#tab1-verification-and-log-to-sim">Tab 1 매뉴얼</a> 참조).</li>
+  <li><strong>가상 시나리오·고장 주입 검증 (Tab 2 → Tab 3 → Tab 4):</strong>
+    실차 시험이 어려운 급끼어들기·센서 고장·기상 악화 조건을 Tab 2에서 인가해 주행하면 전 구간이 실도로 로그와 동일한 <code>20 Hz (50 ms)</code> 표준 컬럼 규격으로 저장되어 Tab 3·Tab 4에서 동일한 수식으로 채점됩니다.</li>
+</ul>
+
+<h2 id="standalone-3d-monitor">3. 제어 UI와 3D 관제 모니터의 비동기 분리 구조</h2>
+<p>
+  고해상도 다채널 영상과 실시간 파형 그래프를 메인 4-Tab 설정 창 내부에서 함께 렌더링하면 UI 이벤트 처리 지연이 시뮬레이션 틱 주기(<code>20 Hz</code>)에 간섭을 줄 수 있습니다. 이를 방지하기 위해 3D 시뮬레이션·센서·예측 뷰어는 별도 프로세스 창(<code>[Pygame 창]</code>)으로 분리되어 동작하며, 공유메모리 기반 최신 프레임 버퍼를 통해 시뮬레이션 물리·로깅 주기와 독립적으로 화면을 갱신합니다.
+</p>
+<p>
+  분리된 3D 관제 모니터의 화면 레이아웃(<code>[1]~[4]</code>), 5개 뷰포트 기호, 하단 통합 진단 콘솔 및 23종 스코프 신호 사용법은 <a href="../pages/guide_tab2_simulation.html#pygame-5ch-viewer-guide">Tab 2 매뉴얼 3절(독립 5채널 3D 관제 모니터 상세 가이드)</a>에 수록되어 있습니다.
+</p>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/start_quickstart.html" class="btn-neutral" rel="prev">← 실행 환경 및 빠른 시작</a>
+          <a href="../pages/core_hdmap_opendrive.html" class="btn-neutral" rel="next">맵 · 도로망 · 교량·터널 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

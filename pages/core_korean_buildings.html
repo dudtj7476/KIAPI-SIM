@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>공간정보 기반 3D 건축물 및 도심 가로 경관 (3D Buildings &amp; Urban Blocks) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1 current"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>World &amp; Assets · 월드 및 에셋</span>
+              <span>»</span>
+              <strong>건물 및 도심 가로 경관 (Buildings)</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">3D Buildings &amp; Blocks</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>공간정보 기반 3D 건축물 및 도심 가로 경관 (3D Buildings &amp; Urban Blocks)</h1>
+          <p class="page-lead">공공 건축물 공간정보(외곽선·층수·주용도)를 바탕으로 도심 업무·상업·주거·교육 건축물, 국내 업종별 한글 간판, 호실별 야간 창문 발광을 절차적으로 생성하고 도로·보도 경계와 정합하는 규칙을 다룹니다.</p>
+          
+<h2 id="role-of-buildings-in-sim">1. 시뮬레이션에서 3D 건축물이 수행하는 역할</h2>
+<p>
+  도로 주변 건축물은 <strong>① 교차로·코너 사각지대의 센서 가시선 차폐(Occlusion) 범위 결정, ② 3D LiDAR 수직 스캔의 상부 벽면 반사 경계 형성, ③ 주·야간 카메라 자동 노출(Auto-Exposure) 및 신호·표지 검출 시 실제 도심 수준의 배경 복잡도 제공</strong>에 직접 관여합니다.
+</p>
+<p>
+  수작업 모델 배치 대신 주행 경로 주변(반경 약 <code>135 m</code> 이내)의 공공 건축물 외곽선·실측 층수·주용도 공간정보를 읽어 3D 건물 메쉬와 입면 텍스처를 절차적으로 생성합니다(고가교량·옹벽·NATM 아치 터널 등 도로 토목 구조물은 <a href="../pages/core_hdmap_opendrive.html#natm-arch-tunnel-structures">맵 · 도로망 · 교량·터널</a> 문서를, 신호등·가로등·표지판·연석은 <a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등</a> 문서를 참조하십시오). 모든 이미지는 클릭하면 원본 해상도로 확대됩니다.
+</p>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>구현 요소</th><th>생성 기준 데이터</th><th>자율주행 시뮬레이션·검증에서의 기능적 역할</th></tr></thead>
+    <tbody><tr><td><strong>건물 평면 외곽선 및 도로 이격거리</strong></td><td>공공 공간정보 지적 건물 외곽선 (+ 차도·보도 여유폭 클리핑)</td><td>교차로 진입부·이면도로 코너에서의 실제 <strong>센서 가시선 차폐(Line-of-Sight Occlusion)</strong> 거리 재현 및 차도 침범 방지</td></tr><tr><td><strong>실측 층수·높이 및 지형 기초 연장</strong></td><td>건축물대장 지상 층수 · 건물 높이 (경사 지형 하부 기초 연장)</td><td>3D LiDAR 상부 벽면 반사 경계 형성, 도심 협곡(Urban Canyon) 스카이라인 재현 및 경사로 건물 들뜸 방지</td></tr><tr><td><strong>용도별 입면 및 국내 한글 간판</strong></td><td>주용도 분류 (업무·근린상가·공동주택·공장·교육시설 등)</td><td>전방·측방 카메라 객체·신호·표지 인식 시험 시 국내 도심 고유의 입면 질감과 문자(돌출 세로 간판·전면 수평 간판) 시각 복잡도 제공</td></tr><tr><td><strong>호실별 야간 창문 · 상가 간판 발광</strong></td><td>층·호실 단위 시차(Parallax) 내부 질감 및 동적 발광 머티리얼</td><td>야간·박명 주행 시 카메라 자동 노출(Auto-Exposure) 변화와 신호등·제동등 검출에 영향을 주는 건물 배경 광원 형성</td></tr><tr><td><strong>교육·연구시설 용도 폴리곤 식별</strong></td><td>초등학교·유치원·대학 등 교육연구시설 건물 위치</td><td>중정형 교사동·캠퍼스 외형 복원 및 인접 도로 보호구역 설정을 위한 공간 기준점 제공 (표지·울타리 사양은 <a href='core_korean_streetscape.html#roadside-signs-curbs-lighting'>신호등·표지판 문서</a> 참조)</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_buildings_statistics.png" alt="그림 1. 공공 공간정보(WFS) 및 건축물대장 기반 실건축물 507동 용도 아키타입 분류 분포(a) 및 실측 건물 높이 분포(b, 중앙값 12.1 m · 평균 25.6 m · 최대 130.0 m)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 공공 공간정보(WFS) 및 건축물대장 기반 실건축물 507동 용도 아키타입 분류 분포(a) 및 실측 건물 높이 분포(b, 중앙값 12.1 m · 평균 25.6 m · 최대 130.0 m).</div>
+</div>
+
+
+<h2 id="urban-commercial-office-gallery">2. 도심 업무 · 상업지구 입면 및 한글 간판 경관 (주간)</h2>
+<p>
+  건축물 주용도가 업무시설·제1/2종근린생활시설·판매시설로 분류된 필지에는 커튼월 유리 외벽, 화강석 저층 포디움, 국내 업종별 전면 수평 간판 및 층별 돌출 세로 간판이 절차적으로 부여되어 전방·측방 카메라 영상에 국내 도심 고유의 시각 특징을 형성합니다.
+</p>
+<div class="fig-grid-3">
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_05_skyline_elevated_day.jpg" alt="도심 협곡(Urban Canyon) 조감: 고층 공동주택·업무용 빌딩·저층 코너 상가가 다차로 교차로를 따라 도로 침범 없이 정합된 전경" loading="lazy" />
+    <div class="fig-caption"><strong>도심 협곡(Urban Canyon) 조감:</strong> 고층 공동주택·업무용 빌딩·저층 코너 상가가 다차로 교차로를 따라 도로 침범 없이 정합된 전경</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_01_arterial_day_driver.jpg" alt="도심 간선도로 주행 시점: 다차로 간선도로 전방 시야를 둘러싸는 중·고층 복합 업무·주거 스카이라인" loading="lazy" />
+    <div class="fig-caption"><strong>도심 간선도로 주행 시점:</strong> 다차로 간선도로 전방 시야를 둘러싸는 중·고층 복합 업무·주거 스카이라인</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_02_kyobo_finance_day.jpg" alt="커튼월 업무·금융 빌딩: 유리 외벽 반사, 1층 금융·상업 로비 포디움 및 전면 보행 공간 정합" loading="lazy" />
+    <div class="fig-caption"><strong>커튼월 업무·금융 빌딩:</strong> 유리 외벽 반사, 1층 금융·상업 로비 포디움 및 전면 보행 공간 정합</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_04_medical_vertsigns_day.jpg" alt="상업지구 돌출 세로 간판: 국내 도심 특유의 층별 돌출 세로 간판(병원·약국·은행·숙박) 및 화강석 저층부 입면" loading="lazy" />
+    <div class="fig-caption"><strong>상업지구 돌출 세로 간판:</strong> 국내 도심 특유의 층별 돌출 세로 간판(병원·약국·은행·숙박) 및 화강석 저층부 입면</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/04_retail_day_signs.jpg" alt="근린생활시설 가로 상가: 편의점·한의원·학원·공인중개사 등 업종별 전면 수평 한글 간판과 1층 유리 쇼윈도" loading="lazy" />
+    <div class="fig-caption"><strong>근린생활시설 가로 상가:</strong> 편의점·한의원·학원·공인중개사 등 업종별 전면 수평 한글 간판과 1층 유리 쇼윈도</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_03_deptstore_media_day.jpg" alt="교차로 코너 상업 포디움: 우회전 및 교차로 진입 시 센서 가시선 차폐 경계를 형성하는 코너 필지 건축물" loading="lazy" />
+    <div class="fig-caption"><strong>교차로 코너 상업 포디움:</strong> 우회전 및 교차로 진입 시 센서 가시선 차폐 경계를 형성하는 코너 필지 건축물</div>
+  </div>
+</div>
+
+<h2 id="residential-schoolzone-gallery">3. 공동주택 단지 및 교육·연구시설 건축물</h2>
+<p>
+  공동주택 단지에는 동별 평면 외곽선과 지상 층수에 맞춘 발코니 창호·계단실 코어·기단부 출입구가 생성되며, 초등학교·대학 등 교육연구시설 필지에는 적벽돌·석재 교사동 입면과 중정형 평면 구조가 복원됩니다.
+</p>
+<div class="fig-grid-2">
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/01_apt_day_driver.jpg" alt="대단지 공동주택 도로변 시점: 화강석 기단부, 동 출입구 포치 및 계단실 수직 창호 구성" loading="lazy" />
+    <div class="fig-caption"><strong>대단지 공동주택 도로변 시점:</strong> 화강석 기단부, 동 출입구 포치 및 계단실 수직 창호 구성</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/02_apt_day_elevated.jpg" alt="공동주택 입면 상세: 실측 층수 기반 세대별 발코니 창호·루버·블라인드 텍스처 변주 처리" loading="lazy" />
+    <div class="fig-caption"><strong>공동주택 입면 상세:</strong> 실측 층수 기반 세대별 발코니 창호·루버·블라인드 텍스처 변주 처리</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_streetscape/03_yuga_aerial_day.jpg" alt="초등학교 교사동 평면 복원: 지적 폴리곤을 따라 복원된 중정형 교사동 외곽선과 주변 주거 블록" loading="lazy" />
+    <div class="fig-caption"><strong>초등학교 교사동 평면 복원:</strong> 지적 폴리곤을 따라 복원된 중정형 교사동 외곽선과 주변 주거 블록</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_streetscape/05_biseul_posan_aerial_day.jpg" alt="대학·연구 캠퍼스 및 배후 업무단지: 적벽돌 교육·연구동 매스와 배후 중·고층 업무·주거 타워 정합" loading="lazy" />
+    <div class="fig-caption"><strong>대학·연구 캠퍼스 및 배후 업무단지:</strong> 적벽돌 교육·연구동 매스와 배후 중·고층 업무·주거 타워 정합</div>
+  </div>
+</div>
+
+<h2 id="day-night-lighting-gallery">4. 호실별 시차(Parallax) 야간 창문 및 상업 간판 발광</h2>
+<p>
+  박명·야간 시간대로 전환되면 건물 전체가 균일하게 밝아지지 않고 층·호실 단위로 확률적 점소등 패턴, 실내 색온도 편차(전구색·주백색), 블라인드·커튼 투과 질감이 개별 적용되며, 저층 상가 쇼윈도와 돌출·전면 간판이 자체 발광하여 야간 카메라 노출 조건을 형성합니다(태양 고도각에 따른 가로등 조광 수식은 <a href="../pages/core_korean_streetscape.html#roadside-signs-curbs-lighting">신호등·표지판·가로등 2절</a> 참조).
+</p>
+<div class="fig-grid-3">
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_06_arterial_night_driver.jpg" alt="간선도로 스카이라인 야간 전환: 주간 동일 교차로의 야간 상태 — 원경 공동주택 및 연도변 상업 건물 동시 점등" loading="lazy" />
+    <div class="fig-caption"><strong>간선도로 스카이라인 야간 전환:</strong> 주간 동일 교차로의 야간 상태 — 원경 공동주택 및 연도변 상업 건물 동시 점등</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_08_medical_vertsigns_night.jpg" alt="돌출 세로 간판 · 로비 야간 발광: 주간 동일 상업빌딩의 야간 전환 — 층별 돌출 간판·1층 로비·개별 호실 점등" loading="lazy" />
+    <div class="fig-caption"><strong>돌출 세로 간판 · 로비 야간 발광:</strong> 주간 동일 상업빌딩의 야간 전환 — 층별 돌출 간판·1층 로비·개별 호실 점등</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/dt_07_deptstore_media_night.jpg" alt="업무용 커튼월 타워 야간 조명: 층·호실별 확률적 점소등 패턴과 1층 상업 쇼윈도 발광" loading="lazy" />
+    <div class="fig-caption"><strong>업무용 커튼월 타워 야간 조명:</strong> 층·호실별 확률적 점소등 패턴과 1층 상업 쇼윈도 발광</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/06_apt_night.jpg" alt="공동주택 세대별 야간 조명: 전구색·주백색 색온도 편차와 커튼·블라인드 투과 질감이 적용된 야간 주거단지" loading="lazy" />
+    <div class="fig-caption"><strong>공동주택 세대별 야간 조명:</strong> 전구색·주백색 색온도 편차와 커튼·블라인드 투과 질감이 적용된 야간 주거단지</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_buildings/05_retail_night_signs.jpg" alt="근린상가 야간 전면 간판 · 쇼윈도: 저층 상가 간판 자체 발광과 실내 조명이 결합된 연도변 야간 배경" loading="lazy" />
+    <div class="fig-caption"><strong>근린상가 야간 전면 간판 · 쇼윈도:</strong> 저층 상가 간판 자체 발광과 실내 조명이 결합된 연도변 야간 배경</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/korean_streetscape/07_yuga_facade_night.jpg" alt="교육시설 호실별 시차(Parallax) 창문 조명: 교실·복도 단위로 부분 점등된 블라인드 내부 질감과 배후 주거 타워 점등" loading="lazy" />
+    <div class="fig-caption"><strong>교육시설 호실별 시차(Parallax) 창문 조명:</strong> 교실·복도 단위로 부분 점등된 블라인드 내부 질감과 배후 주거 타워 점등</div>
+  </div>
+</div>
+
+<h2 id="spatial-safety-rules">5. 도심 가로 블록 정합 및 도로 침범 방지 처리 규칙</h2>
+<div class="fig-grid-3">
+  <div class="fig-block">
+    <img src="../assets/img/civil_env/01_pangyo_urban_underpass_ramp.jpg" alt="업무지구 빌딩 블록과 입체·평면 측도 정합: 본선 개착식 램프 양측 평면 측도를 따라 이격 배치된 도심 업무 블록" loading="lazy" />
+    <div class="fig-caption"><strong>업무지구 빌딩 블록과 입체·평면 측도 정합:</strong> 본선 개착식 램프 양측 평면 측도를 따라 이격 배치된 도심 업무 블록</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/civil_env/02_suseong_complex_intersection_island.jpg" alt="다지 교차로 코너 상가 블록 배치: 복합 교차로 포장면 및 우회전 전용 차로 외곽선을 침범하지 않도록 클리핑된 상가 필지" loading="lazy" />
+    <div class="fig-caption"><strong>다지 교차로 코너 상가 블록 배치:</strong> 복합 교차로 포장면 및 우회전 전용 차로 외곽선을 침범하지 않도록 클리핑된 상가 필지</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/civil_env/07_urban_crosswalk_commercial_block.jpg" alt="간선도로변 저층 근린상가 필지 정합: 광폭 교차로 보도 및 교통섬 경계와 안전 여유폭을 두고 배치된 연도변 상가군" loading="lazy" />
+    <div class="fig-caption"><strong>간선도로변 저층 근린상가 필지 정합:</strong> 광폭 교차로 보도 및 교통섬 경계와 안전 여유폭을 두고 배치된 연도변 상가군</div>
+  </div>
+</div>
+<ul>
+  <li><strong>도로·보도 경계 폴리곤 클리핑:</strong> 공공 지적 데이터의 미세 측량 오차로 건물 모서리가 보도나 차도를 침범하지 않도록 차도 외곽선 및 보도 여유폭(<code>+1.05 m</code>)을 기준으로 폴리곤 차집합 연산을 수행합니다.</li>
+  <li><strong>인접 맞벽 간격 조정 및 경사 지형 기초 연장:</strong> 상가 밀집 구간에서 인접 건물 외벽이 겹쳐 화면이 깜빡이는 현상(Z-fighting)을 막기 위해 근접 벽면을 미세 인셋(<code>14 cm</code>)하고, 경사진 도로에서도 건물 바닥이 지형 위로 들뜨지 않도록 기초부를 지형 최저점 아래(<code>-55 cm</code>)로 연장해 매립합니다.</li>
+</ul>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/core_hdmap_opendrive.html" class="btn-neutral" rel="prev">← 맵 · 도로망 · 교량·터널</a>
+          <a href="../pages/core_korean_streetscape.html" class="btn-neutral" rel="next">신호등 · 표지판 · 가로등 · 특수노면 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

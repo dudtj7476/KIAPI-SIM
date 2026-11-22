@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>검증 보고서(PDF) 생성(Tab 4) 매뉴얼 및 참고 기술문서 — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1 current"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Verification Guide · 검증 프로그램 사용법</span>
+              <span>»</span>
+              <strong>[Tab 4] 검증 보고서 생성 &amp; 기술문서</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Tab 4 &amp; Technical Docs</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>검증 보고서(PDF) 생성(Tab 4) 매뉴얼 및 참고 기술문서</h1>
+          <p class="page-lead">표지 메타데이터 입력, 챕터별 기본 차트 확인 및 사용자 지정 X-Y 파형 추가, 시험성적서 PDF 출력 절차를 설명하고 세부 기술문서 PDF 자료를 제공합니다.</p>
+          
+
+<div class="fig-block">
+  <img src="../assets/img/ui/ui_tab4_export.png" alt="그림 1. [Tab 4: 검증 보고서 생성] 화면 — 표지 정보 입력란, 5개 챕터 구성 체크박스 및 미리보기, 커스텀 X-Y 파형 추가, PDF 출력 버튼." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> [Tab 4: 검증 보고서 생성] 화면 — 표지 정보 입력란, 5개 챕터 구성 체크박스 및 미리보기, 커스텀 X-Y 파형 추가, PDF 출력 버튼.</div>
+</div>
+
+
+<h2 id="tab4-pdf-generation-steps">1. 검증 보고서(PDF) 생성 절차</h2>
+<ol>
+  <li><strong>표지 정보 입력:</strong> <code>의뢰처</code>, <code>의뢰처 주소</code>, <code>의뢰일</code>, <code>발급일</code>, <code>시험대상품목</code>, <code>시험책임자</code>, <code>품질책임자</code>를 입력합니다(비워둔 항목은 성적서 양식에 공란으로 출력됨).</li>
+  <li><strong>수록 챕터(1~5장) 선택 및 커스텀 차트 추가:</strong>
+    <ul>
+      <li><strong>챕터 1 ~ 4:</strong> 도로 인프라 주행(KPI 1~7), 동적 교통환경 대응(KPI 8~13), 신호·노면표시·교차로(KPI 14~18), 비상 회피 여유(KPI 19~20) 포함 여부를 체크하고 <code>[챕터 기본 차트 미리보기]</code>로 그래프를 사전 확인합니다.</li>
+      <li><strong>챕터 5:</strong> 식별 이벤트 2D 주행 궤적, 12축 스파이더웹 레이더, 종합 요약표를 포함합니다.</li>
+      <li><code>[+ 커스텀 X-Y 파형 추가 (Add Plot)]</code> 버튼을 사용하면 기본 차트 외에 사용자가 원하는 센서·제어 신호 조합 그래프를 챕터에 추가할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li><strong>PDF 생성 및 출력:</strong> 우측 하단 <code>[KPI 검증 보고서(PDF) 생성 및 출력]</code>을 클릭하여 최종 보고서 PDF를 저장합니다.</li>
+</ol>
+
+<h2 id="sample-report-pages">2. 출력 보고서 페이지별 구성 예시 (클릭 시 확대)</h2>
+<div class="fig-grid-3 portrait-pages">
+  <div class="fig-block">
+    <img src="../assets/img/tech/cert_sample_page_01.jpg" alt="표지(p.1): 문서번호, 시험 개요, 종합 판정(적합/부적합) 및 8대 역량 요약" loading="lazy" />
+    <div class="fig-caption"><strong>표지(p.1):</strong> 문서번호, 시험 개요, 종합 판정(적합/부적합) 및 8대 역량 요약</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/tech/cert_sample_page_02.jpg" alt="20-KPI 결과표(p.2): 항목별 위반 건수, 계측 물리량 및 등급" loading="lazy" />
+    <div class="fig-caption"><strong>20-KPI 결과표(p.2):</strong> 항목별 위반 건수, 계측 물리량 및 등급</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/tech/cert_sample_page_03.jpg" alt="행동역량 연계표(p.3): AVSC 00008 요구사항 및 하위 KPI 적부 매핑" loading="lazy" />
+    <div class="fig-caption"><strong>행동역량 연계표(p.3):</strong> AVSC 00008 요구사항 및 하위 KPI 적부 매핑</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/tech/cert_sample_page_04.jpg" alt="12축 레이더 &amp;amp; 파형(p.4): 준수율/안전여유도 스파이더웹 및 전 구간 동역학 파형" loading="lazy" />
+    <div class="fig-caption"><strong>12축 레이더 &amp; 파형(p.4):</strong> 준수율/안전여유도 스파이더웹 및 전 구간 동역학 파형</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/tech/cert_sample_page_05.jpg" alt="이벤트 구간 비교(p.5): 위반 전·중·후 동역학 요약표 및 종합 평가 소견" loading="lazy" />
+    <div class="fig-caption"><strong>이벤트 구간 비교(p.5):</strong> 위반 전·중·후 동역학 요약표 및 종합 평가 소견</div>
+  </div>
+  <div class="fig-block">
+    <img src="../assets/img/tech/cert_sample_page_06.jpg" alt="개별 이벤트 상세(p.6): 위반 순간 2D 정밀지도 BEV, 적색 음영 파형 및 원인 분석" loading="lazy" />
+    <div class="fig-caption"><strong>개별 이벤트 상세(p.6):</strong> 위반 순간 2D 정밀지도 BEV, 적색 음영 파형 및 원인 분석</div>
+  </div>
+</div>
+
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/eval_20kpi_engine.html" class="btn-neutral" rel="prev">← [Tab 3] 20-KPI 정량 검증 매뉴얼</a>
+          <span></span>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

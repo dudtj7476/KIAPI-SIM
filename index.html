@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIAPI 자율주행 시뮬레이션 &amp; 정량 검증 문서 — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="./assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="./assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "./";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="./index.html" class="brand-link">
+          <img src="./assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1 current"><a href="./index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="./pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="./pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="./pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="./pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="./pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="./pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="./pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="./pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1"><a href="./pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="./pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="./pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="./pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="./pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="./pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="./pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="./index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="./pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="./pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="./index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="./index.html">Docs</a>
+              <span>»</span>
+              <span>Getting Started · 시작하기</span>
+              <span>»</span>
+              <strong>플랫폼 소개 (Overview)</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Documentation Home</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>KIAPI 자율주행 시뮬레이션 &amp; 정량 검증 문서</h1>
+          <p class="page-lead">정밀도로지도 기반 국내 도로 시뮬레이션 환경과 시나리오·고장 주입 시험, 그리고 국제표준(AVSC 00008 · UN R157) 기반 20개 안전 평가지표 정량 검증 및 시험성적서 생성 프로그램의 공식 기술·사용자 문서입니다.</p>
+          
+<div class="townslider-container">
+  <div class="townslider-slide active">
+    <img src="./assets/img/korean_buildings/dt_01_arterial_day_driver.jpg" alt="국내 도심 간선도로 주행 환경" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Maps &amp; Urban Environment</span>
+      <h4>정밀도로지도 기반 국내 도심 도로망 · 4구 수평 신호등 · 주변 건물 환경</h4>
+      <p>출발·목적지 경로 주변의 차로 기하, 노면표시, 신호기 및 도로변 건물을 공간정보 데이터로부터 자동 생성</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/korean_streetscape/01_yuga_schoolzone_day.jpg" alt="어린이보호구역 및 교차로 안전시설" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Road Signs &amp; School Zone</span>
+      <h4>제한속도 · 어린이보호구역 표지판 및 보행자 방호울타리 · 횡단보도</h4>
+      <p>도로 구간별 법규 제한속도(KPI 01·06) 및 보행자 보호(KPI 10) 검증에 대응하는 시각·물리 시설 배치</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/korean_buildings/dt_06_arterial_night_driver.jpg" alt="야간 조명 및 젖은 노면 환경" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Weather &amp; Night Lighting</span>
+      <h4>주야간 · 기상 변화 연동 도로 조명 및 습윤 노면 환경</h4>
+      <p>24종 시간대·날씨 프리셋에 따라 가로등, 터널 조명, 노면 반사 및 센서 가시거리가 연동 동작</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/vehicles/korean_fleet_35_mosaic.jpg" alt="국내 4륜 차량 블루프린트 라인업" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Vehicle Blueprints</span>
+      <h4>자율주행 시험차량 3종 및 국내 4륜 차종 32종 블루프린트</h4>
+      <p>승용·SUV·소형 화물·대형 버스·긴급차량 등 차급별 외형 치수와 4륜 서스펜션 물리를 갖춘 차량 에셋</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/vehicles/korean_mobility_walkers_18_mosaic.jpg" alt="한국형 모빌리티 10종 및 보행자 8종" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Korean Mobility &amp; Pedestrians</span>
+      <h4>한국형 모빌리티 10종 및 NCAP 기준 보행자 8종</h4>
+      <p>이륜차·자전거·PM·경운기 10종(1,000 Hz RK4 동역학)과 연령대별(어린이~고령자) 한국형 보행자 8종 에셋</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/bridges_tunnels/11_sec02_apsan_arch_portal_roadlevel.jpg" alt="한국형 NATM 말굽형 아치 터널 및 입체 교량" />
+    <div class="townslider-caption">
+      <span class="ts-tag">3D Bridges &amp; NATM Tunnels</span>
+      <h4>한국형 NATM 말굽형 아치 터널 · PSC 박스거더 교량 · 고성토 옹벽</h4>
+      <p>도로 유형(RoadType 2·3·4·5)에 따라 산악 아치 터널, 도심 박스 지하차도, 고가교량 및 수밀 산지 후드를 자동 합성</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/figures/fig_lidar_4way_comparison.png" alt="3D LiDAR 센서 시뮬레이션" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Sensor Simulation</span>
+      <h4>32/64/128채널 3D LiDAR 수직 채널 각도 및 재질별 반사 특성 모사</h4>
+      <p>루프 장착 기준 비등간격 레이저 링 분포, 재질별 반사 강도, 유리 투과 및 타이어 저반사 특성 반영</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/figures/fig_korean_traffic_light_4phases.png" alt="한국형 4구 수평 교통신호등 4현시" />
+    <div class="townslider-caption">
+      <span class="ts-tag">4-Head Traffic Signal &amp; SPaT</span>
+      <h4>국내 규격 4구 수평형 신호등(적·황·좌화살표·녹) 및 V2I SPaT 20Hz 동기화</h4>
+      <p>적색 정지, 보호좌회전(적+좌화살표), 직진 녹색, 황색 주의 전환 및 야간 가로등 자동 조광 연동</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/ui/pygame_live_5ch_hud.png" alt="5채널 3D 시뮬레이션 및 차량 통합 관제 모니터" />
+    <div class="townslider-caption">
+      <span class="ts-tag">5-Channel Live Simulation HUD</span>
+      <h4>5채널 통합 3D 관제 모니터 — 3D 뷰 · 전방 · 세그멘테이션 · 3D LiDAR(3D GT 박스) · 타겟 예측 지도</h4>
+      <p>7-갈래 로컬 후보 경로 AR 카펫, 순수 3D LiDAR 점군 및 3D GT 바운딩 박스, 3초 미래 예측 상충 검지 및 6채널 파형 스코프 실시간 표출</p>
+    </div>
+  </div>
+  <div class="townslider-slide">
+    <img src="./assets/img/ui/ui_tab2_workbench.png" alt="통합 시뮬레이션 및 정량 검증 화면" />
+    <div class="townslider-caption">
+      <span class="ts-tag">Simulation &amp; Verification UI</span>
+      <h4>시뮬레이션 실행(Tab 2) 및 20-KPI 정량 검증 · 성적서 생성(Tab 3·4) 통합 인터페이스</h4>
+      <p>경로 설정, 시나리오·고장 주입, 20Hz 주행 기록, 행동역량 정량 평가 및 PDF 보고서 출력을 단일 프로그램에서 수행</p>
+    </div>
+  </div>
+  <button class="ts-btn ts-prev" type="button" aria-label="Previous slide">❮</button>
+  <button class="ts-btn ts-next" type="button" aria-label="Next slide">❯</button>
+  <div class="ts-dots">
+    <button class="ts-dot active" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+    <button class="ts-dot" type="button"></button>
+  </div>
+</div>
+
+<h2 id="platform-purpose">1. 시스템 개요 및 목적</h2>
+<p>
+  본 문서는 자율주행 소프트웨어의 가상 주행 시험과 주행 안전성 정량 평가를 위해 구축된 <strong>통합 시뮬레이션 및 검증 프로그램</strong>의 환경 구성 원리와 화면별 사용 방법을 안내합니다.
+</p>
+<p>
+  해외 도로 규격(3구 수직 신호등, 해외 표지판, 외국 차종 위주 구성)을 기본으로 하는 일반 시뮬레이터에서 국내 도심 주행 및 교통법규 준수 여부를 시험할 때 발생하는 환경 차이를 줄이기 위해, 국토지리정보원(NGII) 정밀도로지도와 국내 교통신호·표지·건축물·차종 구성을 반영하고 실도로 주행 로그와 가상 주행 로그를 동일한 국제표준 기반 20개 안전 평가지표(AVSC 00008 · UN R157 · RSS 연계)로 검증할 수 있도록 설계되어 있습니다. 전체 데이터 흐름도는 <a href="./pages/sys_architecture.html#workflow-scenarios">화면 구성 및 워크플로우</a> 문서에서 확인할 수 있습니다.
+</p>
+
+<h2 id="guide-map">2. 분류별 문서 구성 안내</h2>
+<div class="card-grid">
+  <div class="nav-card">
+    <span class="nc-kicker">Getting Started · 시작하기</span>
+    <h3>실행 환경 · 조작키 · 전체 워크플로우</h3>
+    <p>권장 하드웨어 사양, 첫 가상 주행부터 성적서 출력까지의 5단계 기본 절차, 단축키 요약 및 4-Tab 간 데이터 흐름을 다룹니다.</p>
+    <div style="margin-top:10px;font-size:0.82rem;">
+      <a href="./pages/start_quickstart.html">실행 환경·빠른 시작</a> ·
+      <a href="./pages/sys_architecture.html">화면 구성·워크플로우</a>
+    </div>
+  </div>
+  <div class="nav-card">
+    <span class="nc-kicker">World &amp; Assets · 맵·건물·인프라</span>
+    <h3>정밀지도 도로망 · 3D 건축물 · 신호·표지</h3>
+    <p>내장 17개 권역과 OpenDRIVE 도로·PSC 교량·NATM 터널 생성, 공간정보 기반 3D 도심 건물·한글 간판, 4구 수평 신호등·가로등·특수노면을 설명합니다.</p>
+    <div style="margin-top:10px;font-size:0.82rem;">
+      <a href="./pages/core_hdmap_opendrive.html">맵·교량·터널</a> ·
+      <a href="./pages/core_korean_buildings.html">3D 건물·가로경관</a> ·
+      <a href="./pages/core_korean_streetscape.html">신호등·표지·특수노면</a>
+    </div>
+  </div>
+  <div class="nav-card">
+    <span class="nc-kicker">World &amp; Assets · 동적 에셋</span>
+    <h3>차량 · 모빌리티 · 보행자 블루프린트 카탈로그</h3>
+    <p>시험차 3종, 국내 4륜 차종 32종, 한국형 이륜·PM·경운기 10종, NCAP 기준 한국형 보행자 8종 및 해외 차종 17종의 제원을 제공합니다.</p>
+    <div style="margin-top:10px;font-size:0.82rem;">
+      <a href="./pages/catalogue_vehicles.html">차량·모빌리티 62종 + 보행자 8종</a>
+    </div>
+  </div>
+  <div class="nav-card">
+    <span class="nc-kicker">Physics, Sensors &amp; Traffic · 물리·센서</span>
+    <h3>차량·모빌리티 동역학 · 가상 센서 · 주변 교통류</h3>
+    <p>14-DOF 시험차 및 10종 모빌리티 동역학, 32/64/128ch 3D LiDAR·GNSS 센서 특성, 다차로 비등방성 교통류 생성 및 하이브리드 물리를 다룹니다.</p>
+    <div style="margin-top:10px;font-size:0.82rem;">
+      <a href="./pages/core_vehicle_dynamics.html">차량·모빌리티 물리</a> ·
+      <a href="./pages/core_sensors_lidar.html">가상 센서</a> ·
+      <a href="./pages/core_hybrid_traffic.html">주변 교통류</a>
+    </div>
+  </div>
+  <div class="nav-card">
+    <span class="nc-kicker">Simulation Guide · 시뮬레이션 사용법</span>
+    <h3>Tab 2 매뉴얼 · 시나리오·고장 주입 · SUT 연동</h3>
+    <p>가상 주행 툴바·5채널 3D 뷰어 조작법, 45종 시나리오·고장·ODD 설정 및 AI 설계, 외부 자율주행 시스템(SUT) 폐루프 연동 규격을 안내합니다.</p>
+    <div style="margin-top:10px;font-size:0.82rem;">
+      <a href="./pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a> ·
+      <a href="./pages/adv_scenarios_ai.html">시나리오·고장</a> ·
+      <a href="./pages/sut_interface_guide.html">SUT 연동</a>
+    </div>
+  </div>
+  <div class="nav-card">
+    <span class="nc-kicker">Verification Guide · 검증 프로그램 사용법</span>
+    <h3>실도로 모니터링 · 20-KPI 검증 · PDF 보고서</h3>
+    <p>Tab 1 실도로 로그 관제 및 Log-to-Sim 추출, Tab 3의 20개 안전 평가지표 수식·판정 기준, Tab 4 시험성적서 PDF 출력 및 기술문서를 제공합니다.</p>
+    <div style="margin-top:10px;font-size:0.82rem;">
+      <a href="./pages/eval_3tier_db.html">Tab 1 매뉴얼</a> ·
+      <a href="./pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a> ·
+      <a href="./pages/eval_pdf_certificate.html">Tab 4·기술문서</a>
+    </div>
+  </div>
+</div>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <span></span>
+          <a href="./pages/start_quickstart.html" class="btn-neutral" rel="next">실행 환경 및 빠른 시작 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="./assets/js/search_data.js"></script>
+<script src="./assets/js/kiapi_rtd.js"></script>
+</body>
+</html>

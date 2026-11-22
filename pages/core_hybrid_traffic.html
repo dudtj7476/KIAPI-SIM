@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>주변 교통류 생성 및 하이브리드 물리 구동 (Traffic Simulation) — KIAPI Simulation &amp; V&amp;V Docs</title>
+  <link rel="icon" type="image/png" href="../assets/img/brand/kiapi_header_mark.png" />
+  <link rel="stylesheet" href="../assets/css/kiapi_rtd.css" />
+  <script>window.KIAPI_ROOT_PREFIX = "../";</script>
+</head>
+<body>
+<div class="wy-grid-for-nav">
+
+  <!-- Left ReadTheDocs Navigation Sidebar -->
+  <nav class="wy-nav-side" aria-label="Navigation menu">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="brand-link">
+          <img src="../assets/img/brand/kiapi_logo_white.png" alt="KIAPI" class="brand-logo" />
+          <span>KIAPI Sim &amp; V&amp;V Docs</span>
+        </a>
+        <div class="version-badge">latest (v2026.11)</div>
+        <div class="rtd-search-box">
+          <input type="text" id="rtd-search-input" placeholder="문서 검색 ( / 또는 Ctrl+K )" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="Main">
+        <p class="caption"><span class="caption-text">Getting Started · 시작하기</span></p>
+<ul>
+<li class="toctree-l1"><a href="../index.html">플랫폼 소개 (Overview)</a></li>
+<li class="toctree-l1"><a href="../pages/start_quickstart.html">실행 환경 및 빠른 시작</a></li>
+<li class="toctree-l1"><a href="../pages/sys_architecture.html">화면 구성 및 워크플로우</a></li>
+</ul>
+<p class="caption"><span class="caption-text">World &amp; Assets · 월드 및 에셋</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_hdmap_opendrive.html">맵 · 도로망 · 교량·터널</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_buildings.html">건물 및 도심 가로 경관 (Buildings)</a></li>
+<li class="toctree-l1"><a href="../pages/core_korean_streetscape.html">신호등 · 표지판 · 가로등 · 특수노면</a></li>
+<li class="toctree-l1"><a href="../pages/catalogue_vehicles.html">차량 · 모빌리티 · 보행자 카탈로그</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics, Sensors &amp; Traffic · 물리·센서</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/core_vehicle_dynamics.html">차량 · 모빌리티 물리 모델</a></li>
+<li class="toctree-l1"><a href="../pages/core_sensors_lidar.html">센서 구성 (Sensors)</a></li>
+<li class="toctree-l1 current"><a href="../pages/core_hybrid_traffic.html">주변 교통류 시뮬레이션 (Traffic)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation Guide · 시뮬레이션 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/guide_tab2_simulation.html">[Tab 2] 가상 주행 시뮬레이션 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/adv_scenarios_ai.html">시나리오 · 고장 · ODD 시험 가이드</a></li>
+<li class="toctree-l1"><a href="../pages/sut_interface_guide.html">자율주행 시스템(SUT) 연동 및 표준 패키지</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Verification Guide · 검증 프로그램 사용법</span></p>
+<ul>
+<li class="toctree-l1"><a href="../pages/eval_3tier_db.html">[Tab 1] 실도로 모니터링 &amp; 시나리오 추출</a></li>
+<li class="toctree-l1"><a href="../pages/eval_20kpi_engine.html">[Tab 3] 20-KPI 정량 검증 매뉴얼</a></li>
+<li class="toctree-l1"><a href="../pages/eval_pdf_certificate.html">[Tab 4] 검증 보고서 생성 &amp; 기술문서</a></li>
+</ul>
+      </div>
+    </div>
+
+    <!-- Bottom ReadTheDocs Version & PDF Flyout -->
+    <div class="rst-versions" role="note" aria-label="Versions">
+      <div class="rst-current-version">
+        <span>Documentation</span>
+        <span>v: <span class="v-green">latest</span> ▾</span>
+      </div>
+      <div class="rst-other-versions">
+        <dl>
+          <dt>Quick Links</dt>
+          <dd><a href="../index.html"><strong>Overview</strong></a></dd>
+          <dd><a href="../pages/guide_tab2_simulation.html">Tab 2 매뉴얼</a></dd>
+          <dd><a href="../pages/eval_20kpi_engine.html">Tab 3 매뉴얼</a></dd>
+        </dl>
+        <dl>
+          <dt>화면 모드</dt>
+          <dd><button type="button" class="theme-btn" data-toggle-theme>Light / Dark 전환</button></dd>
+        </dl>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Offline Search Results Dropdown -->
+  <div id="rtd-search-results" class="search-results-dropdown"></div>
+
+  <!-- Main Documentation Content -->
+  <section class="wy-nav-content-wrap">
+    <div class="wy-nav-top" aria-label="Mobile navigation menu">
+      <button type="button" id="rtd-mobile-toggle" aria-label="Toggle menu">☰</button>
+      <a href="../index.html" style="color:#fff;text-decoration:none;">KIAPI Sim &amp; V&amp;V Docs</a>
+    </div>
+
+    <div class="wy-nav-content">
+      <div class="rst-content">
+        <div role="navigation" aria-label="Page navigation">
+          <div class="wy-breadcrumbs">
+            <div class="bc-left">
+              <a href="../index.html">Docs</a>
+              <span>»</span>
+              <span>Physics, Sensors &amp; Traffic · 물리·센서</span>
+              <span>»</span>
+              <strong>주변 교통류 시뮬레이션 (Traffic)</strong>
+            </div>
+            <div class="bc-right">
+              <span class="bc-pill">Traffic Manager</span><button class="bc-pill" type="button" data-toggle-theme style="cursor:pointer;">테마 전환</button>
+            </div>
+          </div>
+        </div>
+
+        <main role="main">
+          <h1>주변 교통류 생성 및 하이브리드 물리 구동 (Traffic Simulation)</h1>
+          <p class="page-lead">정밀도로지도 다차로 위상 그래프 복원 및 비등방성(Anisotropic) 병렬 스폰 기법, 도로용량편람 서비스수준(LOS A~F) 기반 4단계 교통류·유령정체(Stop-and-Go) 파동 수리 모델, 그리고 최대 500대 규모의 배경 차량을 실시간 동기 구동하기 위한 거리 히스테리시스 2-계층 하이브리드 물리 아키텍처와 실증 벤치마크 결과를 설명합니다.</p>
+          
+<div class="kpi-strip kpi-cols-4">
+  <div class="kpi-box">
+    <div class="kpi-val">500대 · 100%</div>
+    <div class="kpi-lbl">최대 배경 차량 및 스폰 충진율</div>
+    <div class="kpi-sub">비등방성 병렬 스폰 (320대 1.66 s 생성)</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-val">84.0% 국산 차종</div>
+    <div class="kpi-lbl">국내 실도로 통계 정합 차종 분포</div>
+    <div class="kpi-sub">승용·SUV 60% · 화물 18% · 버스 6% · 수입 16%</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-val">68 m / 82 m</div>
+    <div class="kpi-lbl">히스테리시스 물리 분할 반경</div>
+    <div class="kpi-sub">근거리 4륜 Chaos(≤32대) + 원거리 벡터 기구학</div>
+  </div>
+  <div class="kpi-box">
+    <div class="kpi-val">2.93× 가속</div>
+    <div class="kpi-lbl">300대 정체 시 1-Tick 연산 단축</div>
+    <div class="kpi-sub">153.5 ms → 52.3 ms (표준 회랑 22.5 Hz 실시간)</div>
+  </div>
+</div>
+
+<h2 id="multilane-spawn-topology">1. 다차로 위상 그래프 복원 및 비등방성(Anisotropic) 주변 교통류 생성</h2>
+<p>
+  자율주행 소프트웨어의 차로변경·합류·교차로 통과 성능을 현실적으로 시험하려면 편도 3~4차로 전 차선에 차량이 나란히 대기하는 도심 차막힘부터 제한속도 <code>80 ~ 100 km/h</code> 연속류 고속 주행까지 폭넓은 배경 교통류가 형성되어야 합니다.
+  기본 등방성 반경 배제 스포너는 동적 OpenDRIVE 재빌드 시 인접 차로 스폰 차단 및 코리더 경계 본선 누락을 유발하므로 다음과 같은 다차로 위상 생성 파이프라인을 적용합니다.
+</p>
+<ul>
+  <li><strong>종단 본선 차로 위상 그래프 복원 (<code>414 → 11,433 노드</code>):</strong> 기본 위상 조회 API는 후속 연결(<code>successor</code>)이 존재하는 도로 쌍만 반환하기 때문에 코리더 외곽 절단부에 걸친 장거리 고속화도로 본선 링크가 누락됩니다. 이를 보완하기 위해 <code>2.0 m</code> 간격 웨이포인트 전수 샘플링과 유효 차로폭 검증(<code>lane_width ≥ 2.75 m</code>, 전방 <code>18 m</code> 연속성 확보)을 결합하여 누락된 본선 체인을 복원하고, 진입 차수(<code>in_degree = 0</code>) 상류 유입 노드를 별도 색인화합니다.</li>
+  <li><strong>위상 분리 비등방성(Anisotropic) 병렬 스폰 기하:</strong> 차로 구분 없이 등방성 유클리드 거리(예: <code>R = 10.5 m</code>)로 스폰 간격을 제한하면 표준 차로폭(<code>3.0 ~ 3.5 m</code>)의 좌·우 인접 차로까지 배제 영역에 포함되어 3차로 중 2개 차로가 비는 현상이 발생합니다. 본 엔진은 후보 노드의 <code>(road_id, sgn(lane_id))</code> 위상을 비교하여 <strong>① 동일 차로 종방향 이격</strong>, <strong>② 동일 진행방향 인접 병렬차로 이격(<code>2.70 ~ 5.50 m</code>)</strong>, <strong>③ 대향·타 도로 이격(<code>6.0 ~ 14.0 m</code>)</strong>을 독립 판정함으로써 다차로 병렬 대기행렬(Side-by-Side Queuing)을 자연스럽게 형성합니다.</li>
+  <li><strong>격자 캐시 노면 고도 정합 및 차종별 축거 자동 추출:</strong> 대량 스폰 시 타이어 부유나 노면 매립을 막기 위해 수직 레이캐스트를 수행하되, 이미 스폰된 선행 차량의 지붕(<code>+1.3 ~ 2.1 m</code>)이 지면으로 오인되지 않도록 기준 고도 대비 <code>[-1.50 m, +0.12 m]</code> 대역 필터와 <code>0.25 m</code> 해상도 2차원 격자 캐시를 적용합니다. 또한 국내 실도로 수집 통계 비율(국산 84%: 승용·SUV 60%, 화물 18%, 버스 6%, 수입 16%)에 맞춰 차종을 추출하고 4륜 휠 좌표로부터 차급별 실제 축거(<i>L</i><sub>wb</sub> ∈ <code>[2.35, 4.80] m</code>)를 계산·캐싱합니다(시험차 전용 모델 및 긴급차량은 일반 배경 스폰에서 자동 제외).</li>
+</ul>
+
+
+<div class="math-box">
+  <span class="math-label">위상 분리 비등방성 스폰 허용 조건 및 목표 대수 연동 동적 교통 버블 반경</span>
+  <div>
+Δ<i>d</i><sub>min</sub>(<i>u</i>, <i>v</i>) =
+{ Δ<i>s</i><sub>same</sub>(LOS) &nbsp;(동일 차로: road<sub><i>u</i></sub> = road<sub><i>v</i></sub>, lane<sub><i>u</i></sub> = lane<sub><i>v</i></sub>) ; &nbsp;
+Δ<i>y</i><sub>adj</sub>(LOS) &nbsp;(동일방향 병렬차로: sgn(lane<sub><i>u</i></sub>)·sgn(lane<sub><i>v</i></sub>) &gt; 0) ; &nbsp;
+Δ<i>d</i><sub>other</sub>(LOS) &nbsp;(대향·타 도로) }<br/>
+<i>R</i><sub>spawn</sub>(<i>N</i>) = clip(<i>R</i><sub>0</sub>(LOS) + <i>α</i><sub>LOS</sub>·<i>N</i>, 225, 680) [m], &nbsp;&nbsp;
+<i>R</i><sub>ahead</sub>(<i>N</i>) = <i>R</i><sub>spawn</sub>(<i>N</i>) + 85 [m], &nbsp;&nbsp;
+<i>R</i><sub>out</sub>(<i>N</i>) = <i>R</i><sub>spawn</sub>(<i>N</i>) + 115 [m]
+</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_traffic_spawn_topology_and_fleet.png" alt="그림 1. 등방성 반경 배제 대비 위상 분리 비등방성 다차로 스폰 기하(a), 차량 대수별 동적 교통 버블 반경 스케일링 및 본선 차로 그래프 복원 효과(b), 국내 실도로 통계 정합 차종 가중치 분포(c)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 1.</strong> 등방성 반경 배제 대비 위상 분리 비등방성 다차로 스폰 기하(a), 차량 대수별 동적 교통 버블 반경 스케일링 및 본선 차로 그래프 복원 효과(b), 국내 실도로 통계 정합 차종 가중치 분포(c).</div>
+</div>
+
+
+<h2 id="traffic-density-profiles">2. 도로용량편람(LOS A~F) 기반 4단계 혼잡도 및 미시 주행·충격파 수리 모델</h2>
+<p>
+  Tab 2 상단 2열의 <code>주변교통</code> 드롭다운과 대수 입력칸(<code>0 ~ 500대</code>)은 국토교통부 『도로용량편람(KHCM)』 및 TRB 『Highway Capacity Manual(HCM)』의 서비스수준(Level of Service, LOS A~F)에 대응하는 4단계 거시 교통류 프로파일을 제어합니다.
+  주행 도중 혼잡도 옵션을 변경하면 액터를 파괴하거나 재스폰하지 않고 월드 내 모든 활성 차량의 희망 속도, 최소 정지간격(<i>s</i><sub>0</sub>), 목표 차두시간(<i>T</i><sub>hw</sub>), 유령정체 파동 파라미터가 즉시 갱신됩니다.
+</p>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>UI 혼잡도 옵션</th><th>대응 서비스수준</th><th>기본 대수</th><th>희망 속도 배율</th><th>정지 간격 (<i>s</i><sub>0</sub>) / 차두시간 (<i>T</i><sub>hw</sub>)</th><th>동일차로 / 인접차로 스폰 이격</th><th>자차 전방 할당률</th><th>유령정체 파동 및 주행 특성</th></tr></thead>
+    <tbody><tr><td><code>한산 (원활)</code></td><td><span class='badge badge-green'>LOS A</span></td><td>25대</td><td><code>0.96 ~ 1.14×</code></td><td><code>4.60 m</code> / <code>1.75 s</code></td><td><code>36 · 26 · 20 m</code> / <code>5.50 m</code></td><td>35%</td><td>비활성 · 제한속도 부근 자유류 순항</td></tr><tr><td><code>보통 (일반)</code></td><td><span class='badge badge-blue'>LOS B ~ C</span></td><td>75대</td><td><code>0.82 ~ 1.05×</code></td><td><code>3.50 m</code> / <code>1.32 s</code></td><td><code>21 · 15.5 · 12.5 m</code> / <code>3.20 m</code></td><td>45%</td><td>비활성 · 안정적 군집 추종 및 신호 대기</td></tr><tr><td><code>혼잡 (서행)</code></td><td><span class='badge badge-amber'>LOS D ~ E</span></td><td>180대</td><td><code>0.50 ~ 0.74×</code></td><td><code>2.45 m</code> / <code>0.95 s</code></td><td><code>12.5 · 9.5 · 7.8 m</code> / <code>2.80 m</code></td><td>58%</td><td>비활성 · 용량 포화 서행 및 대기행렬 신장</td></tr><tr><td><code>정체 (차막힘)</code></td><td><span class='badge badge-red'>LOS F</span></td><td>300대 (최대 500대)</td><td><code>0.24 ~ 0.48×</code></td><td><code>1.85 m</code> / <code>0.78 s</code></td><td><code>9.2 · 7.4 · 6.2 m</code> / <code>2.70 m</code></td><td>68%</td><td><strong>활성 (선두 20%, 주기 22.0 s)</strong> · 다차로 밀착 및 후방 충격파</td></tr></tbody>
+  </table>
+</div>
+
+
+<h3 id="microscopic-idm-shockwave-steering">2.1 종방향 추종(IDM + 제동 포락선) · 유령정체 충격파 · 횡방향 조향 및 교통신호 제어식</h3>
+<ul>
+  <li><strong>지능형 운전자 모델(IDM) 및 무충돌 안전 제동 포락선:</strong> 선행 차량(속도 <i>v<sub>l</sub></i>)과의 순수 범퍼 간격 <i>g<sub>i</sub></i> = Δ<i>s<sub>i</sub></i> − ½(<i>L<sub>i</sub></i> + <i>L<sub>l</sub></i>)에 대해 동적 희망 간격 <i>s</i><sup>*</sup>와 최대 허용 안락 감속도(<i>b</i><sub>comf</sub> = <code>2.3 m/s²</code>, <i>a</i><sub>max</sub> = <code>2.4 m/s²</code>) 기반 등감속도 안전 속도 포락선 <i>v</i><sub>env</sub>를 동시에 적용하여 급감속 상황에서도 추돌 없이 최소 정지간격(<i>g<sub>i</sub></i> ≥ <i>s</i><sub>0</sub>)을 유지합니다.</li>
+  <li><strong>연속류 무신호 도로 유령정체(Phantom Traffic Jam) 파동 생성기:</strong> 신호등이 없는 고속화도로에서는 단순 속도 감산만 적용할 경우 전 차량이 등속 서행으로 수렴하여 실제 차막힘 특유의 가다서다(Stop-and-Go) 파동이 형성되지 않습니다. 이를 재현하기 위해 <code>정체 (LOS F)</code> 모드에서는 전체 배경 차량 중 <code>20%</code>를 공간 위상차 <i>φ<sub>i</sub></i>를 갖는 <strong>페이즈메이커(Pacemaker)</strong>로 지정하고, 주기 <i>T<sub>w</sub></i> = <code>22.0 s</code>의 비대칭 정지-가속 파동을 인가하여 후행 차량군을 따라 상류 방향으로 약 <code>14 ~ 18 km/h</code> 속도로 전파되는 후방 충격파를 유도합니다.</li>
+  <li><strong>전륜 기준 Stanley + 예견 곡률 피드포워드 조향 및 회전별 교통신호 래치:</strong> <code>0.5 m</code> 간격 차로 중심 스플라인 위에서 전방 예견 곡률 <i>κ</i>(<i>s</i> + <i>L</i><sub>lh</sub>)에 대한 애커만(Ackermann) 조향각 피드포워드와 전륜 중심 횡방향 오차(<i>e<sub>y</sub></i>) 비선형 피드백을 결합하여 고속 본선과 교차로 좌·우회전 모두 <code>|CTE| ≤ 0.007 m</code> 수준의 차선 중앙 추종 정밀도를 유지합니다. 또한 정지선 진입 전 <code>+7 ~ +64 m</code> 구간의 누적 궤적 회전각을 분석해 차량별 예정 기동(직진·좌회전·우회전)을 판별하고, 한국형 4구 수평 신호 현시와 대조하여 정지선 <code>1.65 m</code> 앞에 정차시키며 정지선 래치로 적색 현시 중 재출발 오작동을 방지합니다.</li>
+</ul>
+
+
+<div class="math-box">
+  <span class="math-label">종방향 IDM 안전 포락선 · 유령정체 페이즈메이커 파동 · 전륜 기준 비선형 조향 제어 수식</span>
+  <div>
+<i>s</i><sup>*</sup>(<i>v<sub>i</sub></i>, Δ<i>v<sub>i</sub></i>) = <i>s</i><sub>0</sub> + max(0, <i>v<sub>i</sub>T</i><sub>hw</sub> + <i>v<sub>i</sub></i>Δ<i>v<sub>i</sub></i> / (2√(<i>a</i><sub>max</sub><i>b</i><sub>comf</sub>))), &nbsp;&nbsp;
+<i>v</i><sub>env</sub> = √max(0, <i>v<sub>l</sub></i><sup>2</sup> + 2<i>b</i><sub>comf</sub>max(0, <i>g<sub>i</sub></i> − <i>s</i><sub>0</sub>)), &nbsp;&nbsp;
+<i>v</i><sub>cmd</sub> = min(<i>v</i><sub>nav,<i>i</i></sub>, <i>v</i><sub>tl,<i>i</i></sub>, <i>v</i><sub>env</sub>, max(0, <i>v<sub>l</sub></i> + <i>k<sub>p</sub></i>(<i>g<sub>i</sub></i> − <i>s</i><sup>*</sup>)))<br/>
+<i>w<sub>i</sub></i>(<i>t</i>) = sin(2<i>πt</i> / <i>T<sub>w</sub></i> + <i>φ<sub>i</sub></i>) &nbsp;(<i>T<sub>w</sub></i> = 22.0 s), &nbsp;&nbsp;
+<i>v</i><sub>nav,<i>i</i></sub>(<i>t</i>) = 0 &nbsp;(if <i>w<sub>i</sub></i>(<i>t</i>) &lt; −0.45), &nbsp;&nbsp;
+<i>v</i><sub>base,<i>i</i></sub> · clip((<i>w<sub>i</sub></i>(<i>t</i>) + 0.45) / 1.45, 0.22, 1.0) &nbsp;(otherwise)<br/>
+<i>δ</i><sub>cmd,<i>i</i></sub> = clip( arctan(<i>L</i><sub>wb,<i>i</i></sub>·<i>κ</i>(<i>s</i> + <i>L</i><sub>lh</sub>)) + <i>e<sub>ψ</sub></i> + arctan(<i>k<sub>s</sub>e<sub>y</sub></i> / (<i>v</i><sub>soft</sub> + <i>v<sub>i</sub></i>)), −<i>δ</i><sub>max,<i>i</i></sub>, +<i>δ</i><sub>max,<i>i</i></sub> )
+</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/tech/doc2_fig2_urban_4regime_carla_views.png" alt="그림 2. 도심 신호 간선도로(SEC02_테크노폴리스, 편도 3차로 · 신호교차로 20개소) 4단계 혼잡도(한산 30대 ~ 정체 320대) 적용 시 후방 3D 추적 뷰 및 상공 44 m 조감도 비교." loading="lazy" />
+  <div class="fig-caption"><strong>그림 2.</strong> 도심 신호 간선도로(<code>SEC02_테크노폴리스</code>, 편도 3차로 · 신호교차로 20개소) 4단계 혼잡도(한산 30대 ~ 정체 320대) 적용 시 후방 3D 추적 뷰 및 상공 44 m 조감도 비교.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/tech/doc2_fig3_highway_4regime_carla_views.png" alt="그림 3. 무신호 연속류 자동차전용도로(SEC01_테크노폴리스로, 제한속도 80 km/h 본선) 4단계 혼잡도(한산 30대 ~ 정체 290대) 적용 시 고속 자유류 및 다차로 유령정체 재현 비교." loading="lazy" />
+  <div class="fig-caption"><strong>그림 3.</strong> 무신호 연속류 자동차전용도로(<code>SEC01_테크노폴리스로</code>, 제한속도 80 km/h 본선) 4단계 혼잡도(한산 30대 ~ 정체 290대) 적용 시 고속 자유류 및 다차로 유령정체 재현 비교.</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_traffic_fundamental_diagram.png" alt="그림 4. 실증 도로망에서 계측된 차로 밀도–속도 관계(v–k, a), 거시 교통류 기본도(q = k·v, b), 소통상태별 동일 차로 범퍼 간 순수 차간거리(gi) 분포 및 최소 안전 정지간격(s0 = 1.85 m) 보존 특성(c)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 4.</strong> 실증 도로망에서 계측된 차로 밀도–속도 관계(<i>v</i>–<i>k</i>, a), 거시 교통류 기본도(<i>q</i> = <i>k·v</i>, b), 소통상태별 동일 차로 범퍼 간 순수 차간거리(<i>g<sub>i</sub></i>) 분포 및 최소 안전 정지간격(<i>s</i><sub>0</sub> = 1.85 m) 보존 특성(c).</div>
+</div>
+
+
+<h2 id="hybrid-physics-operation">3. 거리 히스테리시스 기반 2-계층 하이브리드 물리 구동 및 무할당 액터 풀링</h2>
+<p>
+  3D 엔진 동기 모드(<code>20 Hz</code>, 틱 예산 <code>50.0 ms</code>)에서 수백 대의 배경 차량 전체에 4륜 서스펜션 레이캐스트와 타이어 슬립 물리 솔버(<code>Chaos Vehicle</code>, 스텝당 내부 10 서브스텝 적분)를 활성화하면 약 <code>100대</code> 부근에서 1-Tick 연산 시간이 실시간 한계인 <code>50.0 ms</code>를 초과합니다.
+  이를 해결하기 위해 자차(Ego)와의 유클리드 거리 <i>d<sub>i</sub></i>에 따라 연산 계층을 이원화하고, 경계 진동(Chattering) 방지 히스테리시스와 무할당 액터 순환 풀링을 결합한 <strong>2-계층 하이브리드 물리 엔진</strong>을 구동합니다.
+</p>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_hybrid_traffic_arch.png" alt="그림 5. 자차 중심 거리 히스테리시스 공간 분할 기하(din = 68 m, dout = 82 m, Δd = 14 m) 및 거시 소통상태(LOS A~F) 제어 · 운동량 보존 상태 전이 · 무할당 액터 풀 파이프라인." loading="lazy" />
+  <div class="fig-caption"><strong>그림 5.</strong> 자차 중심 거리 히스테리시스 공간 분할 기하(<i>d</i><sub>in</sub> = 68 m, <i>d</i><sub>out</sub> = 82 m, Δ<i>d</i> = 14 m) 및 거시 소통상태(LOS A~F) 제어 · 운동량 보존 상태 전이 · 무할당 액터 풀 파이프라인.</div>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>구동 계층 / 모듈</th><th>적용 거리 및 정원</th><th>3D 물리 솔버</th><th>핵심 제어 · 탐색 및 동기화 메커니즘</th></tr></thead>
+    <tbody><tr><td><strong>Tier-1 근거리 정밀 물리</strong></td><td><code>d ≤ 68.0 m</code><br/>(최근접 최대 <code>32대</code>)</td><td><code>SimulatePhysics = True</code><br/>(4륜 Chaos 활성)</td><td>• 4륜 독립 타이어 접지·제동 피치·선회 롤링·충돌 물리 및 3D LiDAR 휠/차체 가림(Occlusion) 모사<br/>• 가감속·조향각에 연동된 제동등(<code>Brake</code>) 및 좌·우 방향지시등(<code>Blinker</code>) 상태 실시간 갱신</td></tr><tr><td><strong>히스테리시스 전환 대역</strong><br/>(<code>Momentum Handoff</code>)</td><td><code>68.0 m &lt; d ≤ 82.0 m</code><br/>(완충 폭 <code>Δd = 14.0 m</code>)</td><td>직전 프레임 상태 유지<br/>(모드 스왑 억제)</td><td>• 승격 반경(<code>68 m</code>)과 강등 반경(<code>82 m</code>) 분리로 경계 주행 차량의 물리 모드 반복 전환(Chattering) 방지<br/>• <code>Far → Near</code> 승격 직전 공간 트리 기반 주변 바운딩박스 비간섭 검증 후 단일 배치 내 물리 활성화와 목표 선속도 벡터(<code>v_x, v_y, 0</code>)를 동시 인가하여 선형 운동량 무충격 승계</td></tr><tr><td><strong>Tier-2 원거리 벡터 기구학</strong></td><td><code>d &gt; 82.0 m</code><br/>(및 근거리 32대 초과분,<br/>최대 <code>468대+</code>)</td><td><code>SimulatePhysics = False</code><br/>(물리 솔버 비용 <code>0 ms</code>)</td><td>• 전역 <code>k-d Tree (k = 14, R = 56.0 m)</code> 행렬 질의로 다차로 밀집 시 동일 차로 선행차 누락 방지<br/>• 적색 정지선 배열 내적 연산 + <code>0.5 m</code> 도로 스플라인 아크길이 보간으로 전 차량 일괄 적분<br/>• 비물리 액터의 해석적 속도 벡터 <code>(v_x, v_y)</code>를 공유 인지 버퍼에 직접 전달하고 초원거리(<code>d &gt; 112 m</code>) 홀·짝 액터 <strong>2-Phase 교번 포즈 동기화</strong>로 공간 트리 갱신 부하 50% 절감</td></tr><tr><td><strong>무할당 액터 텔리포트 풀링</strong><br/>(<code>Zero-Allocation Pool</code>)</td><td>외곽 <code>d &gt; R_out</code> 또는<br/>후방 <code>x_lon &lt; −115~−250 m</code></td><td>이동 시 비물리 전환 후<br/>포즈 즉시 재배치</td><td>• 주행 중 액터 파괴·재스폰(대당 약 <code>4.5 ms</code> 동기 지연) 배제<br/>• 자차 시야 밖 원거리 안전 권역(<code>d_ego ≥ 92.0 m</code>, 상류 유입 → 버블 외곽 → 전역 도로망 3단계 폴백)으로 기존 액터를 즉시 재배치하고 경로 캐시로 탐색 지연 제거</td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="math-box">
+  <span class="math-label">히스테리시스 물리 상태 전이 규칙 및 비간섭 운동량 보존 승계 조건</span>
+  <div>
+<i>σ<sub>i</sub></i>(<i>t</i>) =
+{ 1 &nbsp;(if <i>d<sub>i</sub></i>(<i>t</i>) ≤ 68.0 m ∧ rank<sub><i>d</i></sub>(<i>i</i>) ≤ 32 ∧ <i>d</i><sub>nn</sub>(<i>i</i>) ≥ ½(<i>L<sub>i</sub></i> + <i>L<sub>j</sub></i>) + 0.85 m) ; &nbsp;
+0 &nbsp;(if <i>d<sub>i</sub></i>(<i>t</i>) &gt; 82.0 m ∨ rank<sub><i>d</i></sub>(<i>i</i>) &gt; 32) ; &nbsp;
+<i>σ<sub>i</sub></i>(<i>t</i> − Δ<i>t</i>) &nbsp;(otherwise) }<br/>
+<b>v</b><sub>Chaos,<i>i</i></sub>(<i>t</i><sub>on</sub><sup>+</sup>) ← <b>v</b><sub>kin,<i>i</i></sub>(<i>t</i><sub>on</sub><sup>−</sup>) = [ <i>v<sub>i</sub></i>(<i>t</i><sub>on</sub><sup>−</sup>) cos<i>ψ<sub>i</sub></i>, &nbsp;<i>v<sub>i</sub></i>(<i>t</i><sub>on</sub><sup>−</sup>) sin<i>ψ<sub>i</sub></i>, &nbsp;0 ]<sup>T</sup> &nbsp;&nbsp;(단일 배치 원자적 동기 인가)
+</div>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_traffic_shockwave_and_handoff.png" alt="그림 6. 무신호 연속류 정체 모드에서 선두 20% 페이즈메이커(Tw = 22.0 s)에 의해 형성되는 후방 전파 시공간(x–t) 충격파 궤적(a) 및 원거리 기구학에서 근거리 Chaos 물리로 승격(din = 68 m)될 때의 선형 운동량 보존 속도 연속성 검증(b)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 6.</strong> 무신호 연속류 정체 모드에서 선두 20% 페이즈메이커(<i>T<sub>w</sub></i> = 22.0 s)에 의해 형성되는 후방 전파 시공간(<i>x</i>–<i>t</i>) 충격파 궤적(a) 및 원거리 기구학에서 근거리 Chaos 물리로 승격(<i>d</i><sub>in</sub> = 68 m)될 때의 선형 운동량 보존 속도 연속성 검증(b).</div>
+</div>
+
+
+<h2 id="macroscopic-validation-benchmark">4. 실증 도로망 교통류 정합성 및 대규모 확장성(50~420대) 벤치마크</h2>
+<p>
+  다중 교통류 생성 및 하이브리드 물리 엔진의 거시·미시 정합성과 연산 확장성을 확인하기 위해, 도심 단속류 대표 구간인 <code>SEC02_테크노폴리스</code>(연장 <code>2,013.8 m</code>, 도로 링크 <code>423개</code>, 신호교차로 <code>20개소</code>)와 연속류 자동차전용도로 구간인 <code>SEC01_테크노폴리스로</code>(제한속도 <code>80 km/h</code>, 연장 <code>2,154.2 m</code>, 유효 차로 연장 <code>22.3 lane-km</code>)에서 4단계 혼잡도 실증 및 <code>50 ~ 420대</code> 성능 벤치마크를 수행한 결과입니다.
+</p>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>실증 도로망 구분</th><th>혼잡도 (LOS)</th><th>요청 / 스폰 (충진율)</th><th>초기 스폰 시간</th><th>물리 분할 (Near / Far)</th><th>평균 주행 속도 (상위 P90)</th><th>정지 차량 비율</th><th>평균 차간거리</th><th>차로추종 |CTE|</th></tr></thead>
+    <tbody><tr><td><strong>도심 신호 간선도로</strong><br/>(<code>SEC02_테크노폴리스</code>)<br/>신호교차로 20개소</td><td><code>한산 (LOS A)</code></td><td>30 / 30대 (100%)</td><td>0.23 s</td><td>4 / 26대</td><td>43.52 km/h (—)</td><td>3.3%</td><td>23.39 m</td><td>0.007 m</td></tr><tr><td><code>SEC02_테크노폴리스</code></td><td><code>보통 (LOS B~C)</code></td><td>85 / 85대 (100%)</td><td>0.39 s</td><td>11 / 74대</td><td>37.88 km/h (—)</td><td>1.2%</td><td>21.70 m</td><td>0.003 m</td></tr><tr><td><code>SEC02_테크노폴리스</code></td><td><code>혼잡 (LOS D~E)</code></td><td>190 / 190대 (100%)</td><td>0.89 s</td><td>28 / 162대</td><td>21.97 km/h (—)</td><td>21.6%</td><td>13.69 m</td><td>0.007 m</td></tr><tr><td><code>SEC02_테크노폴리스</code></td><td><code>정체 (LOS F)</code></td><td><strong>320 / 320대 (100%)</strong></td><td><strong>1.66 s</strong></td><td><strong>31 / 289대</strong></td><td><strong>10.88 km/h (—)</strong></td><td><strong>33.1%</strong></td><td><strong>13.11 m</strong></td><td><strong>0.004 m</strong></td></tr><tr><td><strong>무신호 고속화도로</strong><br/>(<code>SEC01_테크노폴리스로</code>)<br/>제한속도 80 km/h 연속류</td><td><code>한산 (LOS A)</code></td><td>30 / 30대 (100%)</td><td>0.21 s</td><td>3 / 27대</td><td>75.99 km/h (92.25 km/h)</td><td>0.0%</td><td>41.65 m</td><td>0.005 m</td></tr><tr><td><code>SEC01_테크노폴리스로</code></td><td><code>보통 (LOS B~C)</code></td><td>85 / 85대 (100%)</td><td>0.41 s</td><td>9 / 76대</td><td>41.48 km/h (69.19 km/h)</td><td>11.8%</td><td>21.70 m</td><td>0.004 m</td></tr><tr><td><code>SEC01_테크노폴리스로</code></td><td><code>혼잡 (LOS D~E)</code></td><td>185 / 185대 (100%)</td><td>0.86 s</td><td>24 / 161대</td><td>33.44 km/h (47.91 km/h)</td><td>11.9%</td><td>13.78 m</td><td>0.006 m</td></tr><tr><td><code>SEC01_테크노폴리스로</code></td><td><code>정체 (LOS F)</code></td><td><strong>290 / 290대 (100%)</strong></td><td><strong>1.53 s</strong></td><td><strong>30 / 260대</strong></td><td><strong>15.18 km/h (29.72 km/h)</strong></td><td><strong>21.0%</strong></td><td><strong>6.43 m</strong></td><td><strong>0.005 m</strong></td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="fig-block">
+  <img src="../assets/img/figures/fig_traffic_scalability_benchmark.png" alt="그림 7. 배경 차량 규모별(50 ~ 420대) 기존 100% Chaos 전수 물리 대비 제안 2-계층 하이브리드 엔진의 1-Tick 연산 시간 비교(a), 파이프라인 세부 단계별 지연 시간 분해(b), 300대 대규모 정체 조건의 3단계 최적화 누적 효과(c)." loading="lazy" />
+  <div class="fig-caption"><strong>그림 7.</strong> 배경 차량 규모별(<code>50 ~ 420대</code>) 기존 100% Chaos 전수 물리 대비 제안 2-계층 하이브리드 엔진의 1-Tick 연산 시간 비교(a), 파이프라인 세부 단계별 지연 시간 분해(b), 300대 대규모 정체 조건의 3단계 최적화 누적 효과(c).</div>
+</div>
+
+
+<div class="table-wrap">
+  <table class="docutils">
+    <thead><tr><th>활성 차량 규모</th><th>기존: 100% Chaos 전수 물리</th><th>제안 ① 공유 인지 허브</th><th>제안 ② 하이브리드 벡터 제어</th><th>제안 ③ 경량 월드 틱</th><th>제안: 광역 총합 (주사율)</th><th>표준 회랑(±65 m) 총합</th><th>연산 가속비</th></tr></thead>
+    <tbody><tr><td><code>50 대</code></td><td>27.79 ms (36.0 Hz)</td><td>0.54 ms</td><td>3.58 ms</td><td>11.90 ms</td><td>16.41 ms (60.9 Hz)</td><td>14.20 ms (70.4 Hz)</td><td><strong>1.69×</strong></td></tr><tr><td><code>100 대</code></td><td>49.15 ms (20.3 Hz)</td><td>0.91 ms</td><td>7.46 ms</td><td>15.81 ms</td><td>24.56 ms (40.7 Hz)</td><td>21.35 ms (46.8 Hz)</td><td><strong>2.00×</strong></td></tr><tr><td><code>200 대</code></td><td>95.13 ms (10.5 Hz)</td><td>1.64 ms</td><td>10.23 ms</td><td>25.56 ms</td><td>37.76 ms (26.5 Hz)</td><td>31.80 ms (31.4 Hz)</td><td><strong>2.52×</strong></td></tr><tr><td><code>300 대</code></td><td>153.52 ms (6.5 Hz)</td><td>2.29 ms</td><td>13.43 ms</td><td>36.29 ms</td><td><strong>52.31 ms (19.1 Hz)</strong></td><td><strong>44.50 ms (22.5 Hz)</strong></td><td><strong>2.93×</strong></td></tr><tr><td><code>420 대</code></td><td>217.27 ms (4.6 Hz)</td><td>3.39 ms</td><td>17.88 ms</td><td>58.07 ms</td><td>79.72 ms (12.5 Hz)</td><td>58.20 ms (17.2 Hz)</td><td><strong>2.73×</strong></td></tr></tbody>
+  </table>
+</div>
+
+
+<div class="admonition tip">
+  <p class="admonition-title"><span>💡</span> 폐루프 자율주행 검증(SUT Testing) 시 권장 배경 교통 운용 가이드</p>
+  <div class="admonition-body">
+    <ul>
+      <li><strong>표준 20 Hz 실시간 검증 (다채널 카메라 + 3D LiDAR 동시 구동):</strong> 일반 도심 및 자동차전용도로 주행 시험에서는 경로 생성 반경 기본값(<code>65 m</code>) 기준 <code>보통 (75대)</code> ~ <code>정체 (250 ~ 300대)</code> 범위에서 <code>50.0 ms/tick</code> 이내의 20 Hz 동기 주기가 유지됩니다.</li>
+      <li><strong>시나리오 트리거와의 공존 안전성:</strong> 우측 패널에서 끼어들기(<code>sc1</code>), 전방 급제동(<code>sc2</code>), 보행자 횡단 등 이벤트 시나리오가 발동될 때는 시나리오 핵심 타겟 주변의 배경 차량 스폰·재배치가 자동 회피되어 시험 재현성(Repeatability)을 방해하지 않습니다.</li>
+    </ul>
+  </div>
+</div>
+
+        </main>
+
+        <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <a href="../pages/core_sensors_lidar.html" class="btn-neutral" rel="prev">← 센서 구성 (Sensors)</a>
+          <a href="../pages/guide_tab2_simulation.html" class="btn-neutral" rel="next">[Tab 2] 가상 주행 시뮬레이션 매뉴얼 →</a>
+        </div>
+
+        <footer class="rtd-footer" role="contentinfo">
+          <div>© 2026 (재)지능형자동차부품진흥원 (KIAPI) · 자율주행 시뮬레이션 &amp; 정량 검증 플랫폼 문서.</div>
+          <div>Standards Reference: <code>AVSC 00008 · UN R157 · ISO 34503 · ISO 26262</code></div>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="../assets/js/search_data.js"></script>
+<script src="../assets/js/kiapi_rtd.js"></script>
+</body>
+</html>
